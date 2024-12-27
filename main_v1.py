@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pipeline to:
+Production-style pipeline to:
 
 1. Load a 9_29 knot with 13 edges
 2. Attempt to reduce it to 9 edges via local moves (while checking knot type w/ pyknotid)
@@ -12,7 +12,6 @@ Pipeline to:
 import numpy as np
 import random
 import sys
-import datetime
 
 # If you have pyknotid installed:
 try:
@@ -40,7 +39,6 @@ original_data = [
     [12,  1.873,  6.465, -1.644],
     [13, -5.543, -4.438, -0.800]
 ]
-
 
 def get_initial_polygon(data):
     """
@@ -132,7 +130,7 @@ def remove_vertex_if_possible(vertices, idx):
     print(f"Vertex {idx} successfully removed. New vertex count: {len(new_vertices)}")
     return new_vertices
 
-def simplify_polygon(vertices, target_edges=9, max_iterations=80000):
+def simplify_polygon(vertices, target_edges=9, max_iterations=1000):
     """
     Repeatedly attempt to remove vertices until we reach 'target_edges'
     or can't remove more without changing the knot type.
@@ -160,7 +158,7 @@ def simplify_polygon(vertices, target_edges=9, max_iterations=80000):
 # 4) Agitation
 ##################
 
-def agitate_polygon(vertices, scale=0.06, attempts=7000):
+def agitate_polygon(vertices, scale=0.1, attempts=20):
     """
     Randomly move each vertex slightly to free geometry,
     hopefully enabling further local moves.
@@ -185,7 +183,7 @@ def agitate_polygon(vertices, scale=0.06, attempts=7000):
 # 5) Equilateral Optimization
 ############################
 
-def enforce_equilateral(vertices, max_steps=4000, alpha=1.0, beta=1.0, step_size=0.01):
+def enforce_equilateral(vertices, max_steps=1000, alpha=1.0, beta=1.0, step_size=0.01):
     """
     Attempt to make edges the same length by gradient descent on:
         E_eq = sum (L_i - L_avg)^2
@@ -408,71 +406,47 @@ def plot_polygon_3d(vertices, title=None):
     if title:
         ax.set_title(title)
     ax.legend()
-    # plt.show()
+    plt.show()
 
 #####################
-# 8) Save XYZ File
-#####################
-# Added: Function to save vertices to an XYZ file
-def save_xyz(filename, vertices):
-    """
-    Saves the given vertices to an XYZ file.
-
-    Parameters:
-    - filename (str): The name of the file to save the coordinates.
-    - vertices (np.ndarray): A NumPy array of shape (n, 3) containing the vertex coordinates.
-    """
-    np.savetxt(filename, vertices, fmt='%.6f')
-    print(f"Saved simplified knot coordinates to {filename}")
-
-#####################
-# 9) Main
+# 8) Main
 #####################
 
 def main():
-    runs = [1,2,3,4,5,6,7,8,9,10]
+    if not HAS_PYKNOTID:
+        print("WARNING: pyknotid not installed. The script will fail on 'is_still_929_knot()' calls.")
+        sys.exit(1)  # Exit as the rest cannot proceed without pyknotid
 
-    for run in runs:
+    # 1) Load initial polygon (13 edges)
+    initial_polygon = get_initial_polygon(original_data)
+    print("Initial polygon shape:", initial_polygon.shape)
 
-        if not HAS_PYKNOTID:
-            print("WARNING: pyknotid not installed. The script will fail on 'is_still_929_knot()' calls.")
-            sys.exit(1)  # Exit as the rest cannot proceed without pyknotid
+    # 2) Simplify to 9 edges
+    simplified = simplify_polygon(initial_polygon, target_edges=9, max_iterations=200)
+    if len(simplified) == 9:
+        print("Successfully simplified to 9 edges!")
+    else:
+        print("WARNING: Did not reach 9 edges. Current #edges =", len(simplified))
 
-        # 1) Load initial polygon (13 edges)
-        initial_polygon = get_initial_polygon(original_data)
-        print("Initial polygon shape:", initial_polygon.shape)
+    plot_polygon_3d(simplified, title="Simplified Polygon")
 
-        # 2) Simplify to 9 edges, Save the Simplified Knot to an XYZ File
-        simplified = simplify_polygon(initial_polygon, target_edges=9, max_iterations=1000)
-
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-
-        if len(simplified) == 9:
-            save_xyz(f'run_{run}_simplified_9_29_knot_{len(simplified)}_{timestamp}.xyz', simplified)  # Added
-            print("Successfully simplified to 9 edges!")
-        else:
-            save_xyz(f'run_{run}_simplified_9_29_knot_{len(simplified)}_{timestamp}_.xyz', simplified)  # Added
-            print("WARNING: Did not reach 9 edges. Current #edges =", len(simplified))
-
-        plot_polygon_3d(simplified, title="Simplified Polygon")
-
-        # 3) Attempt equilateral optimization
-        eq_result = enforce_equilateral(simplified, max_steps=5000, alpha=1.0, beta=0.5, step_size=0.01)
-        if eq_result is not None:
-            print("Equilateral optimization converged (or terminated).")
-            # Evaluate final edge lengths
-            final_lengths = []
-            n = len(eq_result)
-            for i in range(n):
-                p1 = eq_result[i]
-                p2 = eq_result[(i+1)%n]
-                final_lengths.append(np.linalg.norm(p2 - p1))
-            stdev = np.std(final_lengths)
-            print("Edge lengths after optimization:", final_lengths)
-            print(f"Std dev of edge lengths: {stdev:.6f}")
-            plot_polygon_3d(eq_result, title="Equilateral Attempt")
-        else:
-            print("Equilateral optimization changed knot type or got stuck (None returned).")
+    # 3) Attempt equilateral optimization
+    eq_result = enforce_equilateral(simplified, max_steps=5000, alpha=1.0, beta=0.5, step_size=0.01)
+    if eq_result is not None:
+        print("Equilateral optimization converged (or terminated).")
+        # Evaluate final edge lengths
+        final_lengths = []
+        n = len(eq_result)
+        for i in range(n):
+            p1 = eq_result[i]
+            p2 = eq_result[(i+1)%n]
+            final_lengths.append(np.linalg.norm(p2 - p1))
+        stdev = np.std(final_lengths)
+        print("Edge lengths after optimization:", final_lengths)
+        print(f"Std dev of edge lengths: {stdev:.6f}")
+        plot_polygon_3d(eq_result, title="Equilateral Attempt")
+    else:
+        print("Equilateral optimization changed knot type or got stuck (None returned).")
 
 if __name__ == "__main__":
     main()
