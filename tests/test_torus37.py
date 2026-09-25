@@ -148,6 +148,23 @@ class Torus37Tests(unittest.TestCase):
             self.assertIn('T3_7 [timeout]', (Path(directory) / 'RUNLOG.md').read_text())
             self.assertFalse((Path(directory) / 'tenstick.log').exists())
 
+    def test_shared_supervisor_accepts_identical_existing_result_without_replacing_it(self):
+        m = importlib.import_module('07_parallel')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as staged:
+            job = dict(name='T3_7', target=12, stage=staged)
+            candidate = Path(staged) / 'T3_7_equilateral_12sticks.txt'
+            candidate.write_text('ours')
+            target = Path(out) / candidate.name
+            target.write_bytes(candidate.read_bytes())
+            original_inode = target.stat().st_ino
+            m.atomic_json(Path(staged) / 'outcome.json', dict(
+                status='certified', message='in time', completed_monotonic=9))
+            with patch.object(m.time, 'monotonic', return_value=9):
+                result = m.collect_outcome(job, 0, 10, Path(out))
+            self.assertEqual(result['status'], 'certified')
+            self.assertEqual(result['coordinates'], str(target))
+            self.assertEqual(target.stat().st_ino, original_inode)
+
     def test_shared_supervisor_never_overwrites_or_unlinks_peer_publication(self):
         m = importlib.import_module('07_parallel')
         with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as staged:

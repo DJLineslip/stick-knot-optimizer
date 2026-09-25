@@ -98,15 +98,23 @@ def collect_outcome(job, exitcode, deadline, out):
             target = Path(out) / filename
             # stage lives under out: hard-link publication is atomic and refuses
             # an existing name, unlike exists() followed by os.replace().
-            os.link(stage, target)
+            created = False
+            try:
+                os.link(stage, target)
+                created = True
+            except FileExistsError:
+                if target.read_bytes() != stage.read_bytes():
+                    raise ValueError('conflicting existing coordinates')
             if time.monotonic() >= deadline:
-                # A noncooperating writer may have replaced the name meanwhile.
-                # Never unlink a different inode during late-publication cleanup.
-                if target.exists() and os.path.samefile(stage, target):
+                # Only roll back a name we created, and only while it still
+                # refers to our validated inode.
+                if created and target.exists() and os.path.samefile(stage, target):
                     target.unlink()
                 return dict(status='timeout', message='not found within budget; publication exceeded deadline')
-            if not os.path.samefile(stage, target):
+            if created and not os.path.samefile(stage, target):
                 raise ValueError('published coordinates replaced by another writer')
+            if not created and target.read_bytes() != stage.read_bytes():
+                raise ValueError('existing coordinates changed by another writer')
             result['coordinates'] = str(target)
         return result
     except (OSError, ValueError, KeyError) as exc:

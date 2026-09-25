@@ -154,6 +154,23 @@ class TorusSearchTests(unittest.TestCase):
             self.assertEqual(result['status'], 'error')
             self.assertEqual(target.read_text(), 'peer result')
 
+    def test_supervisor_accepts_identical_existing_coordinates_without_replacing_them(self):
+        m = script('08_torus_batch')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as stage:
+            job = dict(name='T8_9', target=18, stage=stage)
+            staged = Path(stage) / 'T8_9_equilateral_18sticks.txt'
+            staged.write_text('validated bytes')
+            target = Path(out) / staged.name
+            target.write_bytes(staged.read_bytes())
+            original_inode = target.stat().st_ino
+            (Path(stage) / 'outcome.json').write_text(json.dumps(dict(
+                status='certified', message='early', completed_monotonic=time.monotonic(),
+                sha256=hashlib.sha256(staged.read_bytes()).hexdigest())))
+            result = m.collect_outcome(job, 0, time.monotonic() + 10, Path(out))
+            self.assertEqual(result['status'], 'certified')
+            self.assertEqual(result['coordinates'], str(target))
+            self.assertEqual(target.stat().st_ino, original_inode)
+
     def test_supervisor_never_removes_peer_replacement_on_timeout(self):
         m = script('08_torus_batch')
         with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as stage:

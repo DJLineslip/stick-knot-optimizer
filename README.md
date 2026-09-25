@@ -332,7 +332,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 9. **Theory is unreviewed.** The ladder lemma, the symmetry no-go and the length-map reformulation are our own arguments, checked by hand and numerically, not peer-reviewed. The no-go scan tests knottedness through a nontrivial Alexander polynomial, so it would miss knots with trivial Alexander polynomial, and it samples randomly rather than exhaustively.
 
-10. **Compute and publication concurrency.** Early exploratory runs used one CPU core under a 300-second limit per command. The later bounded torus search used two workers and a separate 1800-second limit per knot; it does not imply exhaustive coverage of polygon space. The supervisors use exclusive hard links to avoid replacing existing result files, but do not protect against an unrelated writer that disregards this publication protocol and mutates a result in place.
+10. **Compute and publication concurrency.** Early exploratory runs used one CPU core under a 300-second limit per command. The later bounded torus search used two workers and a separate 1800-second limit per knot; it does not imply exhaustive coverage of polygon space. The supervisors use exclusive hard links to avoid replacing existing result files and accept identical existing bytes on rerun. This requires hard-link support on the output filesystem; staging directories are created beneath the output directory. An unrelated writer that disregards this publication protocol and mutates a result in place remains outside its protection.
 
 ## Next steps
 

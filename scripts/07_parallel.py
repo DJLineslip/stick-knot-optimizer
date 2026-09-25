@@ -181,13 +181,21 @@ def collect_outcome(job, exitcode, deadline, out):
                 return dict(status='timeout', message='not found within budget; publication deadline passed')
             # stage is created beneath out, so an atomic hard link publishes
             # the exact validated inode without replacing an existing result.
-            os.link(stage, target)
+            created = False
+            try:
+                os.link(stage, target)
+                created = True
+            except FileExistsError:
+                if target.read_bytes() != stage.read_bytes():
+                    raise ValueError('conflicting existing coordinates')
             if time.monotonic() >= deadline:
-                if target.exists() and os.path.samefile(stage, target):
+                if created and target.exists() and os.path.samefile(stage, target):
                     target.unlink()
                 return dict(status='timeout', message='not found within budget; publication exceeded deadline')
-            if not os.path.samefile(stage, target):
+            if created and not os.path.samefile(stage, target):
                 raise ValueError('published coordinates replaced by another writer')
+            if not created and target.read_bytes() != stage.read_bytes():
+                raise ValueError('existing coordinates changed by another writer')
             result['coordinates'] = str(target)
         return result
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
