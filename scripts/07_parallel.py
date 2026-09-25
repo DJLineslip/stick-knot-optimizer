@@ -146,12 +146,12 @@ def stop_process(process):
         process.join()
 
 
-def record_result(out, manifest, job, result, elapsed):
+def record_result(out, manifest, job, result, elapsed, log_name='tenstick.log'):
     """Append only from the supervisor; update the per-run manifest atomically."""
     result.update(name=job['name'], elapsed_seconds=elapsed, log=job['log'])
     with open(job['log'], 'a') as f:
         f.write('END ' + json.dumps(result) + '\n')
-    with (out / 'tenstick.log').open('a') as f:
+    with (out / log_name).open('a') as f:
         f.write(f"{job['name']} [{result['status']}] {result['message']}\n")
     manifest['results'].append(result)
     atomic_json(Path(manifest['manifest']), manifest)
@@ -177,7 +177,8 @@ def collect_outcome(job, exitcode, deadline, out):
         return dict(status='error', message=f'worker exit {exitcode}: {exc}')
 
 
-def run_batch(names, budget, workers, out, worker):
+def run_batch(names, budget, workers, out, worker, target=10,
+              log_name='tenstick.log', extra_provenance=None):
     """Parent owns all public files. Each spawned knot has a hard deadline.
 
     Timeouts are search logs only. No file from an interrupted worker is published.
@@ -189,6 +190,8 @@ def run_batch(names, budget, workers, out, worker):
     run_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S') + '_' + uuid.uuid4().hex[:8]
     manifest_path = logs / (run_id + '.json')
     manifest = dict(run_id=run_id, manifest=str(manifest_path), **provenance(names, budget, workers), results=[])
+    if extra_provenance:
+        manifest.update(extra_provenance)
     with (out / 'RUNLOG.md').open('a') as f:
         f.write('\n## ' + run_id + '\n\n```json\n' + json.dumps(manifest, indent=2) + '\n```\n')
     atomic_json(manifest_path, manifest)
@@ -200,14 +203,14 @@ def run_batch(names, budget, workers, out, worker):
             while pending and len(active) < workers:
                 name = pending.pop(0)
                 stage = Path(tempfile.mkdtemp(prefix='.candidate_', dir=out))
-                job = dict(name=name, budget=budget, target=10, stage=str(stage),
+                job = dict(name=name, budget=budget, target=target, stage=str(stage),
                            log=str(logs / f'{run_id}_{name}.log'))
                 Path(job['log']).touch()
                 if worker is search_worker:
                     source = Path(manifest['data_path']) / 'stick_number' / 'mseq_knots' / (name + '.txt')
                     if not source.is_file():
                         record_result(out, manifest, job,
-                                      dict(status='missing_data', message='no starting data in Eddy repository'), 0.)
+                                      dict(status='missing_data', message='no starting data in Eddy repository'), 0., log_name)
                         shutil.rmtree(stage)
                         continue
                 process = context.Process(target=logged_worker, args=(worker, job))
@@ -224,7 +227,7 @@ def run_batch(names, budget, workers, out, worker):
                 else:
                     process.join()
                     result = collect_outcome(job, process.exitcode, start + budget, out)
-                record_result(out, manifest, job, result, time.monotonic() - start)
+                record_result(out, manifest, job, result, time.monotonic() - start, log_name)
                 shutil.rmtree(job['stage'])
                 process.close()
                 active.remove((process, job, start))

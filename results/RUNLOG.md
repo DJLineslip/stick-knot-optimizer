@@ -90,3 +90,16 @@
   "results": []
 }
 ```
+
+## 20260925T124648_6ea32812: T(3,7) and T(3,8) short probe
+
+Command from `/tmp/equistick-torus37`:
+`PYTHONPATH=. /workspace/repos/stick-knot-optimizer/.venv/bin/python scripts/08_torus37.py --knots T3_7,T3_8 --budget 35 --workers 2 --out /tmp/equistick-torus37-probe`.
+Hard wall budget was 35 seconds per knot, including worker startup and validation. Both started from explicit 24-vertex samples of T(3,q) with R=2.5, r=1, phase=0.013, and were reduced with `reduce_to` using 40,000 annealing steps per deletion. Seeds from `seed_for`: T3_7=3331913908, T3_8=1445455141. Base git commit at invocation: `987ab18cd1e4117e0c2fe3602141d588be94eaf9` (the new script was uncommitted during the probe). Python 3.11.2; numpy 2.4.6, scipy 1.17.1, numba 0.67.0, mpmath 1.4.1, snappy 3.3.2, spherogram 2.4.1. Eddy data was not used.
+
+| Knot | Reductions | Elapsed | Saved float MR | 40-digit defect | 40-digit mu | 40-digit bound | Alexander | HFK |
+|---|---:|---:|---:|---:|---:|---:|---|---|
+| T(3,7) | 1 | 8.49 s | 8.70e-13 | 9.83e-17 | 0.03194 | 2.55e-04 | 4 projections | genus 6, rank 9, fibred, L-space, tau -6 |
+| T(3,8) | 1 | 8.52 s | 5.09e-13 | 8.32e-17 | 0.02953 | 2.18e-04 | 4 projections | genus 7, rank 11, fibred, L-space, tau -7 |
+
+Both saved 17-digit coordinate files were reloaded and validated in the worker before publication, then copied to `results/` and independently reverified by `scripts/06_verify_results.py` (all 23 rows `certified=True`, `type_confirmed=True`). This is numerical evidence, not interval arithmetic or a formal knot-type proof. Full per-knot logs and the run manifest were written under `/tmp/equistick-torus37-probe/logs/` (temporary, not committed).

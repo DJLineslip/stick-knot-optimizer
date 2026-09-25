@@ -10,9 +10,9 @@ The only thing that counts as a result is a **certified polygon**: an equal-stic
 
 ## Current status
 
-21 knots have numerically certified equal-stick polygons at exactly their stick number (see `results/summary.csv`):
+23 knots have numerically certified equal-stick polygons at exactly their stick number (see `results/summary.csv`):
 
-- **Torus knots:** T(4,5), T(5,6), T(6,7), T(7,8), with 10, 12, 14 and 16 sticks.
+- **Torus knots:** T(3,7), T(3,8), T(4,5), T(5,6), T(6,7), T(7,8), with 12, 12, 10, 12, 14 and 16 sticks.
 - **Ten-stick knots:** K11n71, K11n75, K11n76, K11n78, K13n1192, K13n225, K13n230, K13n285, K13n288, K13n307, K13n5018, K13n584, K13n602, K13n603, K13n604, K13n607, K13n608. These are 17 of the 19 four-bridge knots whose stick number is proven to be exactly 10.
 
 Unfinished ten-stick knots:
@@ -27,7 +27,7 @@ Unfinished ten-stick knots:
 git clone https://github.com/thomaseddy/stick-knot-gen     # data; never commit it
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cd scripts && PYTHONPATH=.. python 06_verify_results.py   # must print 21 lines, all cert True, type True
+cd scripts && PYTHONPATH=.. python 06_verify_results.py   # must print 23 lines, all cert True, type True
 ```
 
 If `.gitignore` does not exist yet, create it with at least:
@@ -54,7 +54,7 @@ All scripts run from `scripts/` with `PYTHONPATH=..`. Output paths such as `../r
 | `equistick/optimize.py` | Equalizer #2 `clearance_floor_solve` (not path-safe) and #3 `homotopy_equalize` (path-safe), plus `fatten` |
 | `equistick/reduce.py` | `reduce_once` and `reduce_to`: lower the stick count by annealing toward a deletable vertex |
 | `equistick/data.py` | `load_eddy`, `exact_stick_numbers`, `seed_for`, `TEN_STICK_19` |
-| `scripts/01` to `06` | One script per experiment; `06_verify_results.py` re-verifies everything in `results/` |
+| `scripts/01` to `08` | One script per experiment; `06_verify_results.py` re-verifies everything in `results/` |
 | `results/` | Certified coordinates (`<knot>_equilateral_<n>sticks.txt`), `summary.csv`, logs |
 | `legacy/` | Original research scripts. **Read-only provenance. Never edit.** |
 
@@ -113,11 +113,10 @@ Each task lists its definition of done.
    - Record the highest certified floor μ₀ for each p and fit how it decays with p.
    - *Done when:* results are certified and the decay table in the README is extended.
 4. **Superbridge-tight torus knots.**
-   - T(3,7) (K14n21881) and T(3,8) (K16n783154) need exactly 12 sticks. Check `stick-knot-gen/stick_number/mseq_knots/` for existing equilateral data and its stick count.
-   - If there is none at 12 sticks, build a starting polygon from a finely sampled smooth parametrization, confirm its type, and reduce it with `reduce_to`.
-   - *Done when:* certified at 12 sticks, or an evidence dossier exists.
+   - Completed numerically: T(3,7) (K14n21881) and T(3,8) (K16n783154) have saved 12-stick polygons. Eddy's files were missing. `08_torus37.py` samples an explicit torus parametrization, checks the polygonal start, reduces with `reduce_to`, safely equalizes, and rechecks the saved coordinates with float MR, 40-digit MR, four Alexander projections and HFK.
+   - The 35-second-per-knot probe found both; see `results/RUNLOG.md`, `results/summary.csv` and the coordinate files. This is numerical, not an interval proof or rigorous identification.
 5. **Systematic candidate list.**
-   - Write `scripts/08_gap_candidates.py`, which lists every knot in `exact_stick_numbers()` whose best equal-stick polygon in Eddy's data (or ours) uses more sticks than s(K). Once the Cantarella group's tables are available, extend it to their upper bounds through 13 crossings.
+   - Write `scripts/09_gap_candidates.py`, which lists every knot in `exact_stick_numbers()` whose best equal-stick polygon in Eddy's data (or ours) uses more sticks than s(K). Once the Cantarella group's tables are available, extend it to their upper bounds through 13 crossings.
    - *Done when:* the table has been generated and committed.
 6. **Rigor for publication.**
    - Interval-arithmetic certificates (`python-flint` arb or `mpmath.iv`).
