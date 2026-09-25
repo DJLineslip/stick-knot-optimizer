@@ -1,8 +1,10 @@
 {
+  "batch_script_sha256": "a10f2eb7d4a0a52ae83b2e4ffb82f8bccbdc7466c1fc8da8b9a8d9665061ff40",
   "certificate_scope": "geometric MR inequality only; not knot identity",
   "certified_count": 25,
-  "code_revision": "40f4e9aec7b9a11f7eccc2e59ad1f1a3c988af92",
-  "code_sha256": "2c183cf71588c914b5e161184debf9093bed596071aad34f8505eefb38cb25de",
+  "checker_dirty": false,
+  "code_revision": "7f5221751c949dea7ad1b239db992f2e86e5e85d",
+  "code_sha256": "87c28ca2ffcaf54d00d6f262957598a8ea4805a90b9136af8ef355bd8bb3fc0e",
   "file_count": 25,
   "files": [
     {
