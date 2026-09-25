@@ -27,7 +27,7 @@ equistick/                 the package (documented, tested)
     optimize.py            equalizers #2 (clearance floor) and #3 (safe homotopy)
     reduce.py              lower the stick count by annealing
     data.py                access to Eddy's stick-knot-gen data
-scripts/                   one script per experiment (01 to 06)
+scripts/                   one script per experiment (01 to 07)
 results/                   coordinates of every certified polygon, summary.csv, logs
 legacy/                    the original research scripts, verbatim (see legacy/README.md)
 requirements.txt
@@ -179,6 +179,15 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 | `04_torus_family.py p [trials]` | Clearance-floor search for T(p, p+1), then polishes, verifies and saves | seconds to minutes |
 | `05_tenstick.py K11n71,... [seconds]` | Reduce, fatten, safe homotopy, certify, for each named knot | seconds to minutes per knot |
 | `06_verify_results.py` | Re-verifies every file in `results/` from scratch and writes `results/summary.csv` | ~1 minute |
+| `07_parallel.py --budget 1800 --workers 5` | Runs the five unfinished knots concurrently, subject to the effective CPU quota; enforces a hard wall-clock budget per knot | up to 30 minutes with five workers, plus cache warmup |
+
+From the repository root, run:
+
+```bash
+.venv/bin/python scripts/07_parallel.py --knots K13n285,K13n602,K13n608,K13n1192,K13n5018 --budget 1800 --workers 5
+```
+
+The runner uses spawned processes and one numerical-library thread per worker. The per-knot budget includes worker startup and final validation. It publishes coordinates only after checking the saved file's Millett-Rawdon ratio, 40-digit certificate, known stick number, and knot identification in three projections. Per-knot logs and a machine-readable run manifest go to `results/logs/`; outcomes are appended to `results/tenstick.log` and provenance to `results/RUNLOG.md`. Timeouts are search logs, not evidence of an obstruction.
 
 ---
 
