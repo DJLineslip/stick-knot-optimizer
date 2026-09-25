@@ -107,3 +107,62 @@ Both saved 17-digit coordinate files were reloaded and validated in the worker b
 ## Exact-decimal interval geometry, 23 stored polygons
 
 Ran `scripts/08_interval_certificates.py --expected-count 23 --timeout-s 30` on this integration branch after re-running `scripts/06_verify_results.py`. All 23 saved coordinate files satisfied the strict geometric Millett-Rawdon inequality. `results/interval_certificates.json` records the exact-decimal file hashes, the verifier source hash and revision, and enclosing interval bounds per file. These certificates establish a geometric inequality for the literal saved decimal vertices, **not** a formal identification of the knot types. The earlier 40-digit checks and four-projection/HFK identifications remain numerical.
+
+## torus_20260925T130320_ab7ca8ff
+
+```json
+{
+  "command": [
+    "/workspace/repos/stick-knot-optimizer/.venv/bin/python",
+    "scripts/08_torus_batch.py",
+    "--knots",
+    "T8_9,T9_10",
+    "--budget",
+    "1800",
+    "--workers",
+    "2",
+    "--trials",
+    "1000",
+    "--scan-trials",
+    "1500",
+    "--out",
+    "/tmp/equistick-integration/results"
+  ],
+  "seeds": {
+    "T8_9": 762657362,
+    "T9_10": 32929710
+  },
+  "budget_seconds": 1800.0,
+  "workers": 2,
+  "git_commit": "40f4e9aec7b9a11f7eccc2e59ad1f1a3c988af92",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "numba": "0.67.0",
+    "mpmath": "1.4.1",
+    "snappy": "3.3.2",
+    "spherogram": "2.4.1"
+  },
+  "data_path": "/workspace/repos/stick-knot-optimizer/stick-knot-gen",
+  "data_commit": "9f05018917d3cd568867412a0c39ec843aa8744e",
+  "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+  "stick_number_source": "Jin 1997: s(T(p,p+1)) = 2(p+1) for p > 2",
+  "run_id": "torus_20260925T130320_ab7ca8ff",
+  "manifest": "/tmp/equistick-integration/results/logs/torus_20260925T130320_ab7ca8ff.json",
+  "projection_seed": 123,
+  "projection_count": 4,
+  "run_index": 0,
+  "trials": 1000,
+  "scan_trials": 1500,
+  "results": []
+}
+```
+
+The JSON above is the start-of-run snapshot. The completed manifest and detailed per-knot logs are in ignored `results/logs/` (run ID `torus_20260925T130320_ab7ca8ff`); the outcome is recorded here for durable provenance. Both jobs used deterministic `torus.STARTS` parameters, not Dataverse polygons. The run used at most two search workers within the five-CPU quota, with a separate 1800-second hard wall deadline for each knot including final validation.
+
+| Knot | Sticks | Certified floor | Elapsed | SHA256 of published file | Saved-coordinate identification |
+|---|---:|---:|---:|---|---|
+| T(8,9) | 18 | 0.001 | 42.46 s | `f48a9480bca2c72e556c489fd27433314eba17554d6d8cc43ad93e1c20d3267e` | Alexander in four projections; HFK genus 28, fibred, L-space, absolute tau 28; 63 crossings |
+| T(9,10) | 20 | 0.0005 | 418.69 s | `550c32c4b141633c0707f19ce3f9a648f2674127f5bef9e2360c15fa67e361f8` | Alexander in four projections; HFK genus 36, fibred, L-space, absolute tau 36; 80 crossings |
+
+The independent `scripts/06_verify_results.py` run rechecked all 25 saved files with `certified=True` and `type_confirmed=True`. `scripts/08_interval_certificates.py --expected-count 25 --timeout-s 30` established strict exact-decimal geometric inequalities for 25/25 files. `results/interval_certificates.json` binds each coordinate file and the checker source to SHA256 hashes. Knot identity is still numerical, and the torus labels ignore chirality.

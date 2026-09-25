@@ -4,12 +4,12 @@ A numerical search for a knot whose **equilateral stick number** e(K) is larger 
 
 ## Bottom line
 
-**No counterexample was found.** For 23 knots, the code produced near-equal-stick polygons at the reported minimal stick number, with numerical knot re-identification. The interval checker establishes the geometric Millett and Rawdon inequality for stored decimal polygons when it returns `certified`. Knot identification remains numerical or invariant-based, not a rigorous proof of knot identity; the e(K) = s(K) conclusion for the named knots remains conditional on that identification.
+**No counterexample was found.** For 25 knots, the code produced near-equal-stick polygons at the reported minimal stick number, with numerical knot re-identification. The interval checker establishes the geometric Millett and Rawdon inequality for all 25 stored decimal polygons. Knot identification remains numerical or invariant-based, not a rigorous proof of knot identity; the e(K) = s(K) conclusion for the named knots remains conditional on that identification.
 
-- the torus knots T(3,7), T(3,8), T(4,5), T(5,6), T(6,7) and T(7,8), with 12, 12, 10, 12, 14 and 16 sticks;
+- the torus knots T(3,7), T(3,8), T(4,5), T(5,6), T(6,7), T(7,8), T(8,9) and T(9,10), with 12, 12, 10, 12, 14, 16, 18 and 20 sticks;
 - 17 of the 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10.
 
-For the earlier 21 cases, we did not find previously published equilateral minimal polygons in the sources checked. No publication-priority claim is made for the new T(3,7) and T(3,8) coordinates. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5); the two remaining ten-stick knots still lack accessible starts (see [Results](#results)).
+For the earlier 21 cases, we did not find previously published equilateral minimal polygons in the sources checked. No publication-priority claim is made for the four newer torus-knot coordinate sets. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5); the two remaining ten-stick knots still lack accessible starts (see [Results](#results)).
 
 Along the way the code confirmed the "ladder" constraint on bridge-tight polygons, confirmed a symmetry no-go lemma, and produced one instructive false alarm. A flow appeared to show an obstruction for T(4,5), which turned out to be an artifact.
 
@@ -207,10 +207,10 @@ For the next torus pair, from the repository root (using the local dependencies)
 ```bash
 EQUISTICK_DATA=./stick-knot-gen \
   .venv/bin/python scripts/08_torus_batch.py \
-  --knots T8_9,T9_10 --budget 1800 --workers 1 --trials 8
+  --knots T8_9,T9_10 --budget 1800 --workers 2 --trials 1000
 ```
 
-`--workers 1` leaves capacity for other searches on the shared five-CPU quota; the optional maximum is two, subject to the effective quota. The per-knot deadline includes startup, all trials and final validation. Seeds are `seed_for('T8_9')` and `seed_for('T9_10')`, plus `--run-index` (default 0). Starts in `torus.STARTS` were found by a short deterministic 250-trial `symmetric_scan`, not by an equal-stick certification. If a start is absent, an empty scan is logged without an exception. Each trial records floor, defect, clearance, ratio and eligibility (float MR plus preliminary Alexander match) in `results/logs/torus_*.log`. The manifest, append-only `RUNLOG.md` and `torus_search.log` record outcomes and provenance. Only 17-digit coordinates that pass a float MR ratio below 1, the 40-digit MR check and `verify_torus` (four Alexander projections, correct genus, absolute tau, fibredness and L-space property) after serialization may be published. A timeout or unsuccessful trial is only "not found within budget," never an obstruction. No full-budget run or T(8,9)/T(9,10) result is claimed here.
+`--workers 2` ran on the shared five-CPU quota; the optional default of one leaves more capacity for other work. The per-knot deadline includes startup, all trials and final validation. Seeds are `seed_for('T8_9')` and `seed_for('T9_10')`, plus `--run-index` (default 0). Starts in `torus.STARTS` were found by a short deterministic 250-trial `symmetric_scan`, not by an equal-stick certification. If a start is absent, an empty scan is logged without an exception. Each trial records floor, defect, clearance, ratio and eligibility (float MR plus preliminary Alexander match) in `results/logs/torus_*.log`. The manifest, append-only `RUNLOG.md` and `torus_search.log` record outcomes and provenance. Only 17-digit coordinates that pass a float MR ratio below 1, the 40-digit MR check and `verify_torus` (four Alexander projections, correct genus, absolute tau, fibredness and L-space property) after serialization may be published. Both searches succeeded within their 1800-second-per-knot hard limits. A timeout or unsuccessful trial would be only "not found within budget," never an obstruction.
 
 ---
 
@@ -218,7 +218,7 @@ EQUISTICK_DATA=./stick-knot-gen \
 
 ### 1. Certified equal-stick minimal polygons
 
-All 23 were re-verified from scratch by `06_verify_results.py`. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound of 2π ≈ 6.283 applies only to bridge-tight polygons, not to T(3,7) or T(3,8).
+All 25 were re-verified from scratch by `06_verify_results.py` and the exact-decimal interval checker. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound of 2π ≈ 6.283 applies only to bridge-tight polygons, not to T(3,7) or T(3,8).
 
 | Knot | Sticks (= s) | Defect | μ | Bound | Angles | Identification |
 |---|---|---|---|---|---|---|
@@ -228,6 +228,8 @@ All 23 were re-verified from scratch by `06_verify_results.py`. "Defect" is the 
 | T(5,6) | 12 | 1.0e-16 | 0.0050 | 6.25e-06 | 3.820 | Alexander ×4; HFK genus 10, L-space, fibred, τ = 10; 24 crossings |
 | T(6,7) | 14 | 1.3e-16 | 0.0025 | 1.56e-06 | 2.646 | Alexander ×4; HFK genus 15, L-space, fibred, τ = −15; 35 crossings |
 | T(7,8) | 16 | 1.3e-16 | 0.0010 | 2.50e-07 | 3.053 | Alexander ×4; HFK genus 21, L-space, fibred, τ = 21; 48 crossings |
+| T(8,9) | 18 | 1.6e-16 | 0.001001 | 2.50e-07 | 3.663 | Alexander ×4; HFK genus 28, L-space, fibred, τ = 28; 63 crossings |
+| T(9,10) | 20 | 1.4e-16 | 0.0005 | 6.25e-08 | 2.889 | Alexander ×4; HFK genus 36, L-space, fibred, τ = 36; 80 crossings |
 | K11n71 | 10 | 4.5e-14 | 0.0153 | 5.85e-05 | 4.992 | SnapPy ×3 |
 | K11n75 | 10 | 1.5e-13 | 0.0134 | 4.50e-05 | 4.707 | SnapPy ×3 |
 | K11n76 | 10 | 6.5e-11 | 0.0113 | 3.20e-05 | 4.769 | SnapPy ×3 |
@@ -254,7 +256,7 @@ The pipeline recovered an equilateral 8-stick 8₁₉ = T(3,4), which Millett fo
 
 ### 3. The torus family: clearance shrinks but stays positive
 
-This table shows the highest clearance floor at which equalizer #2 certified, from 6 to 12 random starts. These are floors this optimizer reached, not true maxima.
+This table shows the highest clearance floor at which equalizer #2 certified during each recorded search. The earlier family runs used 6 to 12 random starts; the newer bounded runs used the trial counts in `results/RUNLOG.md`. These are floors this optimizer reached, not true maxima.
 
 | Knot | Sticks | Certified at μ₀ | Failed at μ₀ |
 |---|---|---|---|
@@ -263,8 +265,10 @@ This table shows the highest clearance floor at which equalizer #2 certified, fr
 | T(5,6) | 12 | 0.005 | 0.01 |
 | T(6,7) | 14 | 0.0025 | 0.005 |
 | T(7,8) | 16 | 0.001 | 0.0025 |
+| T(8,9) | 18 | 0.001 | not tested |
+| T(9,10) | 20 | 0.0005 | not tested |
 
-The ladder is real (angle sums 2.6 to 4.2, all under 2π) and gets thinner with p, but it does not obstruct up to p = 7. If the decay continues, the family will become too thin to certify numerically before it becomes provably impossible, so settling it needs a proof, not more computation.
+The ladder is real (angle sums 2.6 to 4.2, all under 2π) and gets thinner with p, but it does not obstruct up to p = 9. If the decay continues, the family may become too thin to certify numerically before it becomes provably impossible, so settling it needs a proof, not just more computation.
 
 ### 4. Ladder lemma on published data (`01`)
 
@@ -306,7 +310,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 2. **Knot identification relies on invariants.**
    - Hyperbolic knots are identified by SnapPy's `identify()`. It matches the complement against census manifolds using numerically computed hyperbolic structures, without SnapPy's rigorous `verified=True` mode. It also ignores chirality, which is harmless here because e and s are mirror invariant.
-   - Torus knots are matched on every invariant checked (Alexander polynomial in four projections; knot Floer homology genus, fibredness, L-space property, τ, total rank; crossing number after simplification). Knot Floer homology is not known to detect T(p, p+1) in general, so this is overwhelming evidence rather than proof.
+   - Torus knots are matched on every invariant checked (Alexander polynomial in four projections; knot Floer homology genus, fibredness, L-space property, absolute τ, total rank; crossing number after simplification). The matching ignores chirality, so torus labels are up to mirror image. Knot Floer homology is not known to detect T(p, p+1) in general, so this is strong evidence rather than proof.
    - Two routes would make it rigorous: exhibit a knot-type-safe path back to the symmetric construction, whose type follows from Jin's work, or use a rigorous recognition tool.
    - SnapPy sometimes reports a non-table census name for a table knot (K15n41127 comes back as K6_37). Scripts that compare names can therefore report false mismatches, but not false matches.
 
@@ -316,7 +320,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 5. **Negative results mean nothing.** A flow that collapses, an optimizer that stalls, or a reducer that times out is not evidence that e(K) > s(K); the false alarm in section 6 of the Results shows how misleading such signals are. Only the certified polygons are results.
 
-6. **Coverage is narrow.** The search covered 23 knots, torus knots in the listed families only, and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
+6. **Coverage is narrow.** The search covered 25 knots, torus knots in the listed families only, and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
 
 7. **"New" is as far as we could find.** Eddy's repository had no equal-stick minimal versions of these knots. The Cantarella group's coordinates (the non-equilateral 10-stick polygons for the 19 knots and their torus-knot data) sit on Harvard Dataverse, which blocked automated access, and we did not survey every other source.
 
@@ -328,13 +332,13 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 9. **Theory is unreviewed.** The ladder lemma, the symmetry no-go and the length-map reformulation are our own arguments, checked by hand and numerically, not peer-reviewed. The no-go scan tests knottedness through a nontrivial Alexander polynomial, so it would miss knots with trivial Alexander polynomial, and it samples randomly rather than exhaustively.
 
-10. **Compute.** Everything ran on one CPU core under a 300-second limit per command, and background jobs did not survive between commands. That is why the ten-stick batch is incomplete.
+10. **Compute.** Early exploratory runs used one CPU core under a 300-second limit per command. The later bounded torus search used two workers and a separate 1800-second hard limit per knot; it does not imply exhaustive coverage of polygon space.
 
 ## Next steps
 
 1. Finish the two remaining ten-stick knots: obtain starting polygons for K13n586 and K13n593 from diagrams or manually provided source data.
 2. Extend the explicit torus-sampling approach beyond the now certified T(3,7) and T(3,8) to other superbridge-tight knots; numerical certificates are not formal proofs.
-3. Push T(p, p+1) to p = 8, 9, 10 and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
+3. Push T(p, p+1) to p = 10 and beyond and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
 4. For publication: independent audit of the interval-arithmetic geometric certificates, rigorous knot identification, and a check with the Cantarella group for overlap with their data.
 
 ## References

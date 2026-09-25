@@ -10,9 +10,9 @@ The only thing that counts as a result is a **certified polygon**: an equal-stic
 
 ## Current status
 
-23 knots have numerically certified equal-stick polygons at exactly their stick number (see `results/summary.csv`):
+25 knots have equal-stick polygons at their reported stick number, with exact-decimal interval certificates for the geometric inequality and numerical knot re-identification (see `results/summary.csv` and `results/interval_certificates.json`). Rigorous identification of knot type remains open.
 
-- **Torus knots:** T(3,7), T(3,8), T(4,5), T(5,6), T(6,7), T(7,8), with 12, 12, 10, 12, 14 and 16 sticks.
+- **Torus knots:** T(3,7), T(3,8), T(4,5), T(5,6), T(6,7), T(7,8), T(8,9), T(9,10), with 12, 12, 10, 12, 14, 16, 18 and 20 sticks. Names are up to mirror image.
 - **Ten-stick knots:** K11n71, K11n75, K11n76, K11n78, K13n1192, K13n225, K13n230, K13n285, K13n288, K13n307, K13n5018, K13n584, K13n602, K13n603, K13n604, K13n607, K13n608. These are 17 of the 19 four-bridge knots whose stick number is proven to be exactly 10.
 
 Unfinished ten-stick knots:
@@ -27,7 +27,7 @@ Unfinished ten-stick knots:
 git clone https://github.com/thomaseddy/stick-knot-gen     # data; never commit it
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cd scripts && PYTHONPATH=.. python 06_verify_results.py   # must print 23 lines, all cert True, type True
+cd scripts && PYTHONPATH=.. python 06_verify_results.py   # must print 25 lines, all cert True, type True
 ```
 
 If `.gitignore` does not exist yet, create it with at least:
@@ -49,6 +49,7 @@ All scripts run from `scripts/` with `PYTHONPATH=..`. Output paths such as `../r
 | `equistick/geometry.py` | Segment distances, knot-type-safe moves (`safe_move`, `deletable`), Millett and Rawdon ratio (`mr_ratio`), angle sums |
 | `equistick/invariants.py` | Projections to PD codes, Alexander polynomial on the unit circle, SnapPy `identify`, knot Floer homology `hfk` |
 | `equistick/certify.py` | 40-digit certificate `mr_certificate_mp`, `polish`, `verify_torus`, `length_jacobian` |
+| `equistick/interval_certificate.py` | Exact-decimal segment distances and outward interval geometric certificates |
 | `equistick/torus.py` | T(p, p+1) constructions (`torus_poly`, `STARTS`), symmetric no-go scan |
 | `equistick/flows.py` | Equalizer #1, path lifting. It produced a false obstruction signal; see Pitfalls. |
 | `equistick/optimize.py` | Equalizer #2 `clearance_floor_solve` (not path-safe) and #3 `homotopy_equalize` (path-safe), plus `fatten` |
@@ -83,7 +84,7 @@ All scripts run from `scripts/` with `PYTHONPATH=..`. Output paths such as `../r
 7. **Result files.**
    - Save coordinates as `results/<knot>_equilateral_<n>sticks.txt` with `np.savetxt(..., fmt='%.17g')`.
    - Torus knots are named `T<p>_<q>`.
-   - After adding files, rerun `06_verify_results.py`, update the Results tables in `README.md`, and commit the coordinates, `summary.csv` and README together.
+   - After adding files, rerun `06_verify_results.py` and `08_interval_certificates.py` with the expected file count, update the Results tables in `README.md`, and commit the coordinates, `summary.csv`, interval report and README together.
 8. **Style.** No em dashes or en dashes anywhere in prose: docs, comments, commit messages. Use commas, colons, parentheses or "to" for ranges.
 9. **Data sources.**
    - The Cantarella group's datasets on Harvard Dataverse disallow automated access. Do not scrape them. Ask the user to download them manually into `data/external/crss/`: doi:10.7910/DVN/NFJIII (knots through 13 crossings) and doi:10.7910/DVN/GCNJLI (torus knots).
@@ -108,20 +109,19 @@ Each task lists its definition of done.
    - Once the user has placed the files in `data/external/crss/`, add a loader `data.load_crss(name)` and let `05_tenstick.py` start from those 10-stick polygons, skipping reduction.
    - Run all remaining ten-stick knots, including K13n586 and K13n593.
    - *Done when:* all 19 are certified or have an evidence dossier (rule 4).
-3. **Extend the torus family.**
-   - Run `04_torus_family.py` for p = 8 and p = 9. `STARTS` lacks these, so the script falls back to `symmetric_scan`; add the parameters it finds to `STARTS`.
-   - Record the highest certified floor μ₀ for each p and fit how it decays with p.
-   - *Done when:* results are certified and the decay table in the README is extended.
+3. **Extend the torus family (p = 8, 9 completed numerically).**
+   - `08_torus_batch.py` ran T(8,9) and T(9,10) under a separate 1800-second hard deadline per knot, finding 18- and 20-stick polygons at clearance floors 0.001 and 0.0005. The deterministic starts are in `torus.STARTS`; both final files passed `06_verify_results.py` and the exact-decimal geometric interval checker.
+   - The README decay table has been extended. Further p and a general construction remain open.
 4. **Superbridge-tight torus knots.**
    - Completed numerically: T(3,7) (K14n21881) and T(3,8) (K16n783154) have saved 12-stick polygons. Eddy's files were missing. `08_torus37.py` samples an explicit torus parametrization, checks the polygonal start, reduces with `reduce_to`, safely equalizes, and rechecks the saved coordinates with float MR, 40-digit MR, four Alexander projections and HFK.
-   - The 35-second-per-knot probe found both; see `results/RUNLOG.md`, `results/summary.csv` and the coordinate files. This is numerical, not an interval proof or rigorous identification.
+   - The 35-second-per-knot probe found both; see `results/RUNLOG.md`, `results/summary.csv` and the coordinate files. The later exact-decimal interval check certifies their geometric inequality, but identification remains numerical.
 5. **Systematic candidate list.**
    - Write `scripts/09_gap_candidates.py`, which lists every knot in `exact_stick_numbers()` whose best equal-stick polygon in Eddy's data (or ours) uses more sticks than s(K). Once the Cantarella group's tables are available, extend it to their upper bounds through 13 crossings.
    - *Done when:* the table has been generated and committed.
 6. **Rigor for publication.**
-   - Interval-arithmetic certificates (`python-flint` arb or `mpmath.iv`).
+   - The exact-decimal rational and `mpmath.iv` checker certifies the geometric inequality for all 25 saved files. Its JSON report records SHA256 hashes and interval bounds; an independent audit remains valuable.
    - Rigorous identification: SnapPy verified computations for hyperbolic knots; for torus knots, a knot-type-safe path back to the symmetric construction.
-   - *Done when:* every file in `results/` carries a rigorous certificate.
+   - *Done when:* every file in `results/` also carries a rigorous knot-type identification, not merely a geometric certificate.
 7. **Tests.**
    - Add a `tests/` directory with pytest covering: `safe_move` on hand-built blocked and unblocked moves; `pd_code` plus `alexander_abs` on Eddy's 3_1, 8_19 and 10_124 against the known polynomials; `mr_certificate_mp` on a certified file; and `reduce_once` on a padded trefoil.
    - *Done when:* `pytest` passes in CI or locally.
