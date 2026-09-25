@@ -10,18 +10,15 @@ The only thing that counts as a result is a **certified polygon**: an equal-stic
 
 ## Current status
 
-16 knots have certified equal-stick polygons at exactly their stick number (see `results/summary.csv`):
+21 knots have numerically certified equal-stick polygons at exactly their stick number (see `results/summary.csv`):
 
 - **Torus knots:** T(4,5), T(5,6), T(6,7), T(7,8), with 10, 12, 14 and 16 sticks.
-- **Ten-stick knots:** K11n71, K11n75, K11n76, K11n78, K13n225, K13n230, K13n288, K13n307, K13n584, K13n603, K13n604, K13n607. These are 12 of the 19 four-bridge knots whose stick number is proven to be exactly 10.
+- **Ten-stick knots:** K11n71, K11n75, K11n76, K11n78, K13n1192, K13n225, K13n230, K13n285, K13n288, K13n307, K13n5018, K13n584, K13n602, K13n603, K13n604, K13n607, K13n608. These are 17 of the 19 four-bridge knots whose stick number is proven to be exactly 10.
 
 Unfinished ten-stick knots:
 
 | Knot | Status |
 |---|---|
-| K13n285 | Reducer found no 10-stick polygon in 240 s |
-| K13n602 | Reducer found no 10-stick polygon in 60 s |
-| K13n608, K13n1192, K13n5018 | Not attempted |
 | K13n586, K13n593 | No starting data in Eddy's repository |
 
 ## Setup
@@ -30,7 +27,7 @@ Unfinished ten-stick knots:
 git clone https://github.com/thomaseddy/stick-knot-gen     # data; never commit it
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cd scripts && PYTHONPATH=.. python 06_verify_results.py   # must print 16 lines, all cert True, type True
+cd scripts && PYTHONPATH=.. python 06_verify_results.py   # must print 21 lines, all cert True, type True
 ```
 
 If `.gitignore` does not exist yet, create it with at least:
@@ -103,10 +100,10 @@ All scripts run from `scripts/` with `PYTHONPATH=..`. Output paths such as `../r
 
 Each task lists its definition of done.
 
-1. **Parallel runner and the unfinished ten-stick knots.**
-   - Write `scripts/07_parallel.py`, which runs `05_tenstick.run()` over a knot list with `multiprocessing`, one knot per core, appending to `results/tenstick.log`.
-   - Run it on K13n285, K13n602, K13n608, K13n1192 and K13n5018 with a 30-minute budget each. `reduce_to` already handles the 12-stick starts.
-   - *Done when:* every knot is either certified or logged "not found in 30 min", and 06 and the README have been updated.
+1. **Parallel runner and five ten-stick knots (completed).**
+   - `scripts/07_parallel.py` runs one spawned process per knot, bounded by the effective CPU quota, with per-knot logs, hard wall deadlines, and recorded provenance.
+   - K13n285, K13n602, K13n608, K13n1192 and K13n5018 produced numerically certified 10-stick polygons. The first K13n602 run crashed; a conservative reducer guard and regression test fixed the numerical error, and a separate full-budget retry succeeded. Both runs remain in the logs.
+   - `06_verify_results.py` confirmed all 21 result files, with `certified=True` and `type_confirmed=True`. The README and summary have been updated. Numerical certificates are not formal proofs.
 2. **Cantarella group data as starting polygons.**
    - Once the user has placed the files in `data/external/crss/`, add a loader `data.load_crss(name)` and let `05_tenstick.py` start from those 10-stick polygons, skipping reduction.
    - Run all remaining ten-stick knots, including K13n586 and K13n593.
