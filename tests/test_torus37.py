@@ -106,21 +106,44 @@ class Torus37Tests(unittest.TestCase):
             candidate.write_text('staged')
             m.atomic_json(Path(staged) / 'outcome.json', dict(status='certified',
                           message='checked by worker', completed_monotonic=10))
-            result = m.collect_outcome(job, 0, 11, Path(directory))
+            with patch.object(m.time, 'monotonic', return_value=10.5):
+                result = m.collect_outcome(job, 0, 11, Path(directory))
             self.assertEqual(result['status'], 'certified')
             self.assertEqual((Path(directory) / candidate.name).read_text(), 'staged')
             self.assertFalse(candidate.exists())
+            candidate.write_text('conflicting saved coordinates')
+            with patch.object(m.time, 'monotonic', return_value=10.5):
+                conflict = m.collect_outcome(job, 0, 11, Path(directory))
+            self.assertEqual(conflict['status'], 'error')
+            self.assertEqual((Path(directory) / candidate.name).read_text(), 'staged')
             # A timeout must never publish a staged file.
             candidate.write_text('late')
-            result = m.collect_outcome(job, 0, 9, Path(directory))
+            with patch.object(m.time, 'monotonic', return_value=10.5):
+                result = m.collect_outcome(job, 0, 9, Path(directory))
             self.assertEqual(result['status'], 'timeout')
             self.assertEqual((Path(directory) / candidate.name).read_text(), 'staged')
+            candidate.write_text('early stamp, late observation')
+            with patch.object(m.time, 'monotonic', return_value=11.5):
+                result = m.collect_outcome(job, 0, 11, Path(directory))
+            self.assertEqual(result['status'], 'timeout')
+            self.assertEqual((Path(directory) / candidate.name).read_text(), 'staged')
+        with tempfile.TemporaryDirectory() as directory, tempfile.TemporaryDirectory() as staged:
+            job = dict(name='T3_7', target=12, stage=staged)
+            candidate = Path(staged) / 'T3_7_equilateral_12sticks.txt'
+            candidate.write_text('new candidate')
+            m.atomic_json(Path(staged) / 'outcome.json', dict(status='certified',
+                          message='in time before publication', completed_monotonic=9))
+            with patch.object(m.time, 'monotonic', side_effect=(9, 9, 10.1)):
+                result = m.collect_outcome(job, 0, 10, Path(directory))
+            self.assertEqual(result['status'], 'timeout')
+            self.assertFalse((Path(directory) / candidate.name).exists())
         with tempfile.TemporaryDirectory() as directory:
             manifest = m.run_batch(['T3_7'], 0.15, 1, Path(directory),
                                    worker=importlib.import_module('test_parallel').hanging_worker,
                                    target=12, log_name='torus37.log')
             self.assertEqual(manifest['results'][0]['status'], 'timeout')
             self.assertIn('T3_7', (Path(directory) / 'torus37.log').read_text())
+            self.assertIn('T3_7 [timeout]', (Path(directory) / 'RUNLOG.md').read_text())
             self.assertFalse((Path(directory) / 'tenstick.log').exists())
 
 

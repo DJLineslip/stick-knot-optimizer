@@ -80,6 +80,8 @@ def torus_worker(job):
 
 def collect_outcome(job, exitcode, deadline, out):
     """Never publish an incomplete, late, altered, or conflicting staged file."""
+    if time.monotonic() >= deadline:
+        return dict(status='timeout', message='not found within budget; completion observed after deadline')
     try:
         result = json.loads((Path(job['stage']) / 'outcome.json').read_text())
         if exitcode != 0 or result['status'] not in ('certified', 'not_found_within_budget', 'error'):
@@ -91,12 +93,20 @@ def collect_outcome(job, exitcode, deadline, out):
             stage = Path(job['stage']) / filename
             if hashlib.sha256(stage.read_bytes()).hexdigest() != result['sha256']:
                 raise ValueError('staged coordinates changed after validation')
+            if time.monotonic() >= deadline:
+                return dict(status='timeout', message='not found within budget; publication deadline passed')
             target = Path(out) / filename
+            published = False
             if target.exists():
                 if target.read_bytes() != stage.read_bytes():
                     raise ValueError('existing certified file differs; refusing overwrite')
             else:
                 os.replace(stage, target)
+                published = True
+            if time.monotonic() >= deadline:
+                if published:
+                    target.unlink()
+                return dict(status='timeout', message='not found within budget; publication exceeded deadline')
             result['coordinates'] = str(target)
         return result
     except (OSError, ValueError, KeyError) as exc:
@@ -104,7 +114,7 @@ def collect_outcome(job, exitcode, deadline, out):
 
 
 def run_batch(ps, budget, workers, out, worker=torus_worker, run_index=0, trials=8, scan_trials=1500):
-    if (not 0 < budget <= 1800 or not ps or any(p not in (8, 9) for p in ps)
+    if (not math.isfinite(budget) or not 0 < budget <= 1800 or not ps or any(p not in (8, 9) for p in ps)
             or len(set(ps)) != len(ps) or workers not in (1, 2) or run_index < 0
             or trials < 1 or scan_trials < 1):
         raise ValueError('invalid knot list or search limits')
@@ -158,6 +168,9 @@ def run_batch(ps, budget, workers, out, worker=torus_worker, run_index=0, trials
                     f.write(f"{job['name']} [{result['status']}] {result['message']}\n")
                 manifest['results'].append(result)
                 parallel.atomic_json(manifest_path, manifest)
+                with (out / 'RUNLOG.md').open('a') as f:
+                    f.write(f"\n{job['name']} [{result['status']}] "
+                            + json.dumps(result, sort_keys=True) + '\n')
                 print(f"{job['name']} [{result['status']}] {result['message']}", flush=True)
                 shutil.rmtree(job['stage'])
                 process.close()

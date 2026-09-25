@@ -210,7 +210,7 @@ EQUISTICK_DATA=./stick-knot-gen \
   --knots T8_9,T9_10 --budget 1800 --workers 2 --trials 1000
 ```
 
-`--workers 2` ran on the shared five-CPU quota; the optional default of one leaves more capacity for other work. The per-knot deadline includes startup, all trials and final validation. Seeds are `seed_for('T8_9')` and `seed_for('T9_10')`, plus `--run-index` (default 0). Starts in `torus.STARTS` were found by a short deterministic 250-trial `symmetric_scan`, not by an equal-stick certification. If a start is absent, an empty scan is logged without an exception. Each trial records floor, defect, clearance, ratio and eligibility (float MR plus preliminary Alexander match) in `results/logs/torus_*.log`. The manifest, append-only `RUNLOG.md` and `torus_search.log` record outcomes and provenance. Only 17-digit coordinates that pass a float MR ratio below 1, the 40-digit MR check and `verify_torus` (four Alexander projections, correct genus, absolute tau, fibredness and L-space property) after serialization may be published. Both searches succeeded within their 1800-second-per-knot hard limits. A timeout or unsuccessful trial would be only "not found within budget," never an obstruction.
+`--workers 2` ran on the shared five-CPU quota; the optional default of one leaves more capacity for other work. The per-knot deadline includes worker startup, all trials and final validation as observed by the supervisor; the operating-system `process.start()` call itself is not interruptible by this Python supervisor. Seeds are `seed_for('T8_9')` and `seed_for('T9_10')`, plus `--run-index` (default 0). Starts in `torus.STARTS` were found by a short deterministic 250-trial `symmetric_scan`, not by an equal-stick certification. If a start is absent, an empty scan is logged without an exception. Each trial records floor, defect, clearance, ratio and eligibility (float MR plus preliminary Alexander match) in `results/logs/torus_*.log`. The manifest, append-only `RUNLOG.md` and `torus_search.log` record outcomes and provenance. Only 17-digit coordinates that pass a float MR ratio below 1, the 40-digit MR check and `verify_torus` (four Alexander projections, correct genus, absolute tau, exact Alexander-coefficient rank, fibredness, L-space property and crossing lower bound) after serialization may be published. Both searches succeeded within their 1800-second-per-knot limits. A timeout or unsuccessful trial would be only "not found within budget," never an obstruction.
 
 ---
 
@@ -228,8 +228,8 @@ All 25 were re-verified from scratch by `06_verify_results.py` and the exact-dec
 | T(5,6) | 12 | 1.0e-16 | 0.0050 | 6.25e-06 | 3.820 | Alexander ×4; HFK genus 10, L-space, fibred, τ = 10; 24 crossings |
 | T(6,7) | 14 | 1.3e-16 | 0.0025 | 1.56e-06 | 2.646 | Alexander ×4; HFK genus 15, L-space, fibred, τ = −15; 35 crossings |
 | T(7,8) | 16 | 1.3e-16 | 0.0010 | 2.50e-07 | 3.053 | Alexander ×4; HFK genus 21, L-space, fibred, τ = 21; 48 crossings |
-| T(8,9) | 18 | 1.6e-16 | 0.001001 | 2.50e-07 | 3.663 | Alexander ×4; HFK genus 28, L-space, fibred, τ = 28; 63 crossings |
-| T(9,10) | 20 | 1.4e-16 | 0.0005 | 6.25e-08 | 2.889 | Alexander ×4; HFK genus 36, L-space, fibred, τ = 36; 80 crossings |
+| T(8,9) | 18 | 1.6e-16 | 0.001001 | 2.50e-07 | 3.663 | Alexander ×4; HFK genus 28, rank 15, L-space, fibred, τ = 28; 63 crossings |
+| T(9,10) | 20 | 1.4e-16 | 0.0005 | 6.25e-08 | 2.889 | Alexander ×4; HFK genus 36, rank 17, L-space, fibred, τ = 36; 80 crossings |
 | K11n71 | 10 | 4.5e-14 | 0.0153 | 5.85e-05 | 4.992 | SnapPy ×3 |
 | K11n75 | 10 | 1.5e-13 | 0.0134 | 4.50e-05 | 4.707 | SnapPy ×3 |
 | K11n76 | 10 | 6.5e-11 | 0.0113 | 3.20e-05 | 4.769 | SnapPy ×3 |

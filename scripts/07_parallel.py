@@ -155,11 +155,16 @@ def record_result(out, manifest, job, result, elapsed, log_name='tenstick.log'):
         f.write(f"{job['name']} [{result['status']}] {result['message']}\n")
     manifest['results'].append(result)
     atomic_json(Path(manifest['manifest']), manifest)
+    with (out / 'RUNLOG.md').open('a') as f:
+        f.write(f"\n{job['name']} [{result['status']}] "
+                + json.dumps(result, sort_keys=True) + '\n')
     print(f"{job['name']} [{result['status']}] {result['message']}", flush=True)
 
 
 def collect_outcome(job, exitcode, deadline, out):
     """Publish only a completed, in-budget validation of the staged file."""
+    if time.monotonic() >= deadline:
+        return dict(status='timeout', message='not found within budget; completion observed after deadline')
     try:
         result = json.loads((Path(job['stage']) / 'outcome.json').read_text())
         if exitcode != 0:
@@ -170,8 +175,22 @@ def collect_outcome(job, exitcode, deadline, out):
             return dict(status='timeout', message=f"not found within budget; completion exceeded hard wall deadline")
         if result['status'] == 'certified':
             filename = f"{job['name']}_equilateral_{job['target']}sticks.txt"
-            os.replace(Path(job['stage']) / filename, out / filename)
-            result['coordinates'] = str(out / filename)
+            stage = Path(job['stage']) / filename
+            target = out / filename
+            if time.monotonic() >= deadline:
+                return dict(status='timeout', message='not found within budget; publication deadline passed')
+            published = False
+            if target.exists():
+                if target.read_bytes() != stage.read_bytes():
+                    raise ValueError('existing certified coordinates differ; refusing overwrite')
+            else:
+                os.replace(stage, target)
+                published = True
+            if time.monotonic() >= deadline:
+                if published:
+                    target.unlink()
+                return dict(status='timeout', message='not found within budget; publication exceeded deadline')
+            result['coordinates'] = str(target)
         return result
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         return dict(status='error', message=f'worker exit {exitcode}: {exc}')

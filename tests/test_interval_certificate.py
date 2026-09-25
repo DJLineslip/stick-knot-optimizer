@@ -2,9 +2,11 @@
 import tempfile
 import unittest
 import json
+import importlib.util
 import subprocess
 import sys
 import hashlib
+from unittest.mock import patch
 from fractions import Fraction
 from pathlib import Path
 import numpy as np
@@ -84,6 +86,30 @@ class IntervalCertificateTests(unittest.TestCase):
             self.assertEqual(record['pair_count'], 1)
             self.assertIn('budget', record['reason'])
 
+    def test_nonfinite_timeout_is_rejected_before_interval_work(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'square.txt'
+            path.write_text('0 0 0\n1 0 0\n1 1 0\n0 1 0\n')
+            for value in (float('nan'), float('inf'), -float('inf')):
+                with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'finite'):
+                    certify_file(path, timeout_s=value)
+
+    def test_batch_rejects_empty_input_and_nonfinite_timeout(self):
+        script = Path(__file__).resolve().parents[1] / 'scripts' / '08_interval_certificates.py'
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            output = folder / 'certificates.json'
+            base = [sys.executable, str(script), '--results-dir', str(folder), '--output', str(output)]
+            empty = subprocess.run(base, capture_output=True, text=True)
+            self.assertNotEqual(empty.returncode, 0)
+            self.assertFalse(output.exists())
+            (folder / 'sample_equilateral_4sticks.txt').write_text('0 0 0\n1 0 0\n1 1 0\n0 1 0\n')
+            for bad in ('nan', 'inf', '-inf'):
+                with self.subTest(bad=bad):
+                    proc = subprocess.run(base + ['--timeout-s', bad], capture_output=True, text=True)
+                    self.assertNotEqual(proc.returncode, 0)
+                    self.assertFalse(output.exists())
+
     def test_exact_boundary_and_parallel_segment_minima(self):
         F = Fraction
         self.assertEqual(squared_segment_distance((F(0),F(0),F(0)), (F(2),F(0),F(0)),
@@ -116,8 +142,28 @@ class IntervalCertificateTests(unittest.TestCase):
             report = json.loads(output.read_text())
             self.assertEqual(report['certificate_scope'], 'geometric MR inequality only; not knot identity')
             self.assertEqual(report['code_revision'].__len__(), 40)
+            self.assertEqual(report['batch_script_sha256'], hashlib.sha256(script.read_bytes()).hexdigest())
+            self.assertIn(report['checker_dirty'], (True, False))
             self.assertEqual(report['certified_count'], 1)
             self.assertEqual(report['files'][0]['sha256'], hashlib.sha256(raw).hexdigest())
+
+    def test_batch_does_not_replace_previous_report_when_atomic_rename_fails(self):
+        script = Path(__file__).resolve().parents[1] / 'scripts' / '08_interval_certificates.py'
+        spec = importlib.util.spec_from_file_location('interval_batch_test', script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / 'sample_equilateral_4sticks.txt').write_text('0 0 0\n1 0 0\n1 1 0\n0 1 0\n')
+            output = folder / 'certificates.json'
+            output.write_text('previous report')
+            with patch.object(sys, 'argv', [str(script), '--results-dir', str(folder), '--output', str(output)]), \
+                    patch('os.replace', side_effect=OSError('atomic publication failed')):
+                with self.assertRaisesRegex(OSError, 'atomic publication failed'):
+                    module.main()
+            self.assertEqual(output.read_text(), 'previous report')
+            self.assertEqual(sorted(path.name for path in folder.iterdir()),
+                             ['certificates.json', 'sample_equilateral_4sticks.txt'])
 
 
 if __name__ == '__main__':

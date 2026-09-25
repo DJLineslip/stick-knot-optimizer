@@ -8,6 +8,7 @@ floating-point branch decides a certificate. This does not identify knot type.
 from __future__ import annotations
 
 import hashlib
+import math
 import re
 import time
 from decimal import Decimal
@@ -104,8 +105,10 @@ def certify_file(path, *, precision_bits=160, max_pairs=1000, timeout_s=30):
     """
     if precision_bits < 53 or precision_bits > 4096:
         raise ValueError('precision_bits must be between 53 and 4096')
-    if max_pairs < 0 or timeout_s < 0:
-        raise ValueError('budgets must be nonnegative')
+    if max_pairs < 0:
+        raise ValueError('pair budget must be nonnegative')
+    if not math.isfinite(timeout_s) or timeout_s < 0:
+        raise ValueError('time budget must be finite and nonnegative')
     path = Path(path)
     if path.stat().st_size > 30000:
         raise ValueError('coordinate file exceeds size limit')

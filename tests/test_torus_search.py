@@ -1,5 +1,6 @@
 """Search safety acceptance tests for T(8,9) and T(9,10)."""
 import importlib.util
+import hashlib
 import json
 import sys
 import tempfile
@@ -90,6 +91,7 @@ class TorusSearchTests(unittest.TestCase):
             self.assertIn('not found within budget', (Path(out) / 'torus_search.log').read_text())
             self.assertEqual(json.loads(Path(result['manifest']).read_text())['results'], result['results'])
             self.assertIn('packages', (Path(out) / 'RUNLOG.md').read_text())
+            self.assertIn('T8_9 [timeout]', (Path(out) / 'RUNLOG.md').read_text())
             self.assertEqual(len(list((Path(out) / 'logs').glob('*.log'))), 1)
 
     def test_supervisor_refuses_unvalidated_stage_and_late_completion(self):
@@ -108,13 +110,44 @@ class TorusSearchTests(unittest.TestCase):
                 self.assertEqual(late['status'], 'timeout')
                 self.assertFalse((Path(out) / staged.name).exists())
 
+    def test_supervisor_rejects_completion_observed_after_deadline_despite_early_worker_stamp(self):
+        m = script('08_torus_batch')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory() as stage:
+            job = dict(name='T9_10', target=20, stage=stage)
+            (Path(stage) / 'outcome.json').write_text(json.dumps(dict(
+                status='not_found_within_budget', message='early stamp', completed_monotonic=9)))
+            with patch.object(m.time, 'monotonic', return_value=10.1):
+                observed = m.collect_outcome(job, 0, 10, Path(out))
+            self.assertEqual(observed['status'], 'timeout')
+
+    def test_supervisor_rolls_back_publication_that_crosses_deadline(self):
+        m = script('08_torus_batch')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory() as stage:
+            job = dict(name='T8_9', target=18, stage=stage)
+            staged = Path(stage) / 'T8_9_equilateral_18sticks.txt'
+            staged.write_text('validated bytes')
+            (Path(stage) / 'outcome.json').write_text(json.dumps(dict(
+                status='certified', message='early', completed_monotonic=9,
+                sha256=hashlib.sha256(staged.read_bytes()).hexdigest())))
+            with patch.object(m.time, 'monotonic', side_effect=(9, 9, 10.1)):
+                result = m.collect_outcome(job, 0, 10, Path(out))
+            self.assertEqual(result['status'], 'timeout')
+            self.assertFalse((Path(out) / staged.name).exists())
+
+    def test_direct_batch_rejects_nonfinite_deadline(self):
+        m = script('08_torus_batch')
+        for value in (float('nan'), float('inf')):
+            with self.subTest(value=value), self.assertRaises(ValueError), patch.object(
+                    m.parallel, 'effective_cpus', side_effect=AssertionError('reached workers')):
+                m.run_batch([8], value, 1, Path(tempfile.gettempdir()))
+
     def test_validation_rejects_every_incomplete_certificate(self):
         m = script('04_torus_family')
         V = np.ones((18, 3))
-        h = dict(seifert_genus=28, tau=-28, fibered=True, L_space_knot=True)
+        h = dict(seifert_genus=28, tau=-28, fibered=True, L_space_knot=True, total_rank=15)
         good = dict(mr_ratio=lambda x: (0.5, 0.01, 0.1),
                     mr_certificate_mp=lambda x: (0.01, 0.1, 0.02, True),
-                    verify_torus=lambda x, p, q, nproj=4: (True, h, 70))
+                    verify_torus=lambda x, p, q, nproj=4: (True, h, 63))
         with patch.multiple(m, **good):
             self.assertTrue(m.validate_candidate(V, 8, 9)[3])
             with self.assertRaises(ValueError):
@@ -124,14 +157,21 @@ class TorusSearchTests(unittest.TestCase):
         for changed in (
             dict(mr_ratio=lambda x: (1.0, 0.01, 0.1)),
             dict(mr_certificate_mp=lambda x: (0.01, 0.1, 0.02, False)),
-            dict(verify_torus=lambda x, p, q, nproj=4: (False, h, 70)),
-            *[dict(verify_torus=lambda x, p, q, nproj=4, field=field: (True, {**h, field: value}, 70))
+            dict(verify_torus=lambda x, p, q, nproj=4: (False, h, 63)),
+            dict(verify_torus=lambda x, p, q, nproj=4: (True, h, 62)),
+            *[dict(verify_torus=lambda x, p, q, nproj=4, field=field, value=value: (True, {**h, field: value}, 63))
               for field, value in [('seifert_genus', 27), ('tau', 0),
-                                   ('fibered', False), ('L_space_knot', False)]],
+                                   ('fibered', False), ('L_space_knot', False), ('total_rank', 14)]],
         ):
             with self.subTest(changed=changed), patch.multiple(m, **(good | changed)):
                 with self.assertRaises(ValueError):
                     m.validate_candidate(V, 8, 9)
+
+    def test_alexander_rank_formula_matches_known_torus_cases(self):
+        m = script('04_torus_family')
+        for p, q, rank in ((3, 7, 9), (3, 8, 11), (8, 9, 15), (9, 10, 17)):
+            with self.subTest(p=p, q=q):
+                self.assertEqual(m.torus_alexander_rank(p, q), rank)
 
     def test_empty_scan_is_logged_without_index_error_or_saved_coordinates(self):
         m = script('04_torus_family')

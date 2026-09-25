@@ -22,6 +22,23 @@ FLOORS = {3: [0.04, 0.02, 0.01], 4: [0.02, 0.01, 0.005], 5: [0.01, 0.005, 0.0025
           8: [0.001, 0.0005, 0.00025], 9: [0.0005, 0.00025, 0.0001]}
 
 
+def torus_alexander_rank(p, q):
+    """Count nonzero coefficients of the exact T(p,q) Alexander polynomial."""
+    degree = (p - 1) * (q - 1)
+    numerator = {0: 1, 1: -1, p*q: -1, p*q + 1: 1}
+    coefficients = []
+    for k in range(degree + 1):
+        value = numerator.get(k, 0)
+        if k >= p:
+            value += coefficients[k - p]
+        if k >= q:
+            value += coefficients[k - q]
+        if k >= p + q:
+            value -= coefficients[k - p - q]
+        coefficients.append(value)
+    return sum(value != 0 for value in coefficients)
+
+
 def validate_candidate(V, p, q):
     """Validate the actual, serialized coordinates, not just an optimizer path.
 
@@ -39,7 +56,9 @@ def validate_candidate(V, p, q):
     alex, h, crossings = verify_torus(V, p, q, nproj=4)
     genus = (p - 1) * (q - 1) // 2
     if (not alex or h['seifert_genus'] != genus or abs(h['tau']) != genus
-            or not h['fibered'] or not h['L_space_knot']):
+            or not h['fibered'] or not h['L_space_knot']
+            or h['total_rank'] != torus_alexander_rank(p, q)
+            or crossings < (p - 1) * q):
         raise ValueError(f'T({p},{q}) four-projection/HFK mismatch: {alex}, {h}')
     return certificate, h, crossings, (ratio, defect, mu)
 
