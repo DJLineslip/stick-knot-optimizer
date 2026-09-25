@@ -335,7 +335,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 1. Finish the two remaining ten-stick knots: obtain starting polygons for K13n586 and K13n593 from diagrams or manually provided source data.
 2. Extend the explicit torus-sampling approach beyond the now certified T(3,7) and T(3,8) to other superbridge-tight knots; numerical certificates are not formal proofs.
 3. Push T(p, p+1) to p = 8, 9, 10 and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
-4. For publication: interval-arithmetic certificates, rigorous identification, and a check with the Cantarella group for overlap with their data.
+4. For publication: independent audit of the interval-arithmetic geometric certificates, rigorous knot identification, and a check with the Cantarella group for overlap with their data.
 
 ## References
 

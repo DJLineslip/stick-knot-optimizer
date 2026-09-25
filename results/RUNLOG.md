@@ -102,4 +102,8 @@ Hard wall budget was 35 seconds per knot, including worker startup and validatio
 | T(3,7) | 1 | 8.49 s | 8.70e-13 | 9.83e-17 | 0.03194 | 2.55e-04 | 4 projections | genus 6, rank 9, fibred, L-space, tau -6 |
 | T(3,8) | 1 | 8.52 s | 5.09e-13 | 8.32e-17 | 0.02953 | 2.18e-04 | 4 projections | genus 7, rank 11, fibred, L-space, tau -7 |
 
-Both saved 17-digit coordinate files were reloaded and validated in the worker before publication, then copied to `results/` and independently reverified by `scripts/06_verify_results.py` (all 23 rows `certified=True`, `type_confirmed=True`). This is numerical evidence, not interval arithmetic or a formal knot-type proof. Full per-knot logs and the run manifest were written under `/tmp/equistick-torus37-probe/logs/` (temporary, not committed).
+Both saved 17-digit coordinate files were reloaded and validated in the worker before publication, then copied to `results/` and independently reverified by `scripts/06_verify_results.py` (all 23 rows `certified=True`, `type_confirmed=True`). This probe yielded numerical evidence; interval checks were run later (below). Knot identification is not a formal proof. Full per-knot logs and the run manifest were written under `/tmp/equistick-torus37-probe/logs/` (temporary, not committed).
+
+## Exact-decimal interval geometry, 23 stored polygons
+
+Ran `scripts/08_interval_certificates.py --expected-count 23 --timeout-s 30` on this integration branch after re-running `scripts/06_verify_results.py`. All 23 saved coordinate files satisfied the strict geometric Millett-Rawdon inequality. `results/interval_certificates.json` records the exact-decimal file hashes, the verifier source hash and revision, and enclosing interval bounds per file. These certificates establish a geometric inequality for the literal saved decimal vertices, **not** a formal identification of the knot types. The earlier 40-digit checks and four-projection/HFK identifications remain numerical.
