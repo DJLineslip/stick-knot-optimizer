@@ -4,12 +4,12 @@ A numerical search for a knot whose **equilateral stick number** e(K) is larger 
 
 ## Bottom line
 
-**No counterexample was found.** For 21 knots, the code produced an equal-stick polygon with exactly the knot's stick number, certified numerically by the Millett and Rawdon criterion and re-identified from scratch. So for these 21 knots, e(K) = s(K):
+**No counterexample was found.** For 25 knots, the code produced near-equal-stick polygons at the reported minimal stick number, with numerical knot re-identification. The interval checker establishes the geometric Millett and Rawdon inequality for all 25 stored decimal polygons. Knot identification remains numerical or invariant-based, not a rigorous proof of knot identity; the e(K) = s(K) conclusion for the named knots remains conditional on that identification.
 
-- the torus knots T(4,5), T(5,6), T(6,7) and T(7,8), with 10, 12, 14 and 16 sticks;
+- the torus knots T(3,7), T(3,8), T(4,5), T(5,6), T(6,7), T(7,8), T(8,9) and T(9,10), with 12, 12, 10, 12, 14, 16, 18 and 20 sticks;
 - 17 of the 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10.
 
-As far as we could find, none of these equilateral minimal polygons was previously published. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5). The two candidate families that the original research plan singled out therefore give way, as far as the search reached. Two of the 19 ten-stick knots remain untested or unresolved (see [Results](#results)).
+For the earlier 21 cases, we did not find previously published equilateral minimal polygons in the sources checked. No publication-priority claim is made for the four newer torus-knot coordinate sets. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5); the two remaining ten-stick knots still lack accessible starts (see [Results](#results)).
 
 Along the way the code confirmed the "ladder" constraint on bridge-tight polygons, confirmed a symmetry no-go lemma, and produced one instructive false alarm. A flow appeared to show an obstruction for T(4,5), which turned out to be an artifact.
 
@@ -27,7 +27,7 @@ equistick/                 the package (documented, tested)
     optimize.py            equalizers #2 (clearance floor) and #3 (safe homotopy)
     reduce.py              lower the stick count by annealing
     data.py                access to Eddy's stick-knot-gen data
-scripts/                   one script per experiment (01 to 07)
+scripts/                   one script per experiment (01 to 08)
 results/                   coordinates of every certified polygon, summary.csv, logs
 legacy/                    the original research scripts, verbatim (see legacy/README.md)
 requirements.txt
@@ -73,6 +73,8 @@ defect = max_i |L_i - 1|  <  min(mu/n, mu^2/4)
 ```
 
 and `geometry.mr_ratio` returns defect divided by that bound. Values below 1 certify. `certify.mr_certificate_mp` recomputes everything in 40-digit arithmetic.
+
+`equistick.interval_certificate` instead reads the stored decimal strings exactly as rational coordinates. For each nonadjacent edge pair it minimizes squared separation over both segment parameters using an exact rational convex quadratic: an interior stationary point, if feasible, and all four clamped boundary projections. This also handles parallel pairs. Outward-rounded `mpmath.iv` then bounds every edge length, the interval mean, normalized defect, normalized clearance and theorem threshold. It accepts only when the upper defect endpoint is strictly below the lower threshold endpoint. Pair-count and time budgets yield `inconclusive`, never a negative theorem claim. The generated JSON contains exact binary-rational interval endpoints (as fraction strings), file hashes and the code revision. This is a geometric existence certificate only: it does not rigorously identify the knot or prove its stick number.
 
 ### The length map
 
@@ -176,10 +178,13 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 | `01_ladder_check.py` | Angle sums and rail lengths for every bridge-tight equilateral polygon in Eddy's data | seconds |
 | `02_symmetric_nogo.py` | Samples the symmetric equilateral family at 6 to 12 sticks over every angular step; counts knotted samples | ~1 minute |
 | `03_false_collapse.py` | Reproduces the false obstruction trace for T(4,5) | seconds |
-| `04_torus_family.py p [trials]` | Clearance-floor search for T(p, p+1), then polishes, verifies and saves | seconds to minutes |
+| `04_torus_family.py p [trials]` | Unbounded single-knot clearance-floor search; use `08_torus_batch.py` for a hard deadline | seconds to minutes |
 | `05_tenstick.py K11n71,... [seconds]` | Reduce, fatten, safe homotopy, certify, for each named knot | seconds to minutes per knot |
 | `06_verify_results.py` | Re-verifies every file in `results/` from scratch and writes `results/summary.csv` | ~1 minute |
 | `07_parallel.py --budget 1800 --workers 5` | Runs the five unfinished knots concurrently, subject to the effective CPU quota; enforces a hard wall-clock budget per knot | up to 30 minutes with five workers, plus cache warmup |
+| `08_torus37.py --budget 1800 --workers 2` | Samples explicit T(3,7) and T(3,8), checks their invariants, reduces safely to 12 sticks, homotopy equalizes, validates saved coordinates; hard wall budget per knot | up to 30 minutes with two workers, plus cache warmup |
+| `08_interval_certificates.py --expected-count 23` | Writes `results/interval_certificates.json` with exact-decimal and interval geometric certificates for stored polygons, without knot identification | seconds |
+| `08_torus_batch.py --budget 1800 --workers 1` | T(8,9) and T(9,10) preparation with deterministic starts, per-knot hard deadline and final-coordinate validation | up to 30 minutes per knot; full jobs not yet run |
 
 From the repository root, run:
 
@@ -189,20 +194,42 @@ From the repository root, run:
 
 The runner uses spawned processes and one numerical-library thread per worker. The per-knot budget includes worker startup and final validation. It publishes coordinates only after checking the saved file's Millett-Rawdon ratio, 40-digit certificate, known stick number, and knot identification in three projections. Per-knot logs and a machine-readable run manifest go to `results/logs/`; outcomes are appended to `results/tenstick.log` and provenance to `results/RUNLOG.md`. Timeouts are search logs, not evidence of an obstruction.
 
+For the two superbridge-tight torus knots, run from the repository root:
+
+```bash
+.venv/bin/python scripts/08_torus37.py --knots T3_7,T3_8 --budget 1800 --workers 2
+```
+
+The torus runner uses 24 vertices sampled from `(R + r cos(qt)) (cos(3t), sin(3t)), r sin(qt)` with R = 2.5, r = 1 and q = 7 or 8. It verifies the polygonal start using four Alexander projections and HFK (not just the smooth curve), then calls `reduce_to` for knot-type-safe vertex deletion. It rechecks type after reduction and after equalization/polishing. Only 17-digit saved coordinates passing the float MR ratio, 40-digit MR check, four projections and HFK are published. Logs are in `results/torus37.log` and `results/logs/`. The separate interval checker addresses the geometric inequality, not knot identity.
+
+For the next torus pair, from the repository root (using the local dependencies):
+
+```bash
+EQUISTICK_DATA=./stick-knot-gen \
+  .venv/bin/python scripts/08_torus_batch.py \
+  --knots T8_9,T9_10 --budget 1800 --workers 2 --trials 1000
+```
+
+`--workers 2` ran on the shared five-CPU quota; the optional default of one leaves more capacity for other work. The per-knot deadline includes worker startup, all trials and final validation as observed by the supervisor; the operating-system `process.start()` call itself is not interruptible by this Python supervisor. Seeds are `seed_for('T8_9')` and `seed_for('T9_10')`, plus `--run-index` (default 0). Starts in `torus.STARTS` were found by a short deterministic 250-trial `symmetric_scan`, not by an equal-stick certification. If a start is absent, an empty scan is logged without an exception. Each trial records floor, defect, clearance, ratio and eligibility (float MR plus preliminary Alexander match) in `results/logs/torus_*.log`. The manifest, append-only `RUNLOG.md` and `torus_search.log` record outcomes and provenance. Only 17-digit coordinates that pass a float MR ratio below 1, the 40-digit MR check and `verify_torus` (four Alexander projections, correct genus, absolute tau, exact Alexander-coefficient rank, fibredness, L-space property and crossing lower bound) after serialization may be published. Both searches succeeded within their 1800-second-per-knot limits. A timeout or unsuccessful trial would be only "not found within budget," never an obstruction.
+
 ---
 
 ## Results
 
 ### 1. Certified equal-stick minimal polygons
 
-All 21 were re-verified from scratch by `06_verify_results.py`. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound is 2π ≈ 6.283.
+All 25 were re-verified from scratch by `06_verify_results.py` and the exact-decimal interval checker. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound of 2π ≈ 6.283 applies only to bridge-tight polygons, not to T(3,7) or T(3,8).
 
 | Knot | Sticks (= s) | Defect | μ | Bound | Angles | Identification |
 |---|---|---|---|---|---|---|
+| T(3,7) | 12 | 9.8e-17 | 0.0319 | 2.55e-04 | 8.837 | Alexander ×4; HFK genus 6, L-space, fibred, τ = −6, rank 9; 14 crossings |
+| T(3,8) | 12 | 8.3e-17 | 0.0295 | 2.18e-04 | 6.212 | Alexander ×4; HFK genus 7, L-space, fibred, τ = −7, rank 11; 16 crossings |
 | T(4,5) | 10 | 1.2e-16 | 0.0100 | 2.50e-05 | 4.154 | Alexander ×4; HFK genus 6, L-space, fibred, τ = −6; 15 crossings |
 | T(5,6) | 12 | 1.0e-16 | 0.0050 | 6.25e-06 | 3.820 | Alexander ×4; HFK genus 10, L-space, fibred, τ = 10; 24 crossings |
 | T(6,7) | 14 | 1.3e-16 | 0.0025 | 1.56e-06 | 2.646 | Alexander ×4; HFK genus 15, L-space, fibred, τ = −15; 35 crossings |
 | T(7,8) | 16 | 1.3e-16 | 0.0010 | 2.50e-07 | 3.053 | Alexander ×4; HFK genus 21, L-space, fibred, τ = 21; 48 crossings |
+| T(8,9) | 18 | 1.6e-16 | 0.001001 | 2.50e-07 | 3.663 | Alexander ×4; HFK genus 28, rank 15, L-space, fibred, τ = 28; 63 crossings |
+| T(9,10) | 20 | 1.4e-16 | 0.0005 | 6.25e-08 | 2.889 | Alexander ×4; HFK genus 36, rank 17, L-space, fibred, τ = 36; 80 crossings |
 | K11n71 | 10 | 4.5e-14 | 0.0153 | 5.85e-05 | 4.992 | SnapPy ×3 |
 | K11n75 | 10 | 1.5e-13 | 0.0134 | 4.50e-05 | 4.707 | SnapPy ×3 |
 | K11n76 | 10 | 6.5e-11 | 0.0113 | 3.20e-05 | 4.769 | SnapPy ×3 |
@@ -221,7 +248,7 @@ All 21 were re-verified from scratch by `06_verify_results.py`. "Defect" is the 
 | K13n607 | 10 | 9.4e-13 | 0.0007 | 1.21e-07 | 5.702 | SnapPy ×3 |
 | K13n608 | 10 | 1.6e-12 | 0.0242 | 1.46e-04 | 5.333 | SnapPy ×3 |
 
-The torus stick numbers come from Jin's theorem, s(T(p,q)) = 2q for p < q < 2p. The ten-stick knots' stick numbers come from the four-bridge lower bound together with the Cantarella group's 10-stick examples. The certified margins are large: the defect sits at least four orders of magnitude below the bound in every case.
+The T(p,p+1) stick numbers come from Jin's theorem, s(T(p,q)) = 2q for p < q < 2p. T(3,7) and T(3,8) have known stick number 12 as listed in `AGENTS.md`; this specific value is not an instance of that p < q < 2p formula. The ten-stick knots' stick numbers come from the four-bridge lower bound together with the Cantarella group's 10-stick examples. The certified margins are large: the defect sits at least four orders of magnitude below the bound in every case.
 
 ### 2. Validation
 
@@ -229,7 +256,7 @@ The pipeline recovered an equilateral 8-stick 8₁₉ = T(3,4), which Millett fo
 
 ### 3. The torus family: clearance shrinks but stays positive
 
-This table shows the highest clearance floor at which equalizer #2 certified, from 6 to 12 random starts. These are floors this optimizer reached, not true maxima.
+This table shows the highest clearance floor at which equalizer #2 certified during each recorded search. The earlier family runs used 6 to 12 random starts; the newer bounded runs used the trial counts in `results/RUNLOG.md`. These are floors this optimizer reached, not true maxima.
 
 | Knot | Sticks | Certified at μ₀ | Failed at μ₀ |
 |---|---|---|---|
@@ -238,8 +265,10 @@ This table shows the highest clearance floor at which equalizer #2 certified, fr
 | T(5,6) | 12 | 0.005 | 0.01 |
 | T(6,7) | 14 | 0.0025 | 0.005 |
 | T(7,8) | 16 | 0.001 | 0.0025 |
+| T(8,9) | 18 | 0.001 | not tested |
+| T(9,10) | 20 | 0.0005 | not tested |
 
-The ladder is real (angle sums 2.6 to 4.2, all under 2π) and gets thinner with p, but it does not obstruct up to p = 7. If the decay continues, the family will become too thin to certify numerically before it becomes provably impossible, so settling it needs a proof, not more computation.
+The ladder is real (angle sums 2.6 to 4.2, all under 2π) and gets thinner with p, but it does not obstruct up to p = 9. If the decay continues, the family may become too thin to certify numerically before it becomes provably impossible, so settling it needs a proof, not just more computation.
 
 ### 4. Ladder lemma on published data (`01`)
 
@@ -253,7 +282,7 @@ Angle sums for bridge-tight equilateral polygons in Eddy's data:
 | K13n592 | 10 | 4.739 |
 | K15n41127 | 10 | 4.942 |
 
-All are below 2π, as the lemma requires, and so are all 16 new polygons.
+All are below 2π, as the lemma requires for bridge-tight polygons. The new T(3,7) polygon is not bridge-tight and has a larger angle sum.
 
 ### 5. Symmetry no-go (`02`)
 
@@ -277,11 +306,11 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 ## Limitations
 
-1. **Certificates are numerical, not formal proofs.** Coordinates are 64-bit floats. The Millett and Rawdon test is recomputed in 40-digit arithmetic from those floats, but not with interval arithmetic, and the high-precision distance routine follows the same branch logic as the float one. The margins are at least five orders of magnitude, so rounding is not a plausible failure mode, but a publishable proof should use interval arithmetic throughout.
+1. **The geometric inequality is checked rigorously, but knot identity is not.** The legacy 40-digit checker still uses floats on input and is not a rigorous certificate. The separate interval checker uses the stored decimal strings exactly, exact rational segment minimization and outward-rounded arithmetic for the remaining bounds. It establishes the Millett and Rawdon inequality for those exact decimal polygons. It does not prove that they have the knot names in the results table, nor does it independently verify the theorem hypotheses or knot identification. Replacing the interval results with the legacy checker would lose this guarantee.
 
 2. **Knot identification relies on invariants.**
    - Hyperbolic knots are identified by SnapPy's `identify()`. It matches the complement against census manifolds using numerically computed hyperbolic structures, without SnapPy's rigorous `verified=True` mode. It also ignores chirality, which is harmless here because e and s are mirror invariant.
-   - Torus knots are matched on every invariant checked (Alexander polynomial in four projections; knot Floer homology genus, fibredness, L-space property, τ, total rank; crossing number after simplification). Knot Floer homology is not known to detect T(p, p+1) in general, so this is overwhelming evidence rather than proof.
+   - Torus knots are matched on every invariant checked (Alexander polynomial in four projections; knot Floer homology genus, fibredness, L-space property, absolute τ, total rank; crossing number after simplification). The matching ignores chirality, so torus labels are up to mirror image. Knot Floer homology is not known to detect T(p, p+1) in general, so this is strong evidence rather than proof.
    - Two routes would make it rigorous: exhibit a knot-type-safe path back to the symmetric construction, whose type follows from Jin's work, or use a rigorous recognition tool.
    - SnapPy sometimes reports a non-table census name for a table knot (K15n41127 comes back as K6_37). Scripts that compare names can therefore report false mismatches, but not false matches.
 
@@ -291,7 +320,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 5. **Negative results mean nothing.** A flow that collapses, an optimizer that stalls, or a reducer that times out is not evidence that e(K) > s(K); the false alarm in section 6 of the Results shows how misleading such signals are. Only the certified polygons are results.
 
-6. **Coverage is narrow.** The search covered 21 knots, torus knots only up to T(7,8), and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
+6. **Coverage is narrow.** The search covered 25 knots, torus knots in the listed families only, and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
 
 7. **"New" is as far as we could find.** Eddy's repository had no equal-stick minimal versions of these knots. The Cantarella group's coordinates (the non-equilateral 10-stick polygons for the 19 knots and their torus-knot data) sit on Harvard Dataverse, which blocked automated access, and we did not survey every other source.
 
@@ -303,14 +332,14 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 9. **Theory is unreviewed.** The ladder lemma, the symmetry no-go and the length-map reformulation are our own arguments, checked by hand and numerically, not peer-reviewed. The no-go scan tests knottedness through a nontrivial Alexander polynomial, so it would miss knots with trivial Alexander polynomial, and it samples randomly rather than exhaustively.
 
-10. **Compute.** Everything ran on one CPU core under a 300-second limit per command, and background jobs did not survive between commands. That is why the ten-stick batch is incomplete.
+10. **Compute and publication concurrency.** Early exploratory runs used one CPU core under a 300-second limit per command. The later bounded torus search used two workers and a separate 1800-second limit per knot; it does not imply exhaustive coverage of polygon space. The supervisors use exclusive hard links to avoid replacing existing result files and accept identical existing bytes on rerun. This requires hard-link support on the output filesystem; staging directories are created beneath the output directory. An unrelated writer that disregards this publication protocol and mutates a result in place remains outside its protection.
 
 ## Next steps
 
 1. Finish the two remaining ten-stick knots: obtain starting polygons for K13n586 and K13n593 from diagrams or manually provided source data.
-2. Move to *superbridge-tight* knots such as T(3,7) and T(3,8), which need exactly 12 sticks. Their minimal polygons are not thin ladders, so the geometry differs from everything tested here.
-3. Push T(p, p+1) to p = 8, 9, 10 and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
-4. For publication: interval-arithmetic certificates, rigorous identification, and a check with the Cantarella group for overlap with their data.
+2. Extend the explicit torus-sampling approach beyond the now certified T(3,7) and T(3,8) to other superbridge-tight knots; numerical certificates are not formal proofs.
+3. Push T(p, p+1) to p = 10 and beyond and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
+4. For publication: independent audit of the interval-arithmetic geometric certificates, rigorous knot identification, and a check with the Cantarella group for overlap with their data.
 
 ## References
 
