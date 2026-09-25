@@ -3,3 +3,9 @@ K13n602   not found: 0 10-stick realization(s) in 60s
 K13n603   FOUND equilateral 10-stick (defect 1.5e-14, mu 0.0262, bound 1.7e-04, certified True), 1 reduction(s), 13s
 K13n604   FOUND equilateral 10-stick (defect 1.7e-16, mu 0.0062, bound 9.6e-06, certified True), 1 reduction(s), 3s
 K13n607   FOUND equilateral 10-stick (defect 9.4e-13, mu 0.0007, bound 1.2e-07, certified True), 1 reduction(s), 8s
+K13n602 [error] ZeroDivisionError: division by zero
+K13n5018 [certified] FOUND equilateral 10-stick (defect 2.0e-16, mu 0.0187, bound 8.7e-05, certified True), 1 reduction(s), 9s
+K13n1192 [certified] FOUND equilateral 10-stick (defect 8.3e-11, mu 0.0163, bound 6.6e-05, certified True), 1 reduction(s), 10s
+K13n608 [certified] FOUND equilateral 10-stick (defect 1.6e-12, mu 0.0242, bound 1.5e-04, certified True), 1 reduction(s), 25s
+K13n285 [certified] FOUND equilateral 10-stick (defect 1.1e-11, mu 0.0100, bound 2.5e-05, certified True), 1 reduction(s), 276s
+K13n602 [certified] FOUND equilateral 10-stick (defect 4.3e-10, mu 0.0108, bound 2.9e-05, certified True), 1 reduction(s), 123s

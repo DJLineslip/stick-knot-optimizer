@@ -1,0 +1,6 @@
+stick-knot-gen/
+.venv/
+__pycache__/
+data/external/
+results/logs/
+results/.candidate_*/

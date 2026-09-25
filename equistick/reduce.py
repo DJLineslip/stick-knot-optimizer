@@ -38,7 +38,7 @@ def tri_pierce_weight(p, q, a, b, c):
     nrm = cross3(e1, e2)
     nn = math.sqrt(nrm @ nrm)
     if nn < 1e-14:
-        return 0.0
+        return 1.0  # Degenerate triangle: do not suggest this vertex for deletion.
     nh = nrm / nn
     dp = (p - a) @ nh
     dq = (q - a) @ nh
@@ -53,6 +53,8 @@ def tri_pierce_weight(p, q, a, b, c):
     d20 = v2 @ e1
     d21 = v2 @ e2
     den = d00 * d11 - d01 * d01
+    if den <= 1e-14 * d00 * d11:
+        return 1.0  # Ill-conditioned barycentric weights are not a safe deletion hint.
     vv = (d11 * d20 - d01 * d21) / den      # apex weight
     ww = (d00 * d21 - d01 * d20) / den
     uu = 1.0 - vv - ww

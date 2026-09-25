@@ -4,12 +4,12 @@ A numerical search for a knot whose **equilateral stick number** e(K) is larger 
 
 ## Bottom line
 
-**No counterexample was found.** For 16 knots, the code produced an equal-stick polygon with exactly the knot's stick number, certified numerically by the Millett and Rawdon criterion and re-identified from scratch. So for these 16 knots, e(K) = s(K):
+**No counterexample was found.** For 21 knots, the code produced an equal-stick polygon with exactly the knot's stick number, certified numerically by the Millett and Rawdon criterion and re-identified from scratch. So for these 21 knots, e(K) = s(K):
 
 - the torus knots T(4,5), T(5,6), T(6,7) and T(7,8), with 10, 12, 14 and 16 sticks;
-- 12 of the 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10.
+- 17 of the 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10.
 
-As far as we could find, none of these equilateral minimal polygons was previously published. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5). The two candidate families that the original research plan singled out therefore give way, as far as the search reached. Seven of the 19 ten-stick knots remain untested or unresolved (see [Results](#results)).
+As far as we could find, none of these equilateral minimal polygons was previously published. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5). The two candidate families that the original research plan singled out therefore give way, as far as the search reached. Two of the 19 ten-stick knots remain untested or unresolved (see [Results](#results)).
 
 Along the way the code confirmed the "ladder" constraint on bridge-tight polygons, confirmed a symmetry no-go lemma, and produced one instructive false alarm. A flow appeared to show an obstruction for T(4,5), which turned out to be an artifact.
 
@@ -27,7 +27,7 @@ equistick/                 the package (documented, tested)
     optimize.py            equalizers #2 (clearance floor) and #3 (safe homotopy)
     reduce.py              lower the stick count by annealing
     data.py                access to Eddy's stick-knot-gen data
-scripts/                   one script per experiment (01 to 06)
+scripts/                   one script per experiment (01 to 07)
 results/                   coordinates of every certified polygon, summary.csv, logs
 legacy/                    the original research scripts, verbatim (see legacy/README.md)
 requirements.txt
@@ -179,6 +179,15 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 | `04_torus_family.py p [trials]` | Clearance-floor search for T(p, p+1), then polishes, verifies and saves | seconds to minutes |
 | `05_tenstick.py K11n71,... [seconds]` | Reduce, fatten, safe homotopy, certify, for each named knot | seconds to minutes per knot |
 | `06_verify_results.py` | Re-verifies every file in `results/` from scratch and writes `results/summary.csv` | ~1 minute |
+| `07_parallel.py --budget 1800 --workers 5` | Runs the five unfinished knots concurrently, subject to the effective CPU quota; enforces a hard wall-clock budget per knot | up to 30 minutes with five workers, plus cache warmup |
+
+From the repository root, run:
+
+```bash
+.venv/bin/python scripts/07_parallel.py --knots K13n285,K13n602,K13n608,K13n1192,K13n5018 --budget 1800 --workers 5
+```
+
+The runner uses spawned processes and one numerical-library thread per worker. The per-knot budget includes worker startup and final validation. It publishes coordinates only after checking the saved file's Millett-Rawdon ratio, 40-digit certificate, known stick number, and knot identification in three projections. Per-knot logs and a machine-readable run manifest go to `results/logs/`; outcomes are appended to `results/tenstick.log` and provenance to `results/RUNLOG.md`. Timeouts are search logs, not evidence of an obstruction.
 
 ---
 
@@ -186,7 +195,7 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 
 ### 1. Certified equal-stick minimal polygons
 
-All 16 were re-verified from scratch by `06_verify_results.py`. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound is 2π ≈ 6.283.
+All 21 were re-verified from scratch by `06_verify_results.py`. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound is 2π ≈ 6.283.
 
 | Knot | Sticks (= s) | Defect | μ | Bound | Angles | Identification |
 |---|---|---|---|---|---|---|
@@ -198,20 +207,25 @@ All 16 were re-verified from scratch by `06_verify_results.py`. "Defect" is the 
 | K11n75 | 10 | 1.5e-13 | 0.0134 | 4.50e-05 | 4.707 | SnapPy ×3 |
 | K11n76 | 10 | 6.5e-11 | 0.0113 | 3.20e-05 | 4.769 | SnapPy ×3 |
 | K11n78 | 10 | 1.3e-10 | 0.0312 | 2.43e-04 | 4.907 | SnapPy ×3 |
+| K13n1192 | 10 | 8.3e-11 | 0.0163 | 6.62e-05 | 4.695 | SnapPy ×3 |
 | K13n225 | 10 | 2.0e-16 | 0.0189 | 8.97e-05 | 4.772 | SnapPy ×3 |
 | K13n230 | 10 | 2.2e-10 | 0.0219 | 1.20e-04 | 5.267 | SnapPy ×3 |
+| K13n285 | 10 | 1.1e-11 | 0.0100 | 2.52e-05 | 5.210 | SnapPy ×3 |
 | K13n288 | 10 | 6.3e-16 | 0.0055 | 7.68e-06 | 5.000 | SnapPy ×3 |
 | K13n307 | 10 | 2.6e-15 | 0.0232 | 1.34e-04 | 4.883 | SnapPy ×3 |
+| K13n5018 | 10 | 2.0e-16 | 0.0187 | 8.71e-05 | 4.617 | SnapPy ×3 |
 | K13n584 | 10 | 1.1e-11 | 0.0275 | 1.89e-04 | 4.986 | SnapPy ×3 |
+| K13n602 | 10 | 4.3e-10 | 0.0108 | 2.91e-05 | 3.901 | SnapPy ×3 |
 | K13n603 | 10 | 1.5e-14 | 0.0262 | 1.71e-04 | 4.876 | SnapPy ×3 |
 | K13n604 | 10 | 1.7e-16 | 0.0062 | 9.63e-06 | 3.676 | SnapPy ×3 |
 | K13n607 | 10 | 9.4e-13 | 0.0007 | 1.21e-07 | 5.702 | SnapPy ×3 |
+| K13n608 | 10 | 1.6e-12 | 0.0242 | 1.46e-04 | 5.333 | SnapPy ×3 |
 
-The torus stick numbers come from Jin's theorem, s(T(p,q)) = 2q for p < q < 2p. The ten-stick knots' stick numbers come from the four-bridge lower bound together with the Cantarella group's 10-stick examples. The certified margins are large: the defect sits at least five orders of magnitude below the bound in every case.
+The torus stick numbers come from Jin's theorem, s(T(p,q)) = 2q for p < q < 2p. The ten-stick knots' stick numbers come from the four-bridge lower bound together with the Cantarella group's 10-stick examples. The certified margins are large: the defect sits at least four orders of magnitude below the bound in every case.
 
 ### 2. Validation
 
-The pipeline recovered an equilateral 8-stick 8₁₉ = T(3,4), which Millett found first; it had defeated Rawdon and Scharein's 2002 search. The reduction annealer independently reproduced the Cantarella group's 10-stick versions of 12 of the 19 knots (their own coordinates were not accessible; see Limitations). It usually needed only one reduction and a few seconds.
+The pipeline recovered an equilateral 8-stick 8₁₉ = T(3,4), which Millett found first; it had defeated Rawdon and Scharein's 2002 search. The reduction annealer produced 10-stick versions of 17 of the 19 knots (the Cantarella group's own coordinates were not accessible; see Limitations). The latest five each needed one successful reduction. The K13n602 first run hit a numerical division error; a regression-tested conservative guard was added, and a separate full-budget retry succeeded. Logs for both attempts are retained.
 
 ### 3. The torus family: clearance shrinks but stays positive
 
@@ -255,10 +269,6 @@ Lesson: a numerical collapse is weak evidence. Only certified positive results c
 
 | Knot | Status |
 |---|---|
-| K13n285 | Annealer found no 10-stick version in 240 s |
-| K13n602 | Annealer found no 10-stick version in 60 s |
-| K13n608, K13n5018 | Not attempted (Eddy's data starts at 12 sticks, so two reductions are needed) |
-| K13n1192 | Not attempted |
 | K13n586, K13n593 | No starting data in Eddy's repository |
 
 Failing to reduce within a time budget says nothing about these knots. It is a search limitation, not evidence.
@@ -279,9 +289,9 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 4. **Equalizer #2 does not preserve knot type along its path.** Its results are trusted only because every final polygon was re-identified. Equalizer #3 and the reducer do preserve type (up to point 3).
 
-5. **Negative results mean nothing.** A flow that collapses, an optimizer that stalls, or a reducer that times out is not evidence that e(K) > s(K); section 6 of the Results shows how misleading such signals are. Only the certified polygons are results.
+5. **Negative results mean nothing.** A flow that collapses, an optimizer that stalls, or a reducer that times out is not evidence that e(K) > s(K); the false alarm in section 6 of the Results shows how misleading such signals are. Only the certified polygons are results.
 
-6. **Coverage is narrow.** The search covered 16 knots, torus knots only up to T(7,8), and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
+6. **Coverage is narrow.** The search covered 21 knots, torus knots only up to T(7,8), and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
 
 7. **"New" is as far as we could find.** Eddy's repository had no equal-stick minimal versions of these knots. The Cantarella group's coordinates (the non-equilateral 10-stick polygons for the 19 knots and their torus-knot data) sit on Harvard Dataverse, which blocked automated access, and we did not survey every other source.
 
@@ -297,7 +307,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 ## Next steps
 
-1. Finish the seven remaining ten-stick knots: longer reduction budgets, two-stage reduction for K13n608 and K13n5018, and starting polygons built from diagrams for K13n586 and K13n593.
+1. Finish the two remaining ten-stick knots: obtain starting polygons for K13n586 and K13n593 from diagrams or manually provided source data.
 2. Move to *superbridge-tight* knots such as T(3,7) and T(3,8), which need exactly 12 sticks. Their minimal polygons are not thin ladders, so the geometry differs from everything tested here.
 3. Push T(p, p+1) to p = 8, 9, 10 and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
 4. For publication: interval-arithmetic certificates, rigorous identification, and a check with the Cantarella group for overlap with their data.
