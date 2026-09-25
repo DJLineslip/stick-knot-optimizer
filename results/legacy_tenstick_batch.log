@@ -1,0 +1,10 @@
+K11n71    equilateral 10-stick FOUND  (defect 4.5e-14, mu 0.0153, MR bound 5.9e-05, certified True)  after 1 reduction(s), 9s
+K11n75    equilateral 10-stick FOUND  (defect 1.5e-13, mu 0.0134, MR bound 4.5e-05, certified True)  after 1 reduction(s), 15s
+K11n76    equilateral 10-stick FOUND  (defect 6.0e-11, mu 0.0120, MR bound 3.6e-05, certified True)  after 1 reduction(s), 2s
+K11n78    equilateral 10-stick FOUND  (defect 1.3e-10, mu 0.0312, MR bound 2.4e-04, certified True)  after 1 reduction(s), 15s
+K13n225   equilateral 10-stick FOUND  (defect 2.0e-16, mu 0.0189, MR bound 9.0e-05, certified True)  after 1 reduction(s), 3s
+K13n230   equilateral 10-stick FOUND  (defect 2.2e-10, mu 0.0219, MR bound 1.2e-04, certified True)  after 1 reduction(s), 0s
+K13n285   not found: 0 ten-stick realization(s) in 240s
+K13n288   equilateral 10-stick FOUND  (defect 6.2e-16, mu 0.0055, MR bound 7.7e-06, certified True)  after 1 reduction(s), 21s
+K13n307   equilateral 10-stick FOUND  (defect 2.6e-15, mu 0.0231, MR bound 1.3e-04, certified True)  after 1 reduction(s), 2s
+K13n584   equilateral 10-stick FOUND  (defect 1.1e-11, mu 0.0275, MR bound 1.9e-04, certified True)  after 1 reduction(s), 3s
