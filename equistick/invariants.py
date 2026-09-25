@@ -166,6 +166,43 @@ def _link(V, rng):
     return L
 
 
+def matches_census_name(identified, expected):
+    """Check a SnapPy identifier against every census alias of a table knot."""
+    if identified == expected:
+        return True
+    if identified is None:
+        return False
+    import snappy
+    try:
+        aliases = {str(m).split('(')[0] for m in snappy.Manifold(expected).identify()}
+    except Exception:
+        return False
+    return identified in aliases
+
+
+def identify_pd(pd):
+    """Identify a 0-based PD code up to mirror image, where SnapPy can.
+
+    Returns None for nonhyperbolic complements, which need another check.
+    Prefer the Rolfsen name when SnapPy supplies one for a small knot.
+    """
+    if not pd:
+        return 'unknot'
+    import re
+    import snappy  # noqa: F401  (spherogram.Link.exterior needs snappy loaded)
+    import spherogram
+
+    link = spherogram.Link(pd)
+    link.simplify('global')
+    if not link.crossings:
+        return 'unknot'
+    names = [str(m).split('(')[0] for m in link.exterior().identify()]
+    if not names:
+        return None
+    return next((name for name in names if re.fullmatch(r'\d+_\d+', name)),
+                names[-1])
+
+
 def identify(V, tries=3, seed=1):
     """SnapPy census name of the knot of polygon V ('unknot' if trivial,
     None if SnapPy cannot identify it, e.g. for torus knots).

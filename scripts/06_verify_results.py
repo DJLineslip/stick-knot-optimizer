@@ -16,7 +16,7 @@ Writes results/summary.csv and prints a table.
 import glob, os, re, csv
 import numpy as np
 from equistick.geometry import lengths, angle_sum
-from equistick.invariants import identify
+from equistick.invariants import identify, matches_census_name
 from equistick.certify import mr_certificate_mp, verify_torus
 
 if __name__ == '__main__':
@@ -38,7 +38,7 @@ if __name__ == '__main__':
             name = 'T(%d,%d)' % (p, q)
         else:
             ids = [identify(V, seed=s) for s in (1, 2, 3)]
-            ident = all(x == knot for x in ids)
+            ident = all(matches_census_name(x, knot) for x in ids)
             how = 'SnapPy identify x3: %s' % ','.join(sorted(set(str(x) for x in ids)))
             name = knot
         rows.append(dict(knot=name, sticks=len(V), length_spread='%.1e' % (L.max() - L.min()),

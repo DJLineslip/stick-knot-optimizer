@@ -1,0 +1,4352 @@
+{
+  "by_crossing": {
+    "3": 1,
+    "4": 1,
+    "5": 2,
+    "6": 3,
+    "7": 7,
+    "8": 21,
+    "9": 49,
+    "10": 165,
+    "11": 552,
+    "12": 2176,
+    "13": 9988
+  },
+  "citation": "doi:10.7910/DVN/NFJIII",
+  "code_sha256": {
+    "equistick/crss.py": "f21a6bff6952ad19058200da7b9a30a33f3df8deb07c669fdac267e467b9ce5c",
+    "equistick/invariants.py": "9947d1f2e749e4cde013a742cf064c568501ca493138c8e1275ad510203271c2",
+    "scripts/crss_validate.py": "b73f7d3b15bed46c49e3e202ab4ec02fbc9ed75f35f5bb5555b71dd0214bd455"
+  },
+  "command": "PYTHONPATH=.. EQUISTICK_DATA=/workspace/repos/stick-knot-optimizer/stick-knot-gen python crss_validate.py",
+  "coords_layout": "float64 N x 3, unnormalised source scale",
+  "eddy_name_matches": 1937,
+  "elapsed_seconds": 126.14,
+  "exact_table_matches": 55,
+  "git_base_commit": "65cf4ad721feae577b70853dbde921f712d1d4af",
+  "groups": 12965,
+  "identity_details": [
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 3,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "3_1",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K4a1",
+        "K4a1",
+        "K4a1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "4_1",
+      "pd_id": "4_1",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 5,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "5_1",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K5a1",
+        "K5a1",
+        "K5a1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "5_2",
+      "pd_id": "5_2",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K6a3",
+        "K6a3",
+        "K6a3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "6_1",
+      "pd_id": "6_1",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K6a2",
+        "K6a2",
+        "K6a2"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "6_2",
+      "pd_id": "6_2",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K6a1",
+        "K6a1",
+        "K6a1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "6_3",
+      "pd_id": "6_3",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 7,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "7_1",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K7a4",
+        "K7a4",
+        "K7a4"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "7_2",
+      "pd_id": "7_2",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K7a5",
+        "K7a5",
+        "K7a5"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "7_3",
+      "pd_id": "7_3",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K7a6",
+        "K7a6",
+        "K7a6"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "7_4",
+      "pd_id": "7_4",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K7a3",
+        "K7a3",
+        "K7a3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "7_5",
+      "pd_id": "7_5",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K7a2",
+        "K7a2",
+        "K7a2"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "7_6",
+      "pd_id": "7_6",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K7a1",
+        "K7a1",
+        "K7a1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "7_7",
+      "pd_id": "7_7",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a11",
+        "K8a11",
+        "K8a11"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_1",
+      "pd_id": "8_1",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a3",
+        "K8a3",
+        "K8a3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_10",
+      "pd_id": "8_10",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a9",
+        "K8a9",
+        "K8a9"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_11",
+      "pd_id": "8_11",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a5",
+        "K8a5",
+        "K8a5"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_12",
+      "pd_id": "8_12",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a7",
+        "K8a7",
+        "K8a7"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_13",
+      "pd_id": "8_13",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a1",
+        "K8a1",
+        "K8a1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_14",
+      "pd_id": "8_14",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a2",
+        "K8a2",
+        "K8a2"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_15",
+      "pd_id": "8_15",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a15",
+        "K8a15",
+        "K8a15"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_16",
+      "pd_id": "8_16",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a14",
+        "K8a14",
+        "K8a14"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_17",
+      "pd_id": "8_17",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a12",
+        "K8a12",
+        "K8a12"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_18",
+      "pd_id": "8_18",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 8,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "8_19",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a8",
+        "K8a8",
+        "K8a8"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_2",
+      "pd_id": "8_2",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8n1",
+        "K8n1",
+        "K8n1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_20",
+      "pd_id": "8_20",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8n2",
+        "K8n2",
+        "K8n2"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_21",
+      "pd_id": "8_21",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a18",
+        "K8a18",
+        "K8a18"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_3",
+      "pd_id": "8_3",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a17",
+        "K8a17",
+        "K8a17"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_4",
+      "pd_id": "8_4",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a13",
+        "K8a13",
+        "K8a13"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_5",
+      "pd_id": "8_5",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a10",
+        "K8a10",
+        "K8a10"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_6",
+      "pd_id": "8_6",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a6",
+        "K8a6",
+        "K8a6"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_7",
+      "pd_id": "8_7",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a4",
+        "K8a4",
+        "K8a4"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_8",
+      "pd_id": "8_8",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K8a16",
+        "K8a16",
+        "K8a16"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "8_9",
+      "pd_id": "8_9",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 9,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "9_1",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a39",
+        "K9a39",
+        "K9a39"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_10",
+      "pd_id": "9_10",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a20",
+        "K9a20",
+        "K9a20"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_11",
+      "pd_id": "9_11",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a22",
+        "K9a22",
+        "K9a22"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_12",
+      "pd_id": "9_12",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a34",
+        "K9a34",
+        "K9a34"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_13",
+      "pd_id": "9_13",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a17",
+        "K9a17",
+        "K9a17"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_14",
+      "pd_id": "9_14",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a10",
+        "K9a10",
+        "K9a10"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_15",
+      "pd_id": "9_15",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a25",
+        "K9a25",
+        "K9a25"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_16",
+      "pd_id": "9_16",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a14",
+        "K9a14",
+        "K9a14"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_17",
+      "pd_id": "9_17",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a24",
+        "K9a24",
+        "K9a24"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_18",
+      "pd_id": "9_18",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a3",
+        "K9a3",
+        "K9a3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_19",
+      "pd_id": "9_19",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a27",
+        "K9a27",
+        "K9a27"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_2",
+      "pd_id": "9_2",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a19",
+        "K9a19",
+        "K9a19"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_20",
+      "pd_id": "9_20",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a21",
+        "K9a21",
+        "K9a21"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_21",
+      "pd_id": "9_21",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a2",
+        "K9a2",
+        "K9a2"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_22",
+      "pd_id": "9_22",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a16",
+        "K9a16",
+        "K9a16"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_23",
+      "pd_id": "9_23",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a7",
+        "K9a7",
+        "K9a7"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_24",
+      "pd_id": "9_24",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a4",
+        "K9a4",
+        "K9a4"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_25",
+      "pd_id": "9_25",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a15",
+        "K9a15",
+        "K9a15"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_26",
+      "pd_id": "9_26",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a12",
+        "K9a12",
+        "K9a12"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_27",
+      "pd_id": "9_27",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a5",
+        "K9a5",
+        "K9a5"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_28",
+      "pd_id": "9_28",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a31",
+        "K9a31",
+        "K9a31"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_29",
+      "pd_id": "9_29",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a38",
+        "K9a38",
+        "K9a38"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_3",
+      "pd_id": "9_3",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a1",
+        "K9a1",
+        "K9a1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_30",
+      "pd_id": "9_30",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a13",
+        "K9a13",
+        "K9a13"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_31",
+      "pd_id": "9_31",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a6",
+        "K9a6",
+        "K9a6"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_32",
+      "pd_id": "9_32",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a11",
+        "K9a11",
+        "K9a11"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_33",
+      "pd_id": "9_33",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a28",
+        "K9a28",
+        "K9a28"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_34",
+      "pd_id": "9_34",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a40",
+        "K9a40",
+        "K9a40"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_35",
+      "pd_id": "9_35",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a9",
+        "K9a9",
+        "K9a9"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_36",
+      "pd_id": "9_36",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a18",
+        "K9a18",
+        "K9a18"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_37",
+      "pd_id": "9_37",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a30",
+        "K9a30",
+        "K9a30"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_38",
+      "pd_id": "9_38",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a32",
+        "K9a32",
+        "K9a32"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_39",
+      "pd_id": "9_39",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a35",
+        "K9a35",
+        "K9a35"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_4",
+      "pd_id": "9_4",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a37",
+        "K9a37",
+        "K9a37"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_40",
+      "pd_id": "9_40",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a29",
+        "K9a29",
+        "K9a29"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_41",
+      "pd_id": "9_41",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n4",
+        "K9n4",
+        "K9n4"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_42",
+      "pd_id": "9_42",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n3",
+        "K9n3",
+        "K9n3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_43",
+      "pd_id": "9_43",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n1",
+        "K9n1",
+        "K9n1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_44",
+      "pd_id": "9_44",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n2",
+        "K9n2",
+        "K9n2"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_45",
+      "pd_id": "9_45",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n5",
+        "K9n5",
+        "K9n5"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_46",
+      "pd_id": "9_46",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n7",
+        "K9n7",
+        "K9n7"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_47",
+      "pd_id": "9_47",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n6",
+        "K9n6",
+        "K9n6"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_48",
+      "pd_id": "9_48",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9n8",
+        "K9n8",
+        "K9n8"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_49",
+      "pd_id": "9_49",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a36",
+        "K9a36",
+        "K9a36"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_5",
+      "pd_id": "9_5",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a23",
+        "K9a23",
+        "K9a23"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_6",
+      "pd_id": "9_6",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a26",
+        "K9a26",
+        "K9a26"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_7",
+      "pd_id": "9_7",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a8",
+        "K9a8",
+        "K9a8"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_8",
+      "pd_id": "9_8",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K9a33",
+        "K9a33",
+        "K9a33"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "9_9",
+      "pd_id": "9_9",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a64",
+        "K10a64",
+        "K10a64"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_10",
+      "pd_id": "10_10",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a104",
+        "K10a104",
+        "K10a104"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_100",
+      "pd_id": "10_100",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a118",
+        "K10a118",
+        "K10a118"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_104",
+      "pd_id": "10_104",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a72",
+        "K10a72",
+        "K10a72"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_105",
+      "pd_id": "10_105",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a95",
+        "K10a95",
+        "K10a95"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_106",
+      "pd_id": "10_106",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a119",
+        "K10a119",
+        "K10a119"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_108",
+      "pd_id": "10_108",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a76",
+        "K10a76",
+        "K10a76"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_112",
+      "pd_id": "10_112",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a36",
+        "K10a36",
+        "K10a36"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_113",
+      "pd_id": "10_113",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a88",
+        "K10a88",
+        "K10a88"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_118",
+      "pd_id": "10_118",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a85",
+        "K10a85",
+        "K10a85"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_119",
+      "pd_id": "10_119",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 10,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "10_124",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n22",
+        "K10n22",
+        "K10n22"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_128",
+      "pd_id": "10_128",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n18",
+        "K10n18",
+        "K10n18"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_129",
+      "pd_id": "10_129",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a54",
+        "K10a54",
+        "K10a54"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_13",
+      "pd_id": "10_13",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n4",
+        "K10n4",
+        "K10n4"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_133",
+      "pd_id": "10_133",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n3",
+        "K10n3",
+        "K10n3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_136",
+      "pd_id": "10_136",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n1",
+        "K10n1",
+        "K10n1"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_138",
+      "pd_id": "10_138",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n30",
+        "K10n30",
+        "K10n30"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_142",
+      "pd_id": "10_142",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n11",
+        "K10n11",
+        "K10n11"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_149",
+      "pd_id": "10_149",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n8",
+        "K10n8",
+        "K10n8"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_151",
+      "pd_id": "10_151",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n10",
+        "K10n10",
+        "K10n10"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_153",
+      "pd_id": "10_153",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n34",
+        "K10n34",
+        "K10n34"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_159",
+      "pd_id": "10_159",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10n40",
+        "K10n40",
+        "K10n40"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_162",
+      "pd_id": "10_163",
+      "status": "mismatch",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a71",
+        "K10a71",
+        "K10a71"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_24",
+      "pd_id": "10_24",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a61",
+        "K10a61",
+        "K10a61"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_25",
+      "pd_id": "10_25",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a111",
+        "K10a111",
+        "K10a111"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_26",
+      "pd_id": "10_26",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a117",
+        "K10a117",
+        "K10a117"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_3",
+      "pd_id": "10_3",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a29",
+        "K10a29",
+        "K10a29"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_38",
+      "pd_id": "10_38",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a26",
+        "K10a26",
+        "K10a26"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_39",
+      "pd_id": "10_39",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a31",
+        "K10a31",
+        "K10a31"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_42",
+      "pd_id": "10_42",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a25",
+        "K10a25",
+        "K10a25"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_45",
+      "pd_id": "10_45",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a15",
+        "K10a15",
+        "K10a15"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_47",
+      "pd_id": "10_47",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a56",
+        "K10a56",
+        "K10a56"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_5",
+      "pd_id": "10_5",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a80",
+        "K10a80",
+        "K10a80"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_52",
+      "pd_id": "10_52",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a14",
+        "K10a14",
+        "K10a14"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_53",
+      "pd_id": "10_53",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a28",
+        "K10a28",
+        "K10a28"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_56",
+      "pd_id": "10_56",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a20",
+        "K10a20",
+        "K10a20"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_58",
+      "pd_id": "10_58",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a123",
+        "K10a123",
+        "K10a123"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_61",
+      "pd_id": "10_61",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a51",
+        "K10a51",
+        "K10a51"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_63",
+      "pd_id": "10_63",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a122",
+        "K10a122",
+        "K10a122"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_64",
+      "pd_id": "10_64",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a42",
+        "K10a42",
+        "K10a42"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_65",
+      "pd_id": "10_65",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a37",
+        "K10a37",
+        "K10a37"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_67",
+      "pd_id": "10_67",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a65",
+        "K10a65",
+        "K10a65"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_7",
+      "pd_id": "10_7",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a10",
+        "K10a10",
+        "K10a10"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_71",
+      "pd_id": "10_71",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a4",
+        "K10a4",
+        "K10a4"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_72",
+      "pd_id": "10_72",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a3",
+        "K10a3",
+        "K10a3"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_73",
+      "pd_id": "10_73",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a8",
+        "K10a8",
+        "K10a8"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_80",
+      "pd_id": "10_80",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a83",
+        "K10a83",
+        "K10a83"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_82",
+      "pd_id": "10_82",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a84",
+        "K10a84",
+        "K10a84"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_86",
+      "pd_id": "10_83",
+      "status": "mismatch",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a11",
+        "K10a11",
+        "K10a11"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_88",
+      "pd_id": "10_88",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a46",
+        "K10a46",
+        "K10a46"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_92",
+      "pd_id": "10_92",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a91",
+        "K10a91",
+        "K10a91"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_94",
+      "pd_id": "10_94",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a47",
+        "K10a47",
+        "K10a47"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_95",
+      "pd_id": "10_95",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a12",
+        "K10a12",
+        "K10a12"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_97",
+      "pd_id": "10_97",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K10a103",
+        "K10a103",
+        "K10a103"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "10_99",
+      "pd_id": "10_99",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a101",
+        "K11a101",
+        "K11a101"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a101",
+      "pd_id": "11_403",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a109",
+        "K11a109",
+        "K11a109"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a109",
+      "pd_id": "11_130",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a12",
+        "K11a12",
+        "K11a12"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a12",
+      "pd_id": "11_126",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a150",
+        "K11a150",
+        "K11a150"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a150",
+      "pd_id": "11_89",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a172",
+        "K11a172",
+        "K11a172"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a172",
+      "pd_id": "11_326",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a176",
+        "K11a176",
+        "K11a176"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a176",
+      "pd_id": "11_491",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a182",
+        "K11a182",
+        "K11a182"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a182",
+      "pd_id": "11_533",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a193",
+        "K11a193",
+        "K11a193"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a193",
+      "pd_id": "11_507",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a208",
+        "K11a208",
+        "K11a208"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a208",
+      "pd_id": "11_501",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a223",
+        "K11a223",
+        "K11a223"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a223",
+      "pd_id": "11_146",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a23",
+        "K11a23",
+        "K11a23"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a23",
+      "pd_id": "11_174",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a232",
+        "K11a232",
+        "K11a232"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a232",
+      "pd_id": "11_74",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a247",
+        "K11a247",
+        "K11a247"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a247",
+      "pd_id": "11_552",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a260",
+        "K11a260",
+        "K11a260"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a260",
+      "pd_id": "11_269",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a268",
+        "K11a268",
+        "K11a268"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a268",
+      "pd_id": "11_429",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a273",
+        "K11a273",
+        "K11a273"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a273",
+      "pd_id": "11_391",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a289",
+        "K11a289",
+        "K11a289"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a289",
+      "pd_id": "11_396",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a30",
+        "K11a30",
+        "K11a30"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a30",
+      "pd_id": "11_76",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a310",
+        "K11a310",
+        "K11a310"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a310",
+      "pd_id": "11_526",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a322",
+        "K11a322",
+        "K11a322"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a322",
+      "pd_id": "11_420",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a33",
+        "K11a33",
+        "K11a33"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a33",
+      "pd_id": "11_152",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a344",
+        "K11a344",
+        "K11a344"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a344",
+      "pd_id": "11_368",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a347",
+        "K11a347",
+        "K11a347"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a347",
+      "pd_id": "11_93",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a353",
+        "K11a353",
+        "K11a353"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a353",
+      "pd_id": "11_92",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a356",
+        "K11a356",
+        "K11a356"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a356",
+      "pd_id": "11_510",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a365",
+        "K11a365",
+        "K11a365"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a365",
+      "pd_id": "11_513",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 11,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "K11a367",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a46",
+        "K11a46",
+        "K11a46"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a46",
+      "pd_id": "11_116",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a58",
+        "K11a58",
+        "K11a58"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a58",
+      "pd_id": "11_191",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a61",
+        "K11a61",
+        "K11a61"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a61",
+      "pd_id": "11_221",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a66",
+        "K11a66",
+        "K11a66"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a66",
+      "pd_id": "11_103",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a70",
+        "K11a70",
+        "K11a70"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a70",
+      "pd_id": "11_77",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a72",
+        "K11a72",
+        "K11a72"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a72",
+      "pd_id": "11_80",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a77",
+        "K11a77",
+        "K11a77"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a77",
+      "pd_id": "11_470",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11a9",
+        "K11a9",
+        "K11a9"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11a9",
+      "pd_id": "11_273",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n107",
+        "K11n107",
+        "K11n107"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n107",
+      "pd_id": "11_133",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n111",
+        "K11n111",
+        "K11n111"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n111",
+      "pd_id": "11_301",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n113",
+        "K11n113",
+        "K11n113"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n113",
+      "pd_id": "11_296",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n137",
+        "K11n137",
+        "K11n137"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n137",
+      "pd_id": "11_218",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n14",
+        "K11n14",
+        "K11n14"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n14",
+      "pd_id": "11_257",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n140",
+        "K11n140",
+        "K11n140"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n140",
+      "pd_id": "11_255",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n148",
+        "K11n148",
+        "K11n148"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n148",
+      "pd_id": "11_439",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n15",
+        "K11n15",
+        "K11n15"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n15",
+      "pd_id": "11_259",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n176",
+        "K11n176",
+        "K11n176"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n176",
+      "pd_id": "11_416",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n180",
+        "K11n180",
+        "K11n180"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n180",
+      "pd_id": "11_300",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n41",
+        "K11n41",
+        "K11n41"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n41",
+      "pd_id": "11_48",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n44",
+        "K11n44",
+        "K11n44"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n44",
+      "pd_id": "11_68",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n45",
+        "K11n45",
+        "K11n45"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n45",
+      "pd_id": "11_57",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n5",
+        "K11n5",
+        "K11n5"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n5",
+      "pd_id": "11_11",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n67",
+        "K11n67",
+        "K11n67"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n67",
+      "pd_id": "11_38",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n7",
+        "K11n7",
+        "K11n7"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n7",
+      "pd_id": "11_16",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n71",
+        "K11n71",
+        "K11n71"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n71",
+      "pd_id": "11_121",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K11n75",
+        "K11n75",
+        "K11n75"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n75",
+      "pd_id": "11_194",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K11n76",
+        "K11n76",
+        "K11n76"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n76",
+      "pd_id": "11_200",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K11n78",
+        "K11n78",
+        "K11n78"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n78",
+      "pd_id": "11_196",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K11n80",
+        "K11n80",
+        "K11n80"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n80",
+      "pd_id": "11_23",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n91",
+        "K11n91",
+        "K11n91"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n91",
+      "pd_id": "11_245",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K11n97",
+        "K11n97",
+        "K11n97"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K11n97",
+      "pd_id": "11_39",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1009",
+        "K12a1009",
+        "K12a1009"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1009",
+      "pd_id": "K12a1009",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1024",
+        "K12a1024",
+        "K12a1024"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1024",
+      "pd_id": "K12a1024",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1038",
+        "K12a1038",
+        "K12a1038"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1038",
+      "pd_id": "K12a1038",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1052",
+        "K12a1052",
+        "K12a1052"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1052",
+      "pd_id": "K12a1052",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1097",
+        "K12a1097",
+        "K12a1097"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1097",
+      "pd_id": "K12a1097",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1101",
+        "K12a1101",
+        "K12a1101"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1101",
+      "pd_id": "K12a1101",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a114",
+        "K12a114",
+        "K12a114"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a114",
+      "pd_id": "K12a114",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1145",
+        "K12a1145",
+        "K12a1145"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1145",
+      "pd_id": "K12a1145",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1173",
+        "K12a1173",
+        "K12a1173"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1173",
+      "pd_id": "K12a1173",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a1219",
+        "K12a1219",
+        "K12a1219"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a1219",
+      "pd_id": "K12a1219",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a256",
+        "K12a256",
+        "K12a256"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a256",
+      "pd_id": "K12a256",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a265",
+        "K12a265",
+        "K12a265"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a265",
+      "pd_id": "K12a265",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a304",
+        "K12a304",
+        "K12a304"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a304",
+      "pd_id": "K12a304",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a355",
+        "K12a355",
+        "K12a355"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a355",
+      "pd_id": "K12a355",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a364",
+        "K12a364",
+        "K12a364"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a364",
+      "pd_id": "K12a364",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a367",
+        "K12a367",
+        "K12a367"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a367",
+      "pd_id": "K12a367",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a417",
+        "K12a417",
+        "K12a417"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a417",
+      "pd_id": "K12a417",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a420",
+        "K12a420",
+        "K12a420"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a420",
+      "pd_id": "K12a420",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a43",
+        "K12a43",
+        "K12a43"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a43",
+      "pd_id": "K12a43",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a491",
+        "K12a491",
+        "K12a491"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a491",
+      "pd_id": "K12a491",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a541",
+        "K12a541",
+        "K12a541"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a541",
+      "pd_id": "K12a541",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a545",
+        "K12a545",
+        "K12a545"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a545",
+      "pd_id": "K12a545",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a566",
+        "K12a566",
+        "K12a566"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a566",
+      "pd_id": "K12a566",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a581",
+        "K12a581",
+        "K12a581"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a581",
+      "pd_id": "K12a581",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a607",
+        "K12a607",
+        "K12a607"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a607",
+      "pd_id": "K12a607",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a649",
+        "K12a649",
+        "K12a649"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a649",
+      "pd_id": "K12a649",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a716",
+        "K12a716",
+        "K12a716"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a716",
+      "pd_id": "K12a716",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a744",
+        "K12a744",
+        "K12a744"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a744",
+      "pd_id": "K12a744",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a750",
+        "K12a750",
+        "K12a750"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a750",
+      "pd_id": "K12a750",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a786",
+        "K12a786",
+        "K12a786"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a786",
+      "pd_id": "K12a786",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a79",
+        "K12a79",
+        "K12a79"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a79",
+      "pd_id": "K12a79",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a811",
+        "K12a811",
+        "K12a811"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a811",
+      "pd_id": "K12a811",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a858",
+        "K12a858",
+        "K12a858"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a858",
+      "pd_id": "K12a858",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a932",
+        "K12a932",
+        "K12a932"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a932",
+      "pd_id": "K12a932",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a952",
+        "K12a952",
+        "K12a952"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a952",
+      "pd_id": "K12a952",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12a984",
+        "K12a984",
+        "K12a984"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12a984",
+      "pd_id": "K12a984",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n117",
+        "K12n117",
+        "K12n117"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n117",
+      "pd_id": "K12n117",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n124",
+        "K12n124",
+        "K12n124"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n124",
+      "pd_id": "K12n124",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n127",
+        "K12n127",
+        "K12n127"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n127",
+      "pd_id": "K12n127",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n13",
+        "K12n13",
+        "K12n13"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n13",
+      "pd_id": "K12n13",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n161",
+        "K12n161",
+        "K12n161"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n161",
+      "pd_id": "K12n161",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n162",
+        "K12n162",
+        "K12n162"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n162",
+      "pd_id": "K12n162",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n182",
+        "K12n182",
+        "K12n182"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n182",
+      "pd_id": "K12n182",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n200",
+        "K12n200",
+        "K12n200"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n200",
+      "pd_id": "K12n200",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n27",
+        "K12n27",
+        "K12n27"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n27",
+      "pd_id": "K12n27",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n298",
+        "K12n298",
+        "K12n298"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n298",
+      "pd_id": "K12n298",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n452",
+        "K12n452",
+        "K12n452"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n452",
+      "pd_id": "K12n452",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n533",
+        "K12n533",
+        "K12n533"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n533",
+      "pd_id": "K12n533",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n707",
+        "K12n707",
+        "K12n707"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n707",
+      "pd_id": "K12n707",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n712",
+        "K12n712",
+        "K12n712"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n712",
+      "pd_id": "K12n712",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n713",
+        "K12n713",
+        "K12n713"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n713",
+      "pd_id": "K12n713",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n717",
+        "K12n717",
+        "K12n717"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n717",
+      "pd_id": "K12n717",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n765",
+        "K12n765",
+        "K12n765"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n765",
+      "pd_id": "K12n765",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K12n780",
+        "K12n780",
+        "K12n780"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K12n780",
+      "pd_id": "K12n780",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1108",
+        "K13a1108",
+        "K13a1108"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1108",
+      "pd_id": "K13a1108",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1272",
+        "K13a1272",
+        "K13a1272"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1272",
+      "pd_id": "K13a1272",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1294",
+        "K13a1294",
+        "K13a1294"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1294",
+      "pd_id": "K13a1294",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1349",
+        "K13a1349",
+        "K13a1349"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1349",
+      "pd_id": "K13a1349",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1646",
+        "K13a1646",
+        "K13a1646"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1646",
+      "pd_id": "K13a1646",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1704",
+        "K13a1704",
+        "K13a1704"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1704",
+      "pd_id": "K13a1704",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a1834",
+        "K13a1834",
+        "K13a1834"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a1834",
+      "pd_id": "K13a1834",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a2080",
+        "K13a2080",
+        "K13a2080"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a2080",
+      "pd_id": "K13a2080",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a2305",
+        "K13a2305",
+        "K13a2305"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a2305",
+      "pd_id": "K13a2305",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a238",
+        "K13a238",
+        "K13a238"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a238",
+      "pd_id": "K13a238",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a2555",
+        "K13a2555",
+        "K13a2555"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a2555",
+      "pd_id": "K13a2555",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a271",
+        "K13a271",
+        "K13a271"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a271",
+      "pd_id": "K13a271",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a2732",
+        "K13a2732",
+        "K13a2732"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a2732",
+      "pd_id": "K13a2732",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a2981",
+        "K13a2981",
+        "K13a2981"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a2981",
+      "pd_id": "K13a2981",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a3064",
+        "K13a3064",
+        "K13a3064"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a3064",
+      "pd_id": "K13a3064",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a3164",
+        "K13a3164",
+        "K13a3164"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a3164",
+      "pd_id": "K13a3164",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a3309",
+        "K13a3309",
+        "K13a3309"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a3309",
+      "pd_id": "K13a3309",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a3329",
+        "K13a3329",
+        "K13a3329"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a3329",
+      "pd_id": "K13a3329",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a3968",
+        "K13a3968",
+        "K13a3968"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a3968",
+      "pd_id": "K13a3968",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a429",
+        "K13a429",
+        "K13a429"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a429",
+      "pd_id": "K13a429",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "alexander_match": true,
+      "coordinate_ids": [],
+      "crossings_after_simplification": 13,
+      "hfk_match": true,
+      "kind": "torus",
+      "knot": "K13a4878",
+      "pd_alexander_match": true,
+      "pd_id": null,
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a497",
+        "K13a497",
+        "K13a497"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a497",
+      "pd_id": "K13a497",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a571",
+        "K13a571",
+        "K13a571"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a571",
+      "pd_id": "K13a571",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a596",
+        "K13a596",
+        "K13a596"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a596",
+      "pd_id": "K13a596",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a939",
+        "K13a939",
+        "K13a939"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a939",
+      "pd_id": "K13a939",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13a979",
+        "K13a979",
+        "K13a979"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13a979",
+      "pd_id": "K13a979",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n1033",
+        "K13n1033",
+        "K13n1033"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n1033",
+      "pd_id": "K13n1033",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n1192",
+        "K13n1192",
+        "K13n1192"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n1192",
+      "pd_id": "K13n1192",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n130",
+        "K13n130",
+        "K13n130"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n130",
+      "pd_id": "K13n130",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n1406",
+        "K13n1406",
+        "K13n1406"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n1406",
+      "pd_id": "K13n1406",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n1444",
+        "K13n1444",
+        "K13n1444"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n1444",
+      "pd_id": "K13n1444",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n1982",
+        "K13n1982",
+        "K13n1982"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n1982",
+      "pd_id": "K13n1982",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n2137",
+        "K13n2137",
+        "K13n2137"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n2137",
+      "pd_id": "K13n2137",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n2171",
+        "K13n2171",
+        "K13n2171"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n2171",
+      "pd_id": "K13n2171",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n225",
+        "K13n225",
+        "K13n225"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n225",
+      "pd_id": "K13n225",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n2295",
+        "K13n2295",
+        "K13n2295"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n2295",
+      "pd_id": "K13n2295",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n230",
+        "K13n230",
+        "K13n230"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n230",
+      "pd_id": "K13n230",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n2449",
+        "K13n2449",
+        "K13n2449"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n2449",
+      "pd_id": "K13n2449",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n268",
+        "K13n268",
+        "K13n268"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n268",
+      "pd_id": "K13n268",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n285",
+        "K13n285",
+        "K13n285"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n285",
+      "pd_id": "K13n285",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n2864",
+        "K13n2864",
+        "K13n2864"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n2864",
+      "pd_id": "K13n2864",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n288",
+        "K13n288",
+        "K13n288"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n288",
+      "pd_id": "K13n288",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n307",
+        "K13n307",
+        "K13n307"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n307",
+      "pd_id": "K13n307",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n3151",
+        "K13n3151",
+        "K13n3151"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n3151",
+      "pd_id": "K13n3151",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n3244",
+        "K13n3244",
+        "K13n3244"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n3244",
+      "pd_id": "K13n3244",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n3478",
+        "K13n3478",
+        "K13n3478"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n3478",
+      "pd_id": "K13n3478",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n352",
+        "K13n352",
+        "K13n352"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n352",
+      "pd_id": "K13n352",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n3600",
+        "K13n3600",
+        "K13n3600"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n3600",
+      "pd_id": "K13n3600",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n3656",
+        "K13n3656",
+        "K13n3656"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n3656",
+      "pd_id": "K13n3656",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n380",
+        "K13n380",
+        "K13n380"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n380",
+      "pd_id": "K13n380",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4074",
+        "K13n4074",
+        "K13n4074"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4074",
+      "pd_id": "K13n4074",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4324",
+        "K13n4324",
+        "K13n4324"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4324",
+      "pd_id": "K13n4324",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4345",
+        "K13n4345",
+        "K13n4345"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4345",
+      "pd_id": "K13n4345",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4500",
+        "K13n4500",
+        "K13n4500"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4500",
+      "pd_id": "K13n4500",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4708",
+        "K13n4708",
+        "K13n4708"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4708",
+      "pd_id": "K13n4708",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4886",
+        "K13n4886",
+        "K13n4886"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4886",
+      "pd_id": "K13n4886",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n4895",
+        "K13n4895",
+        "K13n4895"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n4895",
+      "pd_id": "K13n4895",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n5018",
+        "K13n5018",
+        "K13n5018"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n5018",
+      "pd_id": "K13n5018",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n584",
+        "K13n584",
+        "K13n584"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n584",
+      "pd_id": "K13n584",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n586",
+        "K13n586",
+        "K13n586"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n586",
+      "pd_id": "K13n586",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n593",
+        "K13n593",
+        "K13n593"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n593",
+      "pd_id": "K13n593",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n602",
+        "K13n602",
+        "K13n602"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n602",
+      "pd_id": "K13n602",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n603",
+        "K13n603",
+        "K13n603"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n603",
+      "pd_id": "K13n603",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n604",
+        "K13n604",
+        "K13n604"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n604",
+      "pd_id": "K13n604",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n607",
+        "K13n607",
+        "K13n607"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n607",
+      "pd_id": "K13n607",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n608",
+        "K13n608",
+        "K13n608"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n608",
+      "pd_id": "K13n608",
+      "status": "matched",
+      "stratified": false,
+      "ten_stick": true
+    },
+    {
+      "coordinate_ids": [
+        "K13n71",
+        "K13n71",
+        "K13n71"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n71",
+      "pd_id": "K13n71",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n769",
+        "K13n769",
+        "K13n769"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n769",
+      "pd_id": "K13n769",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n928",
+        "K13n928",
+        "K13n928"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n928",
+      "pd_id": "K13n928",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    },
+    {
+      "coordinate_ids": [
+        "K13n932",
+        "K13n932",
+        "K13n932"
+      ],
+      "kind": "hyperbolic_or_other",
+      "knot": "K13n932",
+      "pd_id": "K13n932",
+      "status": "matched",
+      "stratified": true,
+      "ten_stick": false
+    }
+  ],
+  "identity_matched": 319,
+  "identity_mismatches": 2,
+  "identity_pending": 0,
+  "identity_total": 321,
+  "netcdf_global_attributes": {},
+  "packages": {
+    "h5py": "3.16.0",
+    "netCDF4": "1.7.4",
+    "numpy": "2.4.6",
+    "snappy": "3.3.2"
+  },
+  "paper_table": "https://arxiv.org/html/2508.18263v1",
+  "pd_layout": "int64 diagram_crossings x 4, zero-based labels; validated with spherogram",
+  "projected_crossings_different_from_table": 12962,
+  "scalar_layout": "variables (sticks and crossings); fallback attributes supported",
+  "source_file": "stick-number-bounds.nc",
+  "source_sha256": "a7e8bfc961bc2156d373ea206fc52beb3fbb122931f0743a979e5823de07cb22",
+  "stick_frequencies": [
+    {
+      "crossings": 3,
+      "knots": 1,
+      "sticks": 6
+    },
+    {
+      "crossings": 4,
+      "knots": 1,
+      "sticks": 7
+    },
+    {
+      "crossings": 5,
+      "knots": 2,
+      "sticks": 8
+    },
+    {
+      "crossings": 6,
+      "knots": 3,
+      "sticks": 8
+    },
+    {
+      "crossings": 7,
+      "knots": 7,
+      "sticks": 9
+    },
+    {
+      "crossings": 8,
+      "knots": 2,
+      "sticks": 8
+    },
+    {
+      "crossings": 8,
+      "knots": 4,
+      "sticks": 9
+    },
+    {
+      "crossings": 8,
+      "knots": 15,
+      "sticks": 10
+    },
+    {
+      "crossings": 9,
+      "knots": 14,
+      "sticks": 9
+    },
+    {
+      "crossings": 9,
+      "knots": 35,
+      "sticks": 10
+    },
+    {
+      "crossings": 10,
+      "knots": 94,
+      "sticks": 10
+    },
+    {
+      "crossings": 10,
+      "knots": 71,
+      "sticks": 11
+    },
+    {
+      "crossings": 11,
+      "knots": 160,
+      "sticks": 10
+    },
+    {
+      "crossings": 11,
+      "knots": 362,
+      "sticks": 11
+    },
+    {
+      "crossings": 11,
+      "knots": 30,
+      "sticks": 12
+    },
+    {
+      "crossings": 12,
+      "knots": 122,
+      "sticks": 10
+    },
+    {
+      "crossings": 12,
+      "knots": 1156,
+      "sticks": 11
+    },
+    {
+      "crossings": 12,
+      "knots": 898,
+      "sticks": 12
+    },
+    {
+      "crossings": 13,
+      "knots": 108,
+      "sticks": 10
+    },
+    {
+      "crossings": 13,
+      "knots": 2397,
+      "sticks": 11
+    },
+    {
+      "crossings": 13,
+      "knots": 6509,
+      "sticks": 12
+    },
+    {
+      "crossings": 13,
+      "knots": 974,
+      "sticks": 13
+    }
+  ],
+  "stratified_by_crossing": {
+    "3": 1,
+    "4": 1,
+    "5": 2,
+    "6": 3,
+    "7": 7,
+    "8": 21,
+    "9": 49,
+    "10": 54,
+    "11": 54,
+    "12": 54,
+    "13": 54
+  },
+  "stratified_count": 300,
+  "stratified_seed": 1666574611,
+  "table_1_discrepancies": [],
+  "table_1_match": true,
+  "ten_stick_count": 19,
+  "torus_count": 8,
+  "utc_finished": "2026-09-25T22:17:56.428609+00:00"
+}

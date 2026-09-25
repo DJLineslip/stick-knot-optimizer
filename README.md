@@ -4,12 +4,13 @@ A numerical search for a knot whose **equilateral stick number** e(K) is larger 
 
 ## Bottom line
 
-**No counterexample was found.** For 25 knots, the code produced near-equal-stick polygons at the reported minimal stick number, with numerical knot re-identification. The interval checker establishes the geometric Millett and Rawdon inequality for all 25 stored decimal polygons. Knot identification remains numerical or invariant-based, not a rigorous proof of knot identity; the e(K) = s(K) conclusion for the named knots remains conditional on that identification.
+**No counterexample was found.** There are now 28 in-repository equal-stick polygons at known minimal stick counts. All 28 stored decimal files pass the interval geometric checker and numerical knot re-identification. Separately, all 59 nontrivial knots in Eddy's exact-stick table have an equal-stick polygon at s(K): 23 in this repository and 36 hashed, independently checked polygons in Eddy's external clone. Knot identity remains numerical or invariant-based, not a formal proof; the named e(K) = s(K) conclusions remain conditional on it.
 
 - the torus knots T(3,7), T(3,8), T(4,5), T(5,6), T(6,7), T(7,8), T(8,9) and T(9,10), with 12, 12, 10, 12, 14, 16, 18 and 20 sticks;
-- 17 of the 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10.
+- all 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10;
+- 9_29 with nine sticks, directly from the supplied Cantarella group dataset.
 
-For the earlier 21 cases, we did not find previously published equilateral minimal polygons in the sources checked. No publication-priority claim is made for the four newer torus-knot coordinate sets. Eddy's public data had only 11- or 12-stick equilateral versions of the ten-stick knots, and nothing for T(4,5); the two remaining ten-stick knots still lack accessible starts (see [Results](#results)).
+For the earlier 21 cases, we did not find previously published equilateral minimal polygons in the sources checked. No publication-priority claim is made for the newer torus-knot coordinates. The new `9_29` file reproduces the supplied dataset's nine-stick example; the two remaining ten-stick cases were equalized from its ten-stick inputs.
 
 Along the way the code confirmed the "ladder" constraint on bridge-tight polygons, confirmed a symmetry no-go lemma, and produced one instructive false alarm. A flow appeared to show an obstruction for T(4,5), which turned out to be an artifact.
 
@@ -27,7 +28,9 @@ equistick/                 the package (documented, tested)
     optimize.py            equalizers #2 (clearance floor) and #3 (safe homotopy)
     reduce.py              lower the stick count by annealing
     data.py                access to Eddy's stick-knot-gen data
-scripts/                   one script per experiment (01 to 08)
+    crss.py                lazy reader for the user-provided NetCDF4 data
+data/                      derived index, validation reports and source README
+scripts/                   experiments (01 to 09), plus CRSS validation scripts
 results/                   coordinates of every certified polygon, summary.csv, logs
 legacy/                    the original research scripts, verbatim (see legacy/README.md)
 requirements.txt
@@ -38,11 +41,11 @@ requirements.txt
 Python 3.10 or later.
 
 ```bash
-pip install numpy scipy numba mpmath snappy
+pip install -r requirements.txt
 git clone https://github.com/thomaseddy/stick-knot-gen
 ```
 
-`snappy` brings `spherogram` (link diagrams) and the knot Floer homology calculator. Put the `stick-knot-gen` clone next to the `equistick/` directory, or set `EQUISTICK_DATA=/path/to/stick-knot-gen`. Run the scripts from `scripts/` with the package on the path:
+`snappy` brings `spherogram` (link diagrams) and the knot Floer homology calculator; `snappy-15-knots` provides the reference table needed to identify K15n41127. Put the `stick-knot-gen` clone next to the `equistick/` directory, or set `EQUISTICK_DATA=/path/to/stick-knot-gen`. Provide the unchanged Cantarella NetCDF4 file under the ignored `data/external/crss/` directory or set `EQUISTICK_CRSS=/path/to/stick-number-bounds.nc`. Its SHA256 and licence are in [data/README.md](data/README.md). Run scripts from `scripts/` with the package on the path:
 
 ```bash
 cd scripts
@@ -141,13 +144,14 @@ Scanning the clearance floor μ₀ in #2 is also a diagnostic. If the best reach
 | Module | Key functions | Notes |
 |---|---|---|
 | `geometry` | `seg_seg`, `min_dist`, `pair_dists`, `clearance_grad`, `seg_tri`, `safe_move`, `deletable`, `lengths`, `normalize`, `mr_ratio`, `interior_angles`, `angle_sum`, `rail_lengths` | numba-compiled kernels; all safety tests conservative |
-| `invariants` | `pd_code`, `alexander_abs`, `torus_alexander_abs`, `is_torus`, `identify`, `hfk` | Compares \|Δ\| on the unit circle, which ignores units and chirality; `identify` prefers Hoste-Thistlethwaite-Weeks names |
+| `invariants` | `pd_code`, `identify_pd`, `matches_census_name`, `alexander_abs`, `torus_alexander_abs`, `is_torus`, `identify`, `hfk` | Numerical complement and PD identification up to mirror image; alias matching checks SnapPy's named complement |
 | `certify` | `mr_certificate_mp`, `length_jacobian`, `polish`, `verify_torus` | `polish` is not path-safe; always re-identify afterwards |
 | `torus` | `torus_poly`, `STARTS`, `symmetric_scan`, `star_poly`, `symmetric_equilateral_check` | `STARTS` holds the parameter sets used for every run |
 | `flows` | `agitate`, `step`, `equalize`, `fiber_ascent`, `equalize2` | Equalizer #1 |
 | `optimize` | `dist_jac`, `clearance_floor_solve`, `stage_solve`, `safe_path`, `fatten`, `homotopy_equalize` | Equalizers #2 and #3 |
 | `reduce` | `tri_pierce_weight`, `penalties`, `reduce_once`, `reduce_to` | Stick-count reduction |
 | `data` | `load_eddy`, `eddy_available`, `exact_stick_numbers`, `seed_for`, `TEN_STICK_19` | `seed_for` gives reproducible per-knot seeds |
+| `crss` | `crss_path`, `crss_index`, `open_crss`, `load_crss`, `load_crss_pd` | Lazy, read-only NetCDF4/HDF5 access; source file remains outside Git |
 
 ### Using it on a new knot
 
@@ -183,8 +187,12 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 | `06_verify_results.py` | Re-verifies every file in `results/` from scratch and writes `results/summary.csv` | ~1 minute |
 | `07_parallel.py --budget 1800 --workers 5` | Runs the five unfinished knots concurrently, subject to the effective CPU quota; enforces a hard wall-clock budget per knot | up to 30 minutes with five workers, plus cache warmup |
 | `08_torus37.py --budget 1800 --workers 2` | Samples explicit T(3,7) and T(3,8), checks their invariants, reduces safely to 12 sticks, homotopy equalizes, validates saved coordinates; hard wall budget per knot | up to 30 minutes with two workers, plus cache warmup |
-| `08_interval_certificates.py --expected-count 23` | Writes `results/interval_certificates.json` with exact-decimal and interval geometric certificates for stored polygons, without knot identification | seconds |
+| `08_interval_certificates.py --expected-count 28` | Writes `results/interval_certificates.json` with exact-decimal and interval geometric certificates for stored polygons, without knot identification | seconds |
 | `08_torus_batch.py --budget 1800 --workers 1` | T(8,9) and T(9,10) preparation with deterministic starts, per-knot hard deadline and final-coordinate validation | up to 30 minutes per knot; full jobs not yet run |
+| `crss_validate.py` | Audits all 12,965 source groups, compares Table 1, and checks a stratified sample plus special cases; reports mismatches without renaming data | about 2 minutes |
+| `crss_close_known.py --budget 300 --workers 2` | Checks the three previously missing exact-stick inputs and uses a hard-wall fatten and safe-homotopy search when needed | under 5 minutes in this run |
+| `crss_verify_exact.py` | Verifies 36 external Eddy files in place and reconciles the exact-stick table with 23 in-repo files | under 2 minutes |
+| `09_gap_census.py --expected-count 12965` | Builds the identity-status-aware full census from source sticks, Eddy files and in-repo certificates | under 2 minutes |
 
 From the repository root, run:
 
@@ -218,7 +226,7 @@ EQUISTICK_DATA=./stick-knot-gen \
 
 ### 1. Certified equal-stick minimal polygons
 
-All 25 were re-verified from scratch by `06_verify_results.py` and the exact-decimal interval checker. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound of 2π ≈ 6.283 applies only to bridge-tight polygons, not to T(3,7) or T(3,8).
+All 28 were re-verified from scratch by `06_verify_results.py` and the exact-decimal interval checker. "Defect" is the largest deviation of an edge length from the mean (mean scaled to 1). The certificate requires defect < bound. "Angles" is Σβᵢ; the ladder bound of 2π ≈ 6.283 applies only to bridge-tight polygons, not to T(3,7) or T(3,8).
 
 | Knot | Sticks (= s) | Defect | μ | Bound | Angles | Identification |
 |---|---|---|---|---|---|---|
@@ -230,6 +238,7 @@ All 25 were re-verified from scratch by `06_verify_results.py` and the exact-dec
 | T(7,8) | 16 | 1.3e-16 | 0.0010 | 2.50e-07 | 3.053 | Alexander ×4; HFK genus 21, L-space, fibred, τ = 21; 48 crossings |
 | T(8,9) | 18 | 1.6e-16 | 0.001001 | 2.50e-07 | 3.663 | Alexander ×4; HFK genus 28, rank 15, L-space, fibred, τ = 28; 63 crossings |
 | T(9,10) | 20 | 1.4e-16 | 0.0005 | 6.25e-08 | 2.889 | Alexander ×4; HFK genus 36, rank 17, L-space, fibred, τ = 36; 80 crossings |
+| 9_29 | 9 | 3.2e-16 | 0.0001845 | 8.51e-09 | 5.006 | SnapPy ×3: `K9a31`, an alias of `9_29` |
 | K11n71 | 10 | 4.5e-14 | 0.0153 | 5.85e-05 | 4.992 | SnapPy ×3 |
 | K11n75 | 10 | 1.5e-13 | 0.0134 | 4.50e-05 | 4.707 | SnapPy ×3 |
 | K11n76 | 10 | 6.5e-11 | 0.0113 | 3.20e-05 | 4.769 | SnapPy ×3 |
@@ -242,6 +251,8 @@ All 25 were re-verified from scratch by `06_verify_results.py` and the exact-dec
 | K13n307 | 10 | 2.6e-15 | 0.0232 | 1.34e-04 | 4.883 | SnapPy ×3 |
 | K13n5018 | 10 | 2.0e-16 | 0.0187 | 8.71e-05 | 4.617 | SnapPy ×3 |
 | K13n584 | 10 | 1.1e-11 | 0.0275 | 1.89e-04 | 4.986 | SnapPy ×3 |
+| K13n586 | 10 | 2.4e-15 | 0.01939 | 9.40e-05 | 4.390 | SnapPy ×3 |
+| K13n593 | 10 | 5.0e-11 | 0.01663 | 6.91e-05 | 5.045 | SnapPy ×3 |
 | K13n602 | 10 | 4.3e-10 | 0.0108 | 2.91e-05 | 3.901 | SnapPy ×3 |
 | K13n603 | 10 | 1.5e-14 | 0.0262 | 1.71e-04 | 4.876 | SnapPy ×3 |
 | K13n604 | 10 | 1.7e-16 | 0.0062 | 9.63e-06 | 3.676 | SnapPy ×3 |
@@ -252,7 +263,9 @@ The T(p,p+1) stick numbers come from Jin's theorem, s(T(p,q)) = 2q for p < q < 2
 
 ### 2. Validation
 
-The pipeline recovered an equilateral 8-stick 8₁₉ = T(3,4), which Millett found first; it had defeated Rawdon and Scharein's 2002 search. The reduction annealer produced 10-stick versions of 17 of the 19 knots (the Cantarella group's own coordinates were not accessible; see Limitations). The latest five each needed one successful reduction. The K13n602 first run hit a numerical division error; a regression-tested conservative guard was added, and a separate full-budget retry succeeded. Logs for both attempts are retained.
+The pipeline recovered an equilateral 8-stick 8₁₉ = T(3,4), which Millett found first; it had defeated Rawdon and Scharein's 2002 search. The reduction annealer produced 10-stick versions of 17 of the 19 knots before the Cantarella group NetCDF was supplied. Its `K13n586` and `K13n593` ten-stick inputs then passed the safe fatten and homotopy pipeline. Its `9_29` polygon was already equilateral after normalisation, so no optimisation was needed. These three saved polygons passed a fresh 28-file numerical identity and interval geometry verification. The K13n602 first run hit a numerical division error; a regression-tested conservative guard was added, and a separate full-budget retry succeeded. Logs for both attempts are retained.
+
+The exact-stick table now has verified geometric and numerical polygon coverage for all **59 nontrivial entries**: 23 stored here and 36 hashed Eddy polygons independently checked in place. The raw Eddy coordinates remain external. See `data/exact_stick_coverage.json`. This is not a formal knot-type proof.
 
 ### 3. The torus family: clearance shrinks but stays positive
 
@@ -294,13 +307,27 @@ Equalizer #1, started near the symmetric T(4,5), drove the length defect from 2.
 
 Lesson: a numerical collapse is weak evidence. Only certified positive results carry weight.
 
-### 7. Unfinished
+### 7. Cantarella input audit and gap census
 
-| Knot | Status |
-|---|---|
-| K13n586, K13n593 | No starting data in Eddy's repository |
+The source `stick-number-bounds.nc` has 12,965 groups, one for each listed prime knot through 13 crossings. Its `crossings` variable counts a projected diagram's crossings, not the minimal crossing number encoded in the group name. Every group passed a finite-coordinate, nonzero-edge, positive-clearance geometry audit; its stick-count distribution matches Table 1 of the source paper. Of 321 independently sampled names, 319 matched. The stored PD and coordinate polygon both identify as `10_163` for group `10_162`, and as `10_83` for group `10_86`; these are logged without relabelling the input. See [data/README.md](data/README.md).
 
-Failing to reduce within a time budget says nothing about these knots. It is a search limitation, not evidence.
+`results/gap_census.csv` has 12,965 rows. Its legacy `e_ub` field is the best **reported equilateral candidate count** in Eddy's files and ours, not necessarily an established upper bound for the named knot. `e_status=checked` marks a selected in-repository file that passed numerical type checks and interval geometry (20 rows); `reported_only` marks an Eddy-only selected count not checked by this census (1,919 rows). Some Eddy exact-stick files have separate checks in `data/exact_stick_coverage.json`, but this census conservatively leaves Eddy-only selections labelled `reported_only`. The remaining 11,026 rows have no candidate file. `s_ub` comes from the source group and is **provisional** on the 12,644 identities not independently sampled. The two mismatched names retain their `source_sticks` but have blank `s_ub` and gap difference. The table counts reported candidates and *candidate-count differences*, not mathematical gaps:
+
+| Crossings | Groups | Exact s known | Reported e count | Candidate diff ≤ 0 | Candidate diff > 0 | Unchecked names | Mismatches |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 3 | 1 | 1 | 1 | 1 | 0 | 0 | 0 |
+| 4 | 1 | 1 | 1 | 1 | 0 | 0 | 0 |
+| 5 | 2 | 2 | 2 | 2 | 0 | 0 | 0 |
+| 6 | 3 | 3 | 3 | 3 | 0 | 0 | 0 |
+| 7 | 7 | 7 | 7 | 7 | 0 | 0 | 0 |
+| 8 | 21 | 6 | 21 | 21 | 0 | 0 | 0 |
+| 9 | 49 | 14 | 49 | 46 | 3 | 0 | 0 |
+| 10 | 165 | 1 | 165 | 146 | 17 | 110 | 2 |
+| 11 | 552 | 4 | 325 | 211 | 114 | 494 | 0 |
+| 12 | 2,176 | 0 | 622 | 365 | 257 | 2,122 | 0 |
+| 13 | 9,988 | 16 | 743 | 390 | 353 | 9,918 | 0 |
+
+The **744 positive candidate differences** do not show `e(K) > s(K)`: the source knot name may be unchecked, most Eddy-only equilateral candidates are not verified by this census, and even a checked polygon with more sticks would not rule out a smaller equilateral polygon. This census is a map for later searches, not a counterexample claim.
 
 ---
 
@@ -312,7 +339,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
    - Hyperbolic knots are identified by SnapPy's `identify()`. It matches the complement against census manifolds using numerically computed hyperbolic structures, without SnapPy's rigorous `verified=True` mode. It also ignores chirality, which is harmless here because e and s are mirror invariant.
    - Torus knots are matched on every invariant checked (Alexander polynomial in four projections; knot Floer homology genus, fibredness, L-space property, absolute τ, total rank; crossing number after simplification). The matching ignores chirality, so torus labels are up to mirror image. Knot Floer homology is not known to detect T(p, p+1) in general, so this is strong evidence rather than proof.
    - Two routes would make it rigorous: exhibit a knot-type-safe path back to the symmetric construction, whose type follows from Jin's work, or use a rigorous recognition tool.
-   - SnapPy sometimes reports a non-table census name for a table knot (K15n41127 comes back as K6_37). Scripts that compare names can therefore report false mismatches, but not false matches.
+   - SnapPy can report a different census name for a table knot (without its optional 15-crossing table, K15n41127 reports as K6_37). The verifier checks listed complement aliases rather than comparing strings. Two Cantarella source groups nonetheless have independently recorded PD and coordinate naming mismatches.
 
 3. **Safety tests are floating point.** `safe_move` and `deletable` are conservative, with tolerances around 10⁻⁹ to 10⁻¹², but they are not exact predicates. The final re-identification is the backstop.
 
@@ -320,9 +347,9 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 5. **Negative results mean nothing.** A flow that collapses, an optimizer that stalls, or a reducer that times out is not evidence that e(K) > s(K); the false alarm in section 6 of the Results shows how misleading such signals are. Only the certified polygons are results.
 
-6. **Coverage is narrow.** The search covered 25 knots, torus knots in the listed families only, and for each knot only the regions of polygon space reachable from the starting data. A knot type can occupy several disconnected regions at the minimal stick count, and we sampled at most a few.
+6. **Search coverage is narrow.** The in-repository searches covered 28 positive cases, not all 12,965 dataset knots. The 36 additional Eddy polygons were checked in place, not discovered by this search. A knot type can occupy several disconnected regions at a given stick count. The later pilot and full sweep in `AGENTS.md` have not been run.
 
-7. **"New" is as far as we could find.** Eddy's repository had no equal-stick minimal versions of these knots. The Cantarella group's coordinates (the non-equilateral 10-stick polygons for the 19 knots and their torus-knot data) sit on Harvard Dataverse, which blocked automated access, and we did not survey every other source.
+7. **Publication priority is unresolved.** Eddy's repository had no equal-stick minimal versions of the older new-result cases, but the user has now supplied the Cantarella group's NetCDF coordinates. The `9_29` output directly reproduces its already equilateral polygon. We have not surveyed every other source or resolved overlap with the Cantarella group.
 
 8. **Reproducibility.**
    - Package scripts use fixed seeds (`data.seed_for`).
@@ -334,12 +361,15 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 10. **Compute and publication concurrency.** Early exploratory runs used one CPU core under a 300-second limit per command. The later bounded torus search used two workers and a separate 1800-second limit per knot; it does not imply exhaustive coverage of polygon space. The supervisors use exclusive hard links to avoid replacing existing result files and accept identical existing bytes on rerun. This requires hard-link support on the output filesystem; staging directories are created beneath the output directory. An unrelated writer that disregards this publication protocol and mutates a result in place remains outside its protection.
 
+11. **Independent reader security review failed.** The reader checks coordinate and PD array dimensions, dtype and row caps before bulk reads, but it does not validate `_FillValue` or `missing_value` attribute shapes before comparing. An array-shaped attribute can broadcast a capped polygon or PD array into a much larger temporary allocation. `_scalar` checks variable shape before `variable[()]`, but not dtype or payload size; attribute fallbacks are read before their shape is checked. The 93 passing tests and complete audit establish behaviour on the specific SHA256-pinned source, not safety for arbitrary or adversarial NetCDF files. Do not use `EQUISTICK_CRSS` with untrusted input until these issues are fixed. This branch is a documented research handoff, not an independently security-approved release.
+
 ## Next steps
 
-1. Finish the two remaining ten-stick knots: obtain starting polygons for K13n586 and K13n593 from diagrams or manually provided source data.
-2. Extend the explicit torus-sampling approach beyond the now certified T(3,7) and T(3,8) to other superbridge-tight knots; numerical certificates are not formal proofs.
-3. Push T(p, p+1) to p = 10 and beyond and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
-4. For publication: independent audit of the interval-arithmetic geometric certificates, rigorous knot identification, and a check with the Cantarella group for overlap with their data.
+1. **Before any dataset sweep, harden NetCDF metadata handling.** Add safe failing tests with unreadable scalar and fill-attribute proxies, including a nonscalar sentinel shaped to broadcast. Reject oversized or nonnumeric scalar payloads before reading, check attribute shape and dtype before loading, and permit only bounded scalar fill sentinels before comparison. Run the full tests, repeat the 12,965-group audit and census, verify the saved results and interval reports, and obtain a new independent fail-closed review.
+2. If authorised after the reader review passes, pilot the bounded sweep through 10 crossings described as task 4 in `AGENTS.md`. Independently identify each starting polygon and investigate the two source-name mismatches before claiming named-knot bounds.
+3. Extend the explicit torus-sampling approach beyond the now certified T(3,7) and T(3,8) to other superbridge-tight knots; numerical certificates are not formal proofs.
+4. Push T(p, p+1) to p = 10 and beyond and fit the clearance decay. Better still, find an explicit equal-stick construction for all p, which would settle that family.
+5. For publication: independent audit of the interval-arithmetic geometric certificates, rigorous knot identification, and a check with the Cantarella group for overlap with their data.
 
 ## References
 

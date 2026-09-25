@@ -1,4 +1,5 @@
 knot,sticks,length_spread,defect,mu,MR_bound,certified,type_confirmed,angle_sum,identification
+9_29,9,4.4e-16,3.2e-16,0.0001845,8.51e-09,True,True,5.006,SnapPy identify x3: K9a31
 K11n71,10,8.0e-14,4.5e-14,0.0153,5.85e-05,True,True,4.992,SnapPy identify x3: K11n71
 K11n75,10,2.4e-13,1.5e-13,0.01341,4.50e-05,True,True,4.707,SnapPy identify x3: K11n75
 K11n76,10,1.1e-10,6.5e-11,0.01131,3.20e-05,True,True,4.769,SnapPy identify x3: K11n76
@@ -11,6 +12,8 @@ K13n288,10,1.1e-15,6.3e-16,0.005543,7.68e-06,True,True,5.000,SnapPy identify x3:
 K13n307,10,5.1e-15,2.6e-15,0.02315,1.34e-04,True,True,4.883,SnapPy identify x3: K13n307
 K13n5018,10,4.4e-16,2.0e-16,0.01866,8.71e-05,True,True,4.617,SnapPy identify x3: K13n5018
 K13n584,10,2.1e-11,1.1e-11,0.02753,1.89e-04,True,True,4.986,SnapPy identify x3: K13n584
+K13n586,10,4.7e-15,2.4e-15,0.01939,9.40e-05,True,True,4.390,SnapPy identify x3: K13n586
+K13n593,10,9.1e-11,5.0e-11,0.01663,6.91e-05,True,True,5.045,SnapPy identify x3: K13n593
 K13n602,10,7.0e-10,4.3e-10,0.01078,2.91e-05,True,True,3.901,SnapPy identify x3: K13n602
 K13n603,10,2.6e-14,1.5e-14,0.02619,1.71e-04,True,True,4.876,SnapPy identify x3: K13n603
 K13n604,10,3.3e-16,1.7e-16,0.006206,9.63e-06,True,True,3.676,SnapPy identify x3: K13n604
