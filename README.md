@@ -178,12 +178,13 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 | `01_ladder_check.py` | Angle sums and rail lengths for every bridge-tight equilateral polygon in Eddy's data | seconds |
 | `02_symmetric_nogo.py` | Samples the symmetric equilateral family at 6 to 12 sticks over every angular step; counts knotted samples | ~1 minute |
 | `03_false_collapse.py` | Reproduces the false obstruction trace for T(4,5) | seconds |
-| `04_torus_family.py p [trials]` | Clearance-floor search for T(p, p+1), then polishes, verifies and saves | seconds to minutes |
+| `04_torus_family.py p [trials]` | Unbounded single-knot clearance-floor search; use `08_torus_batch.py` for a hard deadline | seconds to minutes |
 | `05_tenstick.py K11n71,... [seconds]` | Reduce, fatten, safe homotopy, certify, for each named knot | seconds to minutes per knot |
 | `06_verify_results.py` | Re-verifies every file in `results/` from scratch and writes `results/summary.csv` | ~1 minute |
 | `07_parallel.py --budget 1800 --workers 5` | Runs the five unfinished knots concurrently, subject to the effective CPU quota; enforces a hard wall-clock budget per knot | up to 30 minutes with five workers, plus cache warmup |
 | `08_torus37.py --budget 1800 --workers 2` | Samples explicit T(3,7) and T(3,8), checks their invariants, reduces safely to 12 sticks, homotopy equalizes, validates saved coordinates; hard wall budget per knot | up to 30 minutes with two workers, plus cache warmup |
 | `08_interval_certificates.py --expected-count 23` | Writes `results/interval_certificates.json` with exact-decimal and interval geometric certificates for stored polygons, without knot identification | seconds |
+| `08_torus_batch.py --budget 1800 --workers 1` | T(8,9) and T(9,10) preparation with deterministic starts, per-knot hard deadline and final-coordinate validation | up to 30 minutes per knot; full jobs not yet run |
 
 From the repository root, run:
 
@@ -199,7 +200,17 @@ For the two superbridge-tight torus knots, run from the repository root:
 .venv/bin/python scripts/08_torus37.py --knots T3_7,T3_8 --budget 1800 --workers 2
 ```
 
-The torus runner uses 24 vertices sampled from `(R + r cos(qt)) (cos(3t), sin(3t)), r sin(qt)` with R = 2.5, r = 1 and q = 7 or 8. It verifies the polygonal start using four Alexander projections and HFK (not just the smooth curve), then calls `reduce_to` for knot-type-safe vertex deletion. It rechecks type after reduction and after equalization/polishing. Only 17-digit saved coordinates passing the float MR ratio, 40-digit MR check, four projections and HFK are published. Logs are in `results/torus37.log` and `results/logs/`. Interval arithmetic and a rigorous identification are still outstanding.
+The torus runner uses 24 vertices sampled from `(R + r cos(qt)) (cos(3t), sin(3t)), r sin(qt)` with R = 2.5, r = 1 and q = 7 or 8. It verifies the polygonal start using four Alexander projections and HFK (not just the smooth curve), then calls `reduce_to` for knot-type-safe vertex deletion. It rechecks type after reduction and after equalization/polishing. Only 17-digit saved coordinates passing the float MR ratio, 40-digit MR check, four projections and HFK are published. Logs are in `results/torus37.log` and `results/logs/`. The separate interval checker addresses the geometric inequality, not knot identity.
+
+For the next torus pair, from the repository root (using the local dependencies):
+
+```bash
+EQUISTICK_DATA=./stick-knot-gen \
+  .venv/bin/python scripts/08_torus_batch.py \
+  --knots T8_9,T9_10 --budget 1800 --workers 1 --trials 8
+```
+
+`--workers 1` leaves capacity for other searches on the shared five-CPU quota; the optional maximum is two, subject to the effective quota. The per-knot deadline includes startup, all trials and final validation. Seeds are `seed_for('T8_9')` and `seed_for('T9_10')`, plus `--run-index` (default 0). Starts in `torus.STARTS` were found by a short deterministic 250-trial `symmetric_scan`, not by an equal-stick certification. If a start is absent, an empty scan is logged without an exception. Each trial records floor, defect, clearance, ratio and eligibility (float MR plus preliminary Alexander match) in `results/logs/torus_*.log`. The manifest, append-only `RUNLOG.md` and `torus_search.log` record outcomes and provenance. Only 17-digit coordinates that pass a float MR ratio below 1, the 40-digit MR check and `verify_torus` (four Alexander projections, correct genus, absolute tau, fibredness and L-space property) after serialization may be published. A timeout or unsuccessful trial is only "not found within budget," never an obstruction. No full-budget run or T(8,9)/T(9,10) result is claimed here.
 
 ---
 
