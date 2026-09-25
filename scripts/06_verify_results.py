@@ -50,6 +50,6 @@ if __name__ == '__main__':
             r['knot'], r['sticks'], r['defect'], r['mu'], r['MR_bound'], r['certified'],
             r['type_confirmed'], r['angle_sum'], r['identification']), flush=True)
     with open('../results/summary.csv', 'w', newline='') as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()), lineterminator='\n')
         w.writeheader()
         w.writerows(rows)

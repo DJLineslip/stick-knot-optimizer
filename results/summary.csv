@@ -3,14 +3,19 @@ K11n71,10,8.0e-14,4.5e-14,0.0153,5.85e-05,True,True,4.992,SnapPy identify x3: K1
 K11n75,10,2.4e-13,1.5e-13,0.01341,4.50e-05,True,True,4.707,SnapPy identify x3: K11n75
 K11n76,10,1.1e-10,6.5e-11,0.01131,3.20e-05,True,True,4.769,SnapPy identify x3: K11n76
 K11n78,10,2.6e-10,1.3e-10,0.03117,2.43e-04,True,True,4.907,SnapPy identify x3: K11n78
+K13n1192,10,1.5e-10,8.3e-11,0.01627,6.62e-05,True,True,4.695,SnapPy identify x3: K13n1192
 K13n225,10,2.2e-16,2.0e-16,0.01894,8.97e-05,True,True,4.772,SnapPy identify x3: K13n225
 K13n230,10,3.6e-10,2.2e-10,0.02188,1.20e-04,True,True,5.267,SnapPy identify x3: K13n230
+K13n285,10,2.1e-11,1.1e-11,0.01004,2.52e-05,True,True,5.210,SnapPy identify x3: K13n285
 K13n288,10,1.1e-15,6.3e-16,0.005543,7.68e-06,True,True,5.000,SnapPy identify x3: K13n288
 K13n307,10,5.1e-15,2.6e-15,0.02315,1.34e-04,True,True,4.883,SnapPy identify x3: K13n307
+K13n5018,10,4.4e-16,2.0e-16,0.01866,8.71e-05,True,True,4.617,SnapPy identify x3: K13n5018
 K13n584,10,2.1e-11,1.1e-11,0.02753,1.89e-04,True,True,4.986,SnapPy identify x3: K13n584
+K13n602,10,7.0e-10,4.3e-10,0.01078,2.91e-05,True,True,3.901,SnapPy identify x3: K13n602
 K13n603,10,2.6e-14,1.5e-14,0.02619,1.71e-04,True,True,4.876,SnapPy identify x3: K13n603
 K13n604,10,3.3e-16,1.7e-16,0.006206,9.63e-06,True,True,3.676,SnapPy identify x3: K13n604
 K13n607,10,1.7e-12,9.4e-13,0.0006956,1.21e-07,True,True,5.702,SnapPy identify x3: K13n607
+K13n608,10,3.1e-12,1.6e-12,0.02417,1.46e-04,True,True,5.333,SnapPy identify x3: K13n608
 "T(4,5)",10,1.1e-16,1.2e-16,0.01,2.50e-05,True,True,4.154,"Alexander x4, HFK g=6 L-space fibred tau=-6, 15 crossings"
 "T(5,6)",12,3.3e-16,1.0e-16,0.005,6.25e-06,True,True,3.820,"Alexander x4, HFK g=10 L-space fibred tau=10, 24 crossings"
 "T(6,7)",14,3.3e-16,1.3e-16,0.0025,1.56e-06,True,True,2.646,"Alexander x4, HFK g=15 L-space fibred tau=-15, 35 crossings"
