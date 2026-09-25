@@ -96,17 +96,17 @@ def collect_outcome(job, exitcode, deadline, out):
             if time.monotonic() >= deadline:
                 return dict(status='timeout', message='not found within budget; publication deadline passed')
             target = Path(out) / filename
-            published = False
-            if target.exists():
-                if target.read_bytes() != stage.read_bytes():
-                    raise ValueError('existing certified file differs; refusing overwrite')
-            else:
-                os.replace(stage, target)
-                published = True
+            # stage lives under out: hard-link publication is atomic and refuses
+            # an existing name, unlike exists() followed by os.replace().
+            os.link(stage, target)
             if time.monotonic() >= deadline:
-                if published:
+                # A noncooperating writer may have replaced the name meanwhile.
+                # Never unlink a different inode during late-publication cleanup.
+                if target.exists() and os.path.samefile(stage, target):
                     target.unlink()
                 return dict(status='timeout', message='not found within budget; publication exceeded deadline')
+            if not os.path.samefile(stage, target):
+                raise ValueError('published coordinates replaced by another writer')
             result['coordinates'] = str(target)
         return result
     except (OSError, ValueError, KeyError) as exc:

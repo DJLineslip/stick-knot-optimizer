@@ -149,4 +149,4 @@ class ParallelTests(unittest.TestCase):
             result = m.collect_outcome(job, 0, time.monotonic() + 1, Path(out))
             self.assertEqual(result['status'], 'certified')
             self.assertEqual((Path(out) / filename).read_bytes(), (m.ROOT / 'results' / filename).read_bytes())
-            self.assertFalse((Path(stage) / filename).exists())
+            self.assertTrue((Path(stage) / filename).samefile(Path(out) / filename))

@@ -1,5 +1,6 @@
 import importlib
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -110,7 +111,8 @@ class Torus37Tests(unittest.TestCase):
                 result = m.collect_outcome(job, 0, 11, Path(directory))
             self.assertEqual(result['status'], 'certified')
             self.assertEqual((Path(directory) / candidate.name).read_text(), 'staged')
-            self.assertFalse(candidate.exists())
+            self.assertTrue(candidate.samefile(Path(directory) / candidate.name))
+            candidate.unlink()  # The supervisor later removes the staging directory.
             candidate.write_text('conflicting saved coordinates')
             with patch.object(m.time, 'monotonic', return_value=10.5):
                 conflict = m.collect_outcome(job, 0, 11, Path(directory))
@@ -145,6 +147,38 @@ class Torus37Tests(unittest.TestCase):
             self.assertIn('T3_7', (Path(directory) / 'torus37.log').read_text())
             self.assertIn('T3_7 [timeout]', (Path(directory) / 'RUNLOG.md').read_text())
             self.assertFalse((Path(directory) / 'tenstick.log').exists())
+
+    def test_shared_supervisor_never_overwrites_or_unlinks_peer_publication(self):
+        m = importlib.import_module('07_parallel')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as staged:
+            job = dict(name='T3_7', target=12, stage=staged)
+            candidate = Path(staged) / 'T3_7_equilateral_12sticks.txt'
+            candidate.write_text('ours')
+            m.atomic_json(Path(staged) / 'outcome.json', dict(
+                status='certified', message='in time', completed_monotonic=9))
+            target = Path(out) / candidate.name
+            real_link = os.link
+            def peer_first(source, destination):
+                target.write_text('peer')
+                return real_link(source, destination)
+            with patch.object(m.os, 'link', side_effect=peer_first), \
+                    patch.object(m.time, 'monotonic', return_value=9):
+                result = m.collect_outcome(job, 0, 10, Path(out))
+            self.assertEqual(result['status'], 'error')
+            self.assertEqual(target.read_text(), 'peer')
+            target.unlink()
+            peer = Path(out) / 'peer.txt'
+            peer.write_text('new peer')
+            calls = iter((9, 9, 10.1))
+            def tick():
+                now = next(calls)
+                if now > 10:
+                    os.replace(peer, target)
+                return now
+            with patch.object(m.time, 'monotonic', side_effect=tick):
+                result = m.collect_outcome(job, 0, 10, Path(out))
+            self.assertEqual(result['status'], 'timeout')
+            self.assertEqual(target.read_text(), 'new peer')
 
 
 if __name__ == '__main__':

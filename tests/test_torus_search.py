@@ -2,6 +2,7 @@
 import importlib.util
 import hashlib
 import json
+import os
 import sys
 import tempfile
 import time
@@ -133,6 +134,48 @@ class TorusSearchTests(unittest.TestCase):
                 result = m.collect_outcome(job, 0, 10, Path(out))
             self.assertEqual(result['status'], 'timeout')
             self.assertFalse((Path(out) / staged.name).exists())
+
+    def test_supervisor_never_overwrites_peer_created_at_publication(self):
+        m = script('08_torus_batch')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as stage:
+            job = dict(name='T8_9', target=18, stage=stage)
+            staged = Path(stage) / 'T8_9_equilateral_18sticks.txt'
+            staged.write_text('our validated bytes')
+            (Path(stage) / 'outcome.json').write_text(json.dumps(dict(
+                status='certified', message='early', completed_monotonic=time.monotonic(),
+                sha256=hashlib.sha256(staged.read_bytes()).hexdigest())))
+            target = Path(out) / staged.name
+            real_link = os.link
+            def peer_first(source, destination):
+                target.write_text('peer result')
+                return real_link(source, destination)
+            with patch.object(m.os, 'link', side_effect=peer_first):
+                result = m.collect_outcome(job, 0, time.monotonic() + 10, Path(out))
+            self.assertEqual(result['status'], 'error')
+            self.assertEqual(target.read_text(), 'peer result')
+
+    def test_supervisor_never_removes_peer_replacement_on_timeout(self):
+        m = script('08_torus_batch')
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory(dir=out) as stage:
+            job = dict(name='T8_9', target=18, stage=stage)
+            staged = Path(stage) / 'T8_9_equilateral_18sticks.txt'
+            staged.write_text('our validated bytes')
+            (Path(stage) / 'outcome.json').write_text(json.dumps(dict(
+                status='certified', message='early', completed_monotonic=9,
+                sha256=hashlib.sha256(staged.read_bytes()).hexdigest())))
+            target = Path(out) / staged.name
+            peer = Path(out) / 'peer.txt'
+            peer.write_text('peer result')
+            calls = iter((9, 9, 10.1))
+            def tick():
+                now = next(calls)
+                if now > 10:
+                    os.replace(peer, target)
+                return now
+            with patch.object(m.time, 'monotonic', side_effect=tick):
+                result = m.collect_outcome(job, 0, 10, Path(out))
+            self.assertEqual(result['status'], 'timeout')
+            self.assertEqual(target.read_text(), 'peer result')
 
     def test_direct_batch_rejects_nonfinite_deadline(self):
         m = script('08_torus_batch')
