@@ -4,7 +4,7 @@ A numerical search for a knot whose **equilateral stick number** e(K) is larger 
 
 ## Bottom line
 
-**No counterexample was found.** For 23 knots, the code produced an equal-stick polygon with exactly the knot's stick number, certified numerically by the Millett and Rawdon criterion and re-identified from scratch. So for these 23 knots, e(K) = s(K), subject to the numerical limitations below:
+**No counterexample was found.** For 23 knots, the code produced near-equal-stick polygons at the reported minimal stick number, with numerical knot re-identification. The interval checker establishes the geometric Millett and Rawdon inequality for stored decimal polygons when it returns `certified`. Knot identification remains numerical or invariant-based, not a rigorous proof of knot identity; the e(K) = s(K) conclusion for the named knots remains conditional on that identification.
 
 - the torus knots T(3,7), T(3,8), T(4,5), T(5,6), T(6,7) and T(7,8), with 12, 12, 10, 12, 14 and 16 sticks;
 - 17 of the 19 four-bridge knots whose stick number Cantarella, Rechnitzer, Schumacher and Shonkwiler proved to be exactly 10.
@@ -73,6 +73,8 @@ defect = max_i |L_i - 1|  <  min(mu/n, mu^2/4)
 ```
 
 and `geometry.mr_ratio` returns defect divided by that bound. Values below 1 certify. `certify.mr_certificate_mp` recomputes everything in 40-digit arithmetic.
+
+`equistick.interval_certificate` instead reads the stored decimal strings exactly as rational coordinates. For each nonadjacent edge pair it minimizes squared separation over both segment parameters using an exact rational convex quadratic: an interior stationary point, if feasible, and all four clamped boundary projections. This also handles parallel pairs. Outward-rounded `mpmath.iv` then bounds every edge length, the interval mean, normalized defect, normalized clearance and theorem threshold. It accepts only when the upper defect endpoint is strictly below the lower threshold endpoint. Pair-count and time budgets yield `inconclusive`, never a negative theorem claim. The generated JSON contains exact binary-rational interval endpoints (as fraction strings), file hashes and the code revision. This is a geometric existence certificate only: it does not rigorously identify the knot or prove its stick number.
 
 ### The length map
 
@@ -181,6 +183,7 @@ Run each from `scripts/` with `PYTHONPATH=..`. Times are for one CPU core.
 | `06_verify_results.py` | Re-verifies every file in `results/` from scratch and writes `results/summary.csv` | ~1 minute |
 | `07_parallel.py --budget 1800 --workers 5` | Runs the five unfinished knots concurrently, subject to the effective CPU quota; enforces a hard wall-clock budget per knot | up to 30 minutes with five workers, plus cache warmup |
 | `08_torus37.py --budget 1800 --workers 2` | Samples explicit T(3,7) and T(3,8), checks their invariants, reduces safely to 12 sticks, homotopy equalizes, validates saved coordinates; hard wall budget per knot | up to 30 minutes with two workers, plus cache warmup |
+| `08_interval_certificates.py --expected-count 23` | Writes `results/interval_certificates.json` with exact-decimal and interval geometric certificates for stored polygons, without knot identification | seconds |
 
 From the repository root, run:
 
@@ -288,7 +291,7 @@ Failing to reduce within a time budget says nothing about these knots. It is a s
 
 ## Limitations
 
-1. **Certificates are numerical, not formal proofs.** Coordinates are 64-bit floats. The Millett and Rawdon test is recomputed in 40-digit arithmetic from those floats, but not with interval arithmetic, and the high-precision distance routine follows the same branch logic as the float one. The margins are at least five orders of magnitude, so rounding is not a plausible failure mode, but a publishable proof should use interval arithmetic throughout.
+1. **The geometric inequality is checked rigorously, but knot identity is not.** The legacy 40-digit checker still uses floats on input and is not a rigorous certificate. The separate interval checker uses the stored decimal strings exactly, exact rational segment minimization and outward-rounded arithmetic for the remaining bounds. It establishes the Millett and Rawdon inequality for those exact decimal polygons. It does not prove that they have the knot names in the results table, nor does it independently verify the theorem hypotheses or knot identification. Replacing the interval results with the legacy checker would lose this guarantee.
 
 2. **Knot identification relies on invariants.**
    - Hyperbolic knots are identified by SnapPy's `identify()`. It matches the complement against census manifolds using numerically computed hyperbolic structures, without SnapPy's rigorous `verified=True` mode. It also ignores chirality, which is harmless here because e and s are mirror invariant.
