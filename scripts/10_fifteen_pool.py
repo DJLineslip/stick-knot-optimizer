@@ -34,10 +34,20 @@ folder = ROOT / 'results' / 'ten_new_stick_knots'
 parallel = importlib.import_module('07_parallel')
 
 
-def table_isometries(V, name, seeds=(1, 2, 3)):
+def table_isometries(V, name, seeds=range(1, 13), needed=3):
+    """Collect decisive projection checks, retrying undecidable SnapPy calls."""
     reference = spherogram.Link(name).exterior()
-    return [bool(spherogram.Link(pd_code(V, rng=np.random.default_rng(seed))).exterior().is_isometric_to(reference))
-            for seed in seeds]
+    matches = []
+    for seed in seeds:
+        try:
+            outcome = spherogram.Link(pd_code(V, rng=np.random.default_rng(seed))).exterior().is_isometric_to(reference)
+        except RuntimeError as exc:
+            print('isometry indeterminate at seed', seed, ':', exc, flush=True)
+            continue
+        matches.append(bool(outcome))
+        if len(matches) == needed:
+            break
+    return matches
 
 
 def validate(path, name):
@@ -50,8 +60,8 @@ def validate(path, name):
     if interval['status'] != 'certified':
         raise ValueError('interval certificate failed: ' + str(interval.get('reason')))
     matches = table_isometries(V, name)
-    if not all(matches):
-        raise ValueError('table complement isometry failed in at least one projection')
+    if len(matches) != 3 or not all(matches):
+        raise ValueError('table complement isometry failed or indeterminate in three projections')
     return dict(interval=interval, projections=matches)
 
 
@@ -64,8 +74,8 @@ def pool_worker(job):
         result = dict(status='missing_data', message='Eddy starting polygon missing')
     else:
         V0 = load_eddy(name)
-        if V0.shape != (11, 3) or not all(table_isometries(V0, name, seeds=(1,))):
-            raise ValueError('Eddy input is not an identified 11-gon of this table knot')
+        if V0.shape != (11, 3) or table_isometries(V0, name, seeds=range(1, 9), needed=1) != [True]:
+            raise ValueError('Eddy input is not a positively identified 11-gon of this table knot')
         rng = np.random.default_rng(seed_for(name))
         attempts = 0
         realisations = 0
@@ -76,8 +86,8 @@ def pool_worker(job):
             V = reduce_to(V0.copy(), 10, rng)
             if V is None:
                 continue
-            if not table_isometries(V, name, seeds=(1,))[0]:
-                print('reduced polygon failed identity check', flush=True)
+            if table_isometries(V, name, seeds=range(1, 9), needed=1) != [True]:
+                print('reduced polygon failed or indeterminate identity check', flush=True)
                 continue
             realisations += 1
             Vf = fatten(V, rng, 400)
@@ -120,6 +130,8 @@ def main():
     args = parser.parse_args()
     if args.budget <= 0 or not np.isfinite(args.budget):
         parser.error('budget must be finite and positive')
+    if args.workers is not None and args.workers < 1:
+        parser.error('workers must be positive')
     preflight = json.loads((folder / 'verification.json').read_text())
     if not all(x['passed'] for x in preflight['six']):
         parser.error('six-knot preflight failed')
