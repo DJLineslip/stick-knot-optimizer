@@ -4,3 +4,5 @@ __pycache__/
 data/external/
 results/logs/
 results/.candidate_*/
+results/ten_new_stick_knots/logs/
+results/ten_new_stick_knots/.candidate_*/

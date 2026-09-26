@@ -1,0 +1,153 @@
+{
+  "source_workbook": "data/external/Wirt_Hm/all_data_A.xlsx",
+  "source_sha256": "514b12e118fa681520da5702a5ed4307ce7cf93b6b9f7b5e53f265ca7b01647b",
+  "source_commit": "74fe52e57de6f91988f63ac105cbc157534ad966",
+  "pool": [
+    "K15n124836",
+    "K15n124999",
+    "K15n131344",
+    "K15n40214",
+    "K15n41126",
+    "K15n41131",
+    "K15n41142",
+    "K15n41183",
+    "K15n41188",
+    "K15n41202",
+    "K15n41213",
+    "K15n41237",
+    "K15n41238",
+    "K15n43517",
+    "K15n45460",
+    "K15n45603",
+    "K15n46532",
+    "K15n47800",
+    "K15n49036",
+    "K15n51709",
+    "K15n51757",
+    "K15n52940",
+    "K15n52941",
+    "K15n56079",
+    "K15n56089",
+    "K15n59060",
+    "K15n67540",
+    "K15n84457",
+    "K15n94888"
+  ],
+  "pool_count": 29,
+  "pool_without_coxeter_map": [
+    "K15n59060",
+    "K15n67540",
+    "K15n84457",
+    "K15n94888"
+  ],
+  "six": [
+    {
+      "knot": "K15n40184",
+      "file": "K15n40184_equilateral_10sticks.txt",
+      "sha256": "4b6be9f35c5932f28e93af03448fa96cbb3892bf1c5ac2ea701dbedb9b0317b0",
+      "interval": "certified",
+      "mr_ratio_below_one": true,
+      "high_precision": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "gauss_table_isometry": true,
+      "wirtinger_four": true,
+      "rank_four_map_listed": true,
+      "map_type": "D4",
+      "passed": true
+    },
+    {
+      "knot": "K15n40185",
+      "file": "K15n40185_equilateral_10sticks.txt",
+      "sha256": "6ef7ee1436db178a08dc8d6767689aa7177dbb1a0224f75a80c2c47fc08fde8e",
+      "interval": "certified",
+      "mr_ratio_below_one": true,
+      "high_precision": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "gauss_table_isometry": true,
+      "wirtinger_four": true,
+      "rank_four_map_listed": true,
+      "map_type": "D4",
+      "passed": true
+    },
+    {
+      "knot": "K15n41189",
+      "file": "K15n41189_equilateral_10sticks.txt",
+      "sha256": "149446566c4947b23789bc59469396293af706fff72e87a201568844dbd9f717",
+      "interval": "certified",
+      "mr_ratio_below_one": true,
+      "high_precision": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "gauss_table_isometry": true,
+      "wirtinger_four": true,
+      "rank_four_map_listed": true,
+      "map_type": "S5",
+      "passed": true
+    },
+    {
+      "knot": "K15n41193",
+      "file": "K15n41193_equilateral_10sticks.txt",
+      "sha256": "d4d860d457cabc2b855589c174f3c045e8a9d1042b4482d50d13de9f37d1900d",
+      "interval": "certified",
+      "mr_ratio_below_one": true,
+      "high_precision": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "gauss_table_isometry": true,
+      "wirtinger_four": true,
+      "rank_four_map_listed": true,
+      "map_type": "S5",
+      "passed": true
+    },
+    {
+      "knot": "K15n41235",
+      "file": "K15n41235_equilateral_10sticks.txt",
+      "sha256": "0e54bb5f3fcc5bb33fe6d0ff6b81d72b7acb1166a21eb38c50a1aaecd269cee5",
+      "interval": "certified",
+      "mr_ratio_below_one": true,
+      "high_precision": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "gauss_table_isometry": true,
+      "wirtinger_four": true,
+      "rank_four_map_listed": true,
+      "map_type": "S5",
+      "passed": true
+    },
+    {
+      "knot": "K15n59007",
+      "file": "K15n59007_equilateral_10sticks.txt",
+      "sha256": "5273259206306dd68b9331953b72d5a8713a8a57c9ea261a403ed47afe286ad7",
+      "interval": "certified",
+      "mr_ratio_below_one": true,
+      "high_precision": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "gauss_table_isometry": true,
+      "wirtinger_four": true,
+      "rank_four_map_listed": true,
+      "map_type": "D4",
+      "passed": true
+    }
+  ]
+}
