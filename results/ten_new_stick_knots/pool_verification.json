@@ -1,0 +1,381 @@
+{
+  "budget_seconds": 1200.0,
+  "existing_six": [
+    {
+      "file": "K15n40184_equilateral_10sticks.txt",
+      "gauss_table_isometry": true,
+      "high_precision": true,
+      "interval": "certified",
+      "knot": "K15n40184",
+      "map_type": "D4",
+      "mr_ratio_below_one": true,
+      "passed": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "rank_four_map_listed": true,
+      "sha256": "4b6be9f35c5932f28e93af03448fa96cbb3892bf1c5ac2ea701dbedb9b0317b0",
+      "wirtinger_four": true
+    },
+    {
+      "file": "K15n40185_equilateral_10sticks.txt",
+      "gauss_table_isometry": true,
+      "high_precision": true,
+      "interval": "certified",
+      "knot": "K15n40185",
+      "map_type": "D4",
+      "mr_ratio_below_one": true,
+      "passed": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "rank_four_map_listed": true,
+      "sha256": "6ef7ee1436db178a08dc8d6767689aa7177dbb1a0224f75a80c2c47fc08fde8e",
+      "wirtinger_four": true
+    },
+    {
+      "file": "K15n41189_equilateral_10sticks.txt",
+      "gauss_table_isometry": true,
+      "high_precision": true,
+      "interval": "certified",
+      "knot": "K15n41189",
+      "map_type": "S5",
+      "mr_ratio_below_one": true,
+      "passed": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "rank_four_map_listed": true,
+      "sha256": "149446566c4947b23789bc59469396293af706fff72e87a201568844dbd9f717",
+      "wirtinger_four": true
+    },
+    {
+      "file": "K15n41193_equilateral_10sticks.txt",
+      "gauss_table_isometry": true,
+      "high_precision": true,
+      "interval": "certified",
+      "knot": "K15n41193",
+      "map_type": "S5",
+      "mr_ratio_below_one": true,
+      "passed": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "rank_four_map_listed": true,
+      "sha256": "d4d860d457cabc2b855589c174f3c045e8a9d1042b4482d50d13de9f37d1900d",
+      "wirtinger_four": true
+    },
+    {
+      "file": "K15n41235_equilateral_10sticks.txt",
+      "gauss_table_isometry": true,
+      "high_precision": true,
+      "interval": "certified",
+      "knot": "K15n41235",
+      "map_type": "S5",
+      "mr_ratio_below_one": true,
+      "passed": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "rank_four_map_listed": true,
+      "sha256": "0e54bb5f3fcc5bb33fe6d0ff6b81d72b7acb1166a21eb38c50a1aaecd269cee5",
+      "wirtinger_four": true
+    },
+    {
+      "file": "K15n59007_equilateral_10sticks.txt",
+      "gauss_table_isometry": true,
+      "high_precision": true,
+      "interval": "certified",
+      "knot": "K15n59007",
+      "map_type": "D4",
+      "mr_ratio_below_one": true,
+      "passed": true,
+      "projections": [
+        true,
+        true,
+        true
+      ],
+      "rank_four_map_listed": true,
+      "sha256": "5273259206306dd68b9331953b72d5a8713a8a57c9ea261a403ed47afe286ad7",
+      "wirtinger_four": true
+    }
+  ],
+  "pool_results": [
+    {
+      "elapsed_seconds": 1200.0143591820001,
+      "knot": "K15n124836",
+      "search_status": "timeout",
+      "seed": 3491315336,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0149894039996,
+      "knot": "K15n124999",
+      "search_status": "timeout",
+      "seed": 3146490276,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.019892919,
+      "knot": "K15n131344",
+      "search_status": "timeout",
+      "seed": 2008940288,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.028326484,
+      "knot": "K15n40214",
+      "search_status": "timeout",
+      "seed": 1602230870,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0183405890002,
+      "knot": "K15n41126",
+      "search_status": "timeout",
+      "seed": 542765445,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0153002959996,
+      "knot": "K15n41131",
+      "search_status": "timeout",
+      "seed": 2804307303,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0110395259999,
+      "knot": "K15n41142",
+      "search_status": "timeout",
+      "seed": 1903071770,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0180085460015,
+      "knot": "K15n41183",
+      "search_status": "timeout",
+      "seed": 2866605440,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0118371629997,
+      "knot": "K15n41188",
+      "search_status": "timeout",
+      "seed": 1024341000,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0099770849993,
+      "knot": "K15n41202",
+      "search_status": "timeout",
+      "seed": 390392135,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.016072014001,
+      "knot": "K15n41213",
+      "search_status": "timeout",
+      "seed": 2035869840,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0134397180009,
+      "knot": "K15n41237",
+      "search_status": "timeout",
+      "seed": 1275285003,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.017128424999,
+      "knot": "K15n41238",
+      "search_status": "timeout",
+      "seed": 3703329690,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0193580760024,
+      "knot": "K15n43517",
+      "search_status": "timeout",
+      "seed": 3514036871,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "checks": {
+        "file": "K15n45460_equilateral_10sticks.txt",
+        "gauss_table_isometry": true,
+        "high_precision": true,
+        "interval": "certified",
+        "knot": "K15n45460",
+        "map_type": "S5",
+        "mr_ratio_below_one": true,
+        "passed": true,
+        "projections": [
+          true,
+          true,
+          true
+        ],
+        "rank_four_map_listed": true,
+        "sha256": "b8cfc216dd8d6a39111651b5892b48cc83c20e4ce4058bdf32ca83b1166bba70",
+        "wirtinger_four": true
+      },
+      "elapsed_seconds": 94.35571275500115,
+      "knot": "K15n45460",
+      "search_status": "certified",
+      "seed": 620741640,
+      "status": "certified_exact_10_under_listed_map_and_numerical_identity"
+    },
+    {
+      "elapsed_seconds": 1200.013908316003,
+      "knot": "K15n45603",
+      "search_status": "timeout",
+      "seed": 3894994522,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0148788760016,
+      "knot": "K15n46532",
+      "search_status": "timeout",
+      "seed": 2767295672,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "checks": {
+        "file": "K15n47800_equilateral_10sticks.txt",
+        "gauss_table_isometry": true,
+        "high_precision": true,
+        "interval": "certified",
+        "knot": "K15n47800",
+        "map_type": "S5",
+        "mr_ratio_below_one": true,
+        "passed": true,
+        "projections": [
+          true,
+          true,
+          true
+        ],
+        "rank_four_map_listed": true,
+        "sha256": "aa5ba822d820c442221c40aa940886f8f023095ad6ff8efbccd3d3962aa53fdc",
+        "wirtinger_four": true
+      },
+      "elapsed_seconds": 6.83382798599996,
+      "knot": "K15n47800",
+      "search_status": "certified",
+      "seed": 3518386785,
+      "status": "certified_exact_10_under_listed_map_and_numerical_identity"
+    },
+    {
+      "elapsed_seconds": 1200.0145972779974,
+      "knot": "K15n49036",
+      "search_status": "timeout",
+      "seed": 4248076828,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0140861500004,
+      "knot": "K15n51709",
+      "search_status": "timeout",
+      "seed": 3141393300,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0132979719965,
+      "knot": "K15n51757",
+      "search_status": "timeout",
+      "seed": 569508566,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0147478700019,
+      "knot": "K15n52940",
+      "search_status": "timeout",
+      "seed": 3198559440,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "checks": {
+        "file": "K15n52941_equilateral_10sticks.txt",
+        "gauss_table_isometry": true,
+        "high_precision": true,
+        "interval": "certified",
+        "knot": "K15n52941",
+        "map_type": "S5",
+        "mr_ratio_below_one": true,
+        "passed": true,
+        "projections": [
+          true,
+          true,
+          true
+        ],
+        "rank_four_map_listed": true,
+        "sha256": "45da1da8e4ae1982a74ced401b2b3be8b0b19af8d3201f4672bf96d3dabb7444",
+        "wirtinger_four": true
+      },
+      "elapsed_seconds": 14.905500173998007,
+      "knot": "K15n52941",
+      "search_status": "certified",
+      "seed": 3382776902,
+      "status": "certified_exact_10_under_listed_map_and_numerical_identity"
+    },
+    {
+      "elapsed_seconds": 1200.0342391529994,
+      "knot": "K15n56079",
+      "search_status": "timeout",
+      "seed": 1826906991,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.013072449001,
+      "knot": "K15n56089",
+      "search_status": "timeout",
+      "seed": 3950804896,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0188384520006,
+      "knot": "K15n59060",
+      "search_status": "timeout",
+      "seed": 1413544668,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0482304609977,
+      "knot": "K15n67540",
+      "search_status": "timeout",
+      "seed": 3351402326,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.0158589740022,
+      "knot": "K15n84457",
+      "search_status": "timeout",
+      "seed": 3975841804,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    },
+    {
+      "elapsed_seconds": 1200.018734045996,
+      "knot": "K15n94888",
+      "search_status": "timeout",
+      "seed": 4254153476,
+      "status": "no_10_stick_polygon_found_in_20_min"
+    }
+  ],
+  "run_id": "20260926T163138_60a140ef",
+  "lower_bound_source": "Wirt_Hm all_data_A.xlsx: Wirtinger number 4 and listed rank-4 Coxeter maps for the nine saved polygons; map relations not independently proved",
+  "raw_stick_number_source_note": "The pool_results.json stick_number_source field is generic metadata inherited from scripts/07_parallel.py, not a lower-bound citation for this 15-crossing pool.",
+  "search_code_revision": "7470f58ec410aeb729b51a33bb217f2a19339cd8",
+  "source_commit": "74fe52e57de6f91988f63ac105cbc157534ad966",
+  "source_sha256": "514b12e118fa681520da5702a5ed4307ce7cf93b6b9f7b5e53f265ca7b01647b",
+  "source_workbook": "data/external/Wirt_Hm/all_data_A.xlsx",
+  "verification_note": "Saved decimal coordinates, exact interval geometry, numerical three-projection complement isometry, Wirt_Hm Gauss diagram and listed rank-4 Coxeter map checked; Coxeter relations and rigorous knot identity not independently proved.",
+  "workers": 1
+}

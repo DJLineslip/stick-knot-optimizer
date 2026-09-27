@@ -1,1 +1,30 @@
 K15n124836 [error] RuntimeError: The SnapPea kernel was not able to determine if the manifolds are isometric.
+K15n124836 [timeout] not found within budget (1200s); hard wall deadline
+K15n124999 [timeout] not found within budget (1200s); hard wall deadline
+K15n131344 [timeout] not found within budget (1200s); hard wall deadline
+K15n40214 [timeout] not found within budget (1200s); hard wall deadline
+K15n41126 [timeout] not found within budget (1200s); hard wall deadline
+K15n41131 [timeout] not found within budget (1200s); hard wall deadline
+K15n41142 [timeout] not found within budget (1200s); hard wall deadline
+K15n41183 [timeout] not found within budget (1200s); hard wall deadline
+K15n41188 [timeout] not found within budget (1200s); hard wall deadline
+K15n41202 [timeout] not found within budget (1200s); hard wall deadline
+K15n41213 [timeout] not found within budget (1200s); hard wall deadline
+K15n41237 [timeout] not found within budget (1200s); hard wall deadline
+K15n41238 [timeout] not found within budget (1200s); hard wall deadline
+K15n43517 [timeout] not found within budget (1200s); hard wall deadline
+K15n45460 [certified] 10-stick equal-length polygon, 107 reduction attempts
+K15n45603 [timeout] not found within budget (1200s); hard wall deadline
+K15n46532 [timeout] not found within budget (1200s); hard wall deadline
+K15n47800 [certified] 10-stick equal-length polygon, 6 reduction attempts
+K15n49036 [timeout] not found within budget (1200s); hard wall deadline
+K15n51709 [timeout] not found within budget (1200s); hard wall deadline
+K15n51757 [timeout] not found within budget (1200s); hard wall deadline
+K15n52940 [timeout] not found within budget (1200s); hard wall deadline
+K15n52941 [certified] 10-stick equal-length polygon, 14 reduction attempts
+K15n56079 [timeout] not found within budget (1200s); hard wall deadline
+K15n56089 [timeout] not found within budget (1200s); hard wall deadline
+K15n59060 [timeout] not found within budget (1200s); hard wall deadline
+K15n67540 [timeout] not found within budget (1200s); hard wall deadline
+K15n84457 [timeout] not found within budget (1200s); hard wall deadline
+K15n94888 [timeout] not found within budget (1200s); hard wall deadline

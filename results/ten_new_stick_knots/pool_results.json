@@ -1,0 +1,349 @@
+{
+  "run_id": "20260926T163138_60a140ef",
+  "manifest": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef.json",
+  "command": [
+    "/workspace/repos/stick-knot-optimizer/.venv/bin/python",
+    "scripts/10_fifteen_pool.py",
+    "--budget",
+    "1200",
+    "--workers",
+    "1"
+  ],
+  "seeds": {
+    "K15n124836": 3491315336,
+    "K15n124999": 3146490276,
+    "K15n131344": 2008940288,
+    "K15n40214": 1602230870,
+    "K15n41126": 542765445,
+    "K15n41131": 2804307303,
+    "K15n41142": 1903071770,
+    "K15n41183": 2866605440,
+    "K15n41188": 1024341000,
+    "K15n41202": 390392135,
+    "K15n41213": 2035869840,
+    "K15n41237": 1275285003,
+    "K15n41238": 3703329690,
+    "K15n43517": 3514036871,
+    "K15n45460": 620741640,
+    "K15n45603": 3894994522,
+    "K15n46532": 2767295672,
+    "K15n47800": 3518386785,
+    "K15n49036": 4248076828,
+    "K15n51709": 3141393300,
+    "K15n51757": 569508566,
+    "K15n52940": 3198559440,
+    "K15n52941": 3382776902,
+    "K15n56079": 1826906991,
+    "K15n56089": 3950804896,
+    "K15n59060": 1413544668,
+    "K15n67540": 3351402326,
+    "K15n84457": 3975841804,
+    "K15n94888": 4254153476
+  },
+  "projection_seeds": [
+    1,
+    2,
+    3
+  ],
+  "budget_seconds": 1200.0,
+  "workers": 1,
+  "git_commit": "7470f58ec410aeb729b51a33bb217f2a19339cd8",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "numba": "0.67.0",
+    "mpmath": "1.4.1",
+    "snappy": "3.3.2",
+    "spherogram": "2.4.1"
+  },
+  "data_path": "/workspace/repos/stick-knot-optimizer/stick-knot-gen",
+  "data_commit": "9f05018917d3cd568867412a0c39ec843aa8744e",
+  "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+  "stick_number_source": "TEN_STICK_19: Cantarella et al., JKTR 2026; otherwise exact_values.csv",
+  "results": [
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n124836",
+      "elapsed_seconds": 1200.0143591820001,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n124836.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n124999",
+      "elapsed_seconds": 1200.0149894039996,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n124999.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n131344",
+      "elapsed_seconds": 1200.019892919,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n131344.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n40214",
+      "elapsed_seconds": 1200.028326484,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n40214.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41126",
+      "elapsed_seconds": 1200.0183405890002,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41126.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41131",
+      "elapsed_seconds": 1200.0153002959996,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41131.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41142",
+      "elapsed_seconds": 1200.0110395259999,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41142.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41183",
+      "elapsed_seconds": 1200.0180085460015,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41183.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41188",
+      "elapsed_seconds": 1200.0118371629997,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41188.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41202",
+      "elapsed_seconds": 1200.0099770849993,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41202.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41213",
+      "elapsed_seconds": 1200.016072014001,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41213.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41237",
+      "elapsed_seconds": 1200.0134397180009,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41237.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n41238",
+      "elapsed_seconds": 1200.017128424999,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n41238.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n43517",
+      "elapsed_seconds": 1200.0193580760024,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n43517.log"
+    },
+    {
+      "attempts": 107,
+      "checks": {
+        "interval": {
+          "backend": "mpmath.iv",
+          "defect_lower": "457520959564548952811097473910771/1461501637330902918203684832716283019655932542976",
+          "defect_upper": "223398906037377418364793688433/713623846352979940529142984724747568191373312",
+          "file": "K15n45460_equilateral_10sticks.txt",
+          "mpmath_version": "1.4.1",
+          "mu_lower": "550464175346875191440115878733052266905510352499/46768052394588893382517914646921056628989841375232",
+          "mu_upper": "550464175346875191440115878733052266905510352505/46768052394588893382517914646921056628989841375232",
+          "pair_count": 35,
+          "precision_bits": 160,
+          "sha256": "b8cfc216dd8d6a39111651b5892b48cc83c20e4ce4058bdf32ca83b1166bba70",
+          "status": "certified",
+          "sticks": 10,
+          "threshold_lower": "829313633595908950521897686494111220678470057495/23945242826029513411849172299223580994042798784118784",
+          "threshold_upper": "414656816797954475260948843247055610339235028757/11972621413014756705924586149611790497021399392059392"
+        },
+        "projections": [
+          true,
+          true,
+          true
+        ]
+      },
+      "completed_monotonic": 20647.206135334,
+      "message": "10-stick equal-length polygon, 107 reduction attempts",
+      "realisations": 1,
+      "status": "certified",
+      "coordinates": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/K15n45460_equilateral_10sticks.txt",
+      "name": "K15n45460",
+      "elapsed_seconds": 94.35571275500115,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n45460.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n45603",
+      "elapsed_seconds": 1200.013908316003,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n45603.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n46532",
+      "elapsed_seconds": 1200.0148788760016,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n46532.log"
+    },
+    {
+      "attempts": 6,
+      "checks": {
+        "interval": {
+          "backend": "mpmath.iv",
+          "defect_lower": "1408592888613146145053847524739275289/730750818665451459101842416358141509827966271488",
+          "defect_upper": "2817185777226292290107695049478550593/1461501637330902918203684832716283019655932542976",
+          "file": "K15n47800_equilateral_10sticks.txt",
+          "mpmath_version": "1.4.1",
+          "mu_lower": "1347112603270259039549719728890344424173675790775/374144419156711147060143317175368453031918731001856",
+          "mu_upper": "1347112603270259039549719728890344424173675790789/374144419156711147060143317175368453031918731001856",
+          "pair_count": 35,
+          "precision_bits": 160,
+          "sha256": "aa5ba822d820c442221c40aa940886f8f023095ad6ff8efbccd3d3962aa53fdc",
+          "status": "certified",
+          "sticks": 10,
+          "threshold_lower": "620838293826249035962537434447322476363761026081/191561942608236107294793378393788647952342390272950272",
+          "threshold_upper": "1241676587652498071925074868894644952727522052189/383123885216472214589586756787577295904684780545900544"
+        },
+        "projections": [
+          true,
+          true,
+          true
+        ]
+      },
+      "completed_monotonic": 23054.13093638,
+      "message": "10-stick equal-length polygon, 6 reduction attempts",
+      "realisations": 1,
+      "status": "certified",
+      "coordinates": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/K15n47800_equilateral_10sticks.txt",
+      "name": "K15n47800",
+      "elapsed_seconds": 6.83382798599996,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n47800.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n49036",
+      "elapsed_seconds": 1200.0145972779974,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n49036.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n51709",
+      "elapsed_seconds": 1200.0140861500004,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n51709.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n51757",
+      "elapsed_seconds": 1200.0132979719965,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n51757.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n52940",
+      "elapsed_seconds": 1200.0147478700019,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n52940.log"
+    },
+    {
+      "attempts": 14,
+      "checks": {
+        "interval": {
+          "backend": "mpmath.iv",
+          "defect_lower": "9387905368364575136757499197230237/1461501637330902918203684832716283019655932542976",
+          "defect_upper": "9387905368364575136757499197230251/1461501637330902918203684832716283019655932542976",
+          "file": "K15n52941_equilateral_10sticks.txt",
+          "mpmath_version": "1.4.1",
+          "mu_lower": "1033885213095671356043442901997093426443966210993/5986310706507378352962293074805895248510699696029696",
+          "mu_upper": "1033885213095671356043442901997093426443966211005/5986310706507378352962293074805895248510699696029696",
+          "pair_count": 35,
+          "precision_bits": 160,
+          "sha256": "45da1da8e4ae1982a74ced401b2b3be8b0b19af8d3201f4672bf96d3dabb7444",
+          "status": "certified",
+          "sticks": 10,
+          "threshold_lower": "182845952162259660377343850222815678189132075687/24519928653854221733733552434404946937899825954937634816",
+          "threshold_upper": "365691904324519320754687700445631356378264151383/49039857307708443467467104868809893875799651909875269632"
+        },
+        "projections": [
+          true,
+          true,
+          true
+        ]
+      },
+      "completed_monotonic": 27869.110937952,
+      "message": "10-stick equal-length polygon, 14 reduction attempts",
+      "realisations": 1,
+      "status": "certified",
+      "coordinates": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/K15n52941_equilateral_10sticks.txt",
+      "name": "K15n52941",
+      "elapsed_seconds": 14.905500173998007,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n52941.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n56079",
+      "elapsed_seconds": 1200.0342391529994,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n56079.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n56089",
+      "elapsed_seconds": 1200.013072449001,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n56089.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n59060",
+      "elapsed_seconds": 1200.0188384520006,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n59060.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n67540",
+      "elapsed_seconds": 1200.0482304609977,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n67540.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n84457",
+      "elapsed_seconds": 1200.0158589740022,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n84457.log"
+    },
+    {
+      "status": "timeout",
+      "message": "not found within budget (1200s); hard wall deadline",
+      "name": "K15n94888",
+      "elapsed_seconds": 1200.018734045996,
+      "log": "/workspace/repos/stick-knot-optimizer/results/ten_new_stick_knots/logs/20260926T163138_60a140ef_K15n94888.log"
+    }
+  ]
+}
