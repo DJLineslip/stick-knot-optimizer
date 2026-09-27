@@ -1,0 +1,2525 @@
+{
+  "candidate_budget_seconds": 180.0,
+  "code_sha256": "75b8d941ededd2827e40c2bf4525b3b6adf5957c2682304f1b5298a6858be329",
+  "created_utc": "2026-09-27T20:41:42.328744+00:00",
+  "incomplete_source_ids": [
+    "crss:10_124",
+    "crss:8_8",
+    "crss:9_1",
+    "crss:9_14",
+    "crss:K11n133",
+    "crss:K11n21",
+    "crss:K11n79",
+    "crss:K11n90",
+    "crss:K11n91",
+    "crss:K11n92",
+    "crss:K11n93",
+    "crss:K12n242"
+  ],
+  "max_attempts_per_target": 1,
+  "pool_timeouts": [
+    "K15n124836",
+    "K15n124999",
+    "K15n131344",
+    "K15n40214",
+    "K15n41126",
+    "K15n41131",
+    "K15n41142",
+    "K15n41183",
+    "K15n41188",
+    "K15n41202",
+    "K15n41213",
+    "K15n41237",
+    "K15n41238",
+    "K15n43517",
+    "K15n45603",
+    "K15n46532",
+    "K15n49036",
+    "K15n51709",
+    "K15n51757",
+    "K15n52940",
+    "K15n56079",
+    "K15n56089",
+    "K15n59060",
+    "K15n67540",
+    "K15n84457",
+    "K15n94888"
+  ],
+  "scan_inventory_count": 882,
+  "scan_manifest": "/tmp/equistick-sync-b3iRpz/results/ten_new_stick_knots/crossing_results.json",
+  "scanned_sources_seen": 870,
+  "schema": 1,
+  "targets": {
+    "K13n1192": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "44902102b71bd5a240e91f2882e7d7eea44d8122870078e8caecf773a65c2e30",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n76",
+        "ours:K11n75",
+        "ours:K11n76",
+        "ours:K15n41189",
+        "ours:K15n47800"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n225": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "6c931619f0ffdff8682f319bda286fb02f62407a6ba54d91e248ff5882aea53b",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n78",
+        "ours:K11n78",
+        "ours:K15n40184",
+        "ours:K15n40185"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n230": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "1b740a712556f0a999c339d6f1ad91442f404c7fd810f2505369702d71106e1a",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n47",
+        "ours:K11n75"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n285": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "148a54f5201ea681b7bd4cbb2bc02ca81c2213a8d036176460ac494417b764af",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n76",
+        "ours:K11n76"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n288": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "3c66793e61d687fda4b563c7b8844e4162e543206e0cbdc061dde30ec274130a",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n71",
+        "eddy:K15n59007",
+        "ours:K11n71",
+        "ours:K15n41193",
+        "ours:K15n59007"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n307": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "044d58d66f0eae4d675ae9cca0b46b6e5ccc26f43545e236417b90d0ee28dcdd",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n45"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n501": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 783,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K13n501"
+                ],
+                "errors": [],
+                "name": "K13n501",
+                "projection_seeds": [
+                  2231793953,
+                  2231793954,
+                  2231793955
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "221649608448590684933005666489101291/365375409332725729550921208179070754913983135744",
+                "defect_upper": "221649608448590684933005666489101295/365375409332725729550921208179070754913983135744",
+                "file": "K13n501_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "1006017722459536941669056844849166579446117628277/1496577676626844588240573268701473812127674924007424",
+                "mu_upper": "1006017722459536941669056844849166579446117628287/1496577676626844588240573268701473812127674924007424",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "cac7b7d1c242f163be3cae808e58391d9cf2ce4243bf1b344f0678b16bc734ea",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "346243764649826305467135901243571792489962032041/3064991081731777716716694054300618367237478244367204352",
+                "threshold_upper": "21640235290614144091695993827723237030622627003/191561942608236107294793378393788647952342390272950272"
+              },
+              "mr_ratio": 5.3718900020365776e-06,
+              "sha256": "cac7b7d1c242f163be3cae808e58391d9cf2ce4243bf1b344f0678b16bc734ea"
+            },
+            "crossing": {
+              "barycentric_margin": 0.05935622253705488,
+              "edge": 0,
+              "edge_fraction": 0.18526246155888032,
+              "endpoint_clearance": 0.0007468486061255131,
+              "time": 0.699999999999557,
+              "triangle": 1,
+              "vertex": 3
+            },
+            "elapsed_seconds": 0.7981885179906385,
+            "file": "K13n501_equilateral_10sticks.txt",
+            "move_index": 783,
+            "route": "crossing_change",
+            "source_id": "ours:K15n41235",
+            "source_identification": {
+              "aliases": [
+                "K15n41235"
+              ],
+              "errors": [],
+              "name": "K15n41235",
+              "projection_seeds": [
+                944607086,
+                944607087
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K15n41235",
+            "source_label": "K15n41235",
+            "status": "certified"
+          },
+          "source_id": "ours:K15n41235",
+          "source_label": "K15n41235",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K13n501"
+            ],
+            "errors": [],
+            "name": "K13n501",
+            "projection_seeds": [
+              2231793953,
+              2231793954,
+              2231793955
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "221649608448590684933005666489101291/365375409332725729550921208179070754913983135744",
+            "defect_upper": "221649608448590684933005666489101295/365375409332725729550921208179070754913983135744",
+            "file": "K13n501_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "1006017722459536941669056844849166579446117628277/1496577676626844588240573268701473812127674924007424",
+            "mu_upper": "1006017722459536941669056844849166579446117628287/1496577676626844588240573268701473812127674924007424",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "cac7b7d1c242f163be3cae808e58391d9cf2ce4243bf1b344f0678b16bc734ea",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "346243764649826305467135901243571792489962032041/3064991081731777716716694054300618367237478244367204352",
+            "threshold_upper": "21640235290614144091695993827723237030622627003/191561942608236107294793378393788647952342390272950272"
+          },
+          "mr_ratio": 5.3718900020365776e-06,
+          "sha256": "cac7b7d1c242f163be3cae808e58391d9cf2ce4243bf1b344f0678b16bc734ea"
+        },
+        "crossing": {
+          "barycentric_margin": 0.05935622253705488,
+          "edge": 0,
+          "edge_fraction": 0.18526246155888032,
+          "endpoint_clearance": 0.0007468486061255131,
+          "time": 0.699999999999557,
+          "triangle": 1,
+          "vertex": 3
+        },
+        "elapsed_seconds": 0.7981885179906385,
+        "file": "K13n501_equilateral_10sticks.txt",
+        "move_index": 783,
+        "route": "crossing_change",
+        "source_id": "ours:K15n41235",
+        "source_identification": {
+          "aliases": [
+            "K15n41235"
+          ],
+          "errors": [],
+          "name": "K15n41235",
+          "projection_seeds": [
+            944607086,
+            944607087
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K15n41235",
+        "source_label": "K15n41235",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "ours:K15n41235",
+        "ours:K15n45460"
+      ],
+      "status": "certified"
+    },
+    "K13n5018": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "9aadc47a62d369922a9f325bab1b4ad0c84ea7291a47bee7e79d1537941a63c2",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n71"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n584": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "6abeee882207f0ed5050627a86b742e07aa0bc27283eba9fb377d98ff3481310",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n23",
+        "crss:K11n75",
+        "ours:K15n40184",
+        "ours:K15n40185",
+        "ours:K15n41189",
+        "ours:K15n47800"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n585": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 2900,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K13n585"
+                ],
+                "errors": [],
+                "name": "K13n585",
+                "projection_seeds": [
+                  1253193520,
+                  1253193521,
+                  1253193522
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "10738505779592723517977208073401566825/182687704666362864775460604089535377456991567872",
+                "defect_upper": "42954023118370894071908832293606267307/730750818665451459101842416358141509827966271488",
+                "file": "K13n585_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "526192791221671888036237138712474175278217154895/374144419156711147060143317175368453031918731001856",
+                "mu_upper": "526192791221671888036237138712474175278217154901/374144419156711147060143317175368453031918731001856",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "a2642d9297744d4e79231a40ca93dd3ae5c11c823d393dedcc8406eb6e93c0af",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "378896398692114524044353047370634475105642633171/766247770432944429179173513575154591809369561091801088",
+                "threshold_upper": "94724099673028631011088261842658618776410658295/191561942608236107294793378393788647952342390272950272"
+              },
+              "mr_ratio": 0.00011887229507770086,
+              "sha256": "a2642d9297744d4e79231a40ca93dd3ae5c11c823d393dedcc8406eb6e93c0af"
+            },
+            "crossing": {
+              "barycentric_margin": 0.24999999999998557,
+              "edge": 6,
+              "edge_fraction": 0.24999999999999847,
+              "endpoint_clearance": 0.0030421973693661015,
+              "time": 0.5000000000000173,
+              "triangle": 1,
+              "vertex": 4
+            },
+            "elapsed_seconds": 23.511326758001815,
+            "file": "K13n585_equilateral_10sticks.txt",
+            "move_index": 2900,
+            "route": "crossing_change",
+            "source_id": "crss:K11n22",
+            "source_identification": {
+              "aliases": [
+                "11_6",
+                "K11n22"
+              ],
+              "errors": [],
+              "name": "11_6",
+              "projection_seeds": [
+                1632145545,
+                1632145546
+              ],
+              "status": "identified"
+            },
+            "source_knot": "11_6",
+            "source_label": "K11n22",
+            "status": "certified"
+          },
+          "source_id": "crss:K11n22",
+          "source_label": "K11n22",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K13n585"
+            ],
+            "errors": [],
+            "name": "K13n585",
+            "projection_seeds": [
+              1253193520,
+              1253193521,
+              1253193522
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "10738505779592723517977208073401566825/182687704666362864775460604089535377456991567872",
+            "defect_upper": "42954023118370894071908832293606267307/730750818665451459101842416358141509827966271488",
+            "file": "K13n585_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "526192791221671888036237138712474175278217154895/374144419156711147060143317175368453031918731001856",
+            "mu_upper": "526192791221671888036237138712474175278217154901/374144419156711147060143317175368453031918731001856",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "a2642d9297744d4e79231a40ca93dd3ae5c11c823d393dedcc8406eb6e93c0af",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "378896398692114524044353047370634475105642633171/766247770432944429179173513575154591809369561091801088",
+            "threshold_upper": "94724099673028631011088261842658618776410658295/191561942608236107294793378393788647952342390272950272"
+          },
+          "mr_ratio": 0.00011887229507770086,
+          "sha256": "a2642d9297744d4e79231a40ca93dd3ae5c11c823d393dedcc8406eb6e93c0af"
+        },
+        "crossing": {
+          "barycentric_margin": 0.24999999999998557,
+          "edge": 6,
+          "edge_fraction": 0.24999999999999847,
+          "endpoint_clearance": 0.0030421973693661015,
+          "time": 0.5000000000000173,
+          "triangle": 1,
+          "vertex": 4
+        },
+        "elapsed_seconds": 23.511326758001815,
+        "file": "K13n585_equilateral_10sticks.txt",
+        "move_index": 2900,
+        "route": "crossing_change",
+        "source_id": "crss:K11n22",
+        "source_identification": {
+          "aliases": [
+            "11_6",
+            "K11n22"
+          ],
+          "errors": [],
+          "name": "11_6",
+          "projection_seeds": [
+            1632145545,
+            1632145546
+          ],
+          "status": "identified"
+        },
+        "source_knot": "11_6",
+        "source_label": "K11n22",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n22",
+        "eddy:K11n22"
+      ],
+      "status": "certified"
+    },
+    "K13n592": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 1071,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "t12757",
+                  "K8_301",
+                  "K13n592"
+                ],
+                "errors": [],
+                "name": "K13n592",
+                "projection_seeds": [
+                  3452802002,
+                  3452802003,
+                  3452802004
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "28644778091365764937652241383247/365375409332725729550921208179070754913983135744",
+                "defect_upper": "57289556182731529875304482766501/730750818665451459101842416358141509827966271488",
+                "file": "K13n592_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "1457484779433809404985788456834609947255381119259/93536104789177786765035829293842113257979682750464",
+                "mu_upper": "182185597429226175623223557104326243406922639909/11692013098647223345629478661730264157247460343808",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "5d17a2aea2ed957919f8b3ea186e80b40e4fd40256b30bef1391f1b1bc6d1f03",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "1453478961652548337677549524305064003846585483931/23945242826029513411849172299223580994042798784118784",
+                "threshold_upper": "1453478961652548337677549524305064003846585483957/23945242826029513411849172299223580994042798784118784"
+              },
+              "mr_ratio": 1.8290295640380447e-12,
+              "sha256": "5d17a2aea2ed957919f8b3ea186e80b40e4fd40256b30bef1391f1b1bc6d1f03"
+            },
+            "crossing": {
+              "barycentric_margin": 0.17810712515968866,
+              "edge": 1,
+              "edge_fraction": 0.5247877561279828,
+              "endpoint_clearance": 0.017329655334970953,
+              "time": 0.6999999999999962,
+              "triangle": 1,
+              "vertex": 4
+            },
+            "elapsed_seconds": 0.722972685995046,
+            "file": "K13n592_equilateral_10sticks.txt",
+            "move_index": 1071,
+            "route": "crossing_change",
+            "source_id": "ours:K11n78",
+            "source_identification": {
+              "aliases": [
+                "11_196",
+                "K11n78"
+              ],
+              "errors": [],
+              "name": "11_196",
+              "projection_seeds": [
+                56037423,
+                56037424
+              ],
+              "status": "identified"
+            },
+            "source_knot": "11_196",
+            "source_label": "K11n78",
+            "status": "certified"
+          },
+          "source_id": "ours:K11n78",
+          "source_label": "K11n78",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "t12757",
+              "K8_301",
+              "K13n592"
+            ],
+            "errors": [],
+            "name": "K13n592",
+            "projection_seeds": [
+              3452802002,
+              3452802003,
+              3452802004
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "28644778091365764937652241383247/365375409332725729550921208179070754913983135744",
+            "defect_upper": "57289556182731529875304482766501/730750818665451459101842416358141509827966271488",
+            "file": "K13n592_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "1457484779433809404985788456834609947255381119259/93536104789177786765035829293842113257979682750464",
+            "mu_upper": "182185597429226175623223557104326243406922639909/11692013098647223345629478661730264157247460343808",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "5d17a2aea2ed957919f8b3ea186e80b40e4fd40256b30bef1391f1b1bc6d1f03",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "1453478961652548337677549524305064003846585483931/23945242826029513411849172299223580994042798784118784",
+            "threshold_upper": "1453478961652548337677549524305064003846585483957/23945242826029513411849172299223580994042798784118784"
+          },
+          "mr_ratio": 1.8290295640380447e-12,
+          "sha256": "5d17a2aea2ed957919f8b3ea186e80b40e4fd40256b30bef1391f1b1bc6d1f03"
+        },
+        "crossing": {
+          "barycentric_margin": 0.17810712515968866,
+          "edge": 1,
+          "edge_fraction": 0.5247877561279828,
+          "endpoint_clearance": 0.017329655334970953,
+          "time": 0.6999999999999962,
+          "triangle": 1,
+          "vertex": 4
+        },
+        "elapsed_seconds": 0.722972685995046,
+        "file": "K13n592_equilateral_10sticks.txt",
+        "move_index": 1071,
+        "route": "crossing_change",
+        "source_id": "ours:K11n78",
+        "source_identification": {
+          "aliases": [
+            "11_196",
+            "K11n78"
+          ],
+          "errors": [],
+          "name": "11_196",
+          "projection_seeds": [
+            56037423,
+            56037424
+          ],
+          "status": "identified"
+        },
+        "source_knot": "11_196",
+        "source_label": "K11n78",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n78",
+        "eddy:K15n41127",
+        "ours:K11n78",
+        "ours:K15n40184",
+        "ours:K15n47800"
+      ],
+      "status": "certified"
+    },
+    "K13n593": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 756,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0,
+                "validation_failure": "saved candidate failed a geometric certificate"
+              },
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.5,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K13n593"
+                ],
+                "errors": [],
+                "name": "K13n593",
+                "projection_seeds": [
+                  3133842244,
+                  3133842245,
+                  3133842246
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "44557142566001440965661851247863393709/730750818665451459101842416358141509827966271488",
+                "defect_upper": "11139285641500360241415462811965848429/182687704666362864775460604089535377456991567872",
+                "file": "K13n593_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "1254649843388210856580184685457863113016182617065/187072209578355573530071658587684226515959365500928",
+                "mu_upper": "1254649843388210856580184685457863113016182617077/187072209578355573530071658587684226515959365500928",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "1e948472d84d93f87d1b7a130688db56fff5a543d08dcf1baea02ac9ba9deb45",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "1077074557637087966822510503878836701548618428013/95780971304118053647396689196894323976171195136475136",
+                "threshold_upper": "1077074557637087966822510503878836701548618428035/95780971304118053647396689196894323976171195136475136"
+              },
+              "mr_ratio": 5.422282440068667e-06,
+              "sha256": "1e948472d84d93f87d1b7a130688db56fff5a543d08dcf1baea02ac9ba9deb45"
+            },
+            "crossing": {
+              "barycentric_margin": 0.07106997457308867,
+              "edge": 9,
+              "edge_fraction": 0.7877103630376975,
+              "endpoint_clearance": 0.013412019871770183,
+              "time": 0.8999999999999991,
+              "triangle": 1,
+              "vertex": 2
+            },
+            "elapsed_seconds": 2.9216003689944046,
+            "file": "K13n593_equilateral_10sticks.txt",
+            "move_index": 756,
+            "route": "crossing_change",
+            "source_id": "ours:K11n75",
+            "source_identification": {
+              "aliases": [
+                "11_194",
+                "K11n75"
+              ],
+              "errors": [],
+              "name": "11_194",
+              "projection_seeds": [
+                2112253074,
+                2112253075
+              ],
+              "status": "identified"
+            },
+            "source_knot": "11_194",
+            "source_label": "K11n75",
+            "status": "certified"
+          },
+          "source_id": "ours:K11n75",
+          "source_label": "K11n75",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0,
+            "validation_failure": "saved candidate failed a geometric certificate"
+          },
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.5,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K13n593"
+            ],
+            "errors": [],
+            "name": "K13n593",
+            "projection_seeds": [
+              3133842244,
+              3133842245,
+              3133842246
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "44557142566001440965661851247863393709/730750818665451459101842416358141509827966271488",
+            "defect_upper": "11139285641500360241415462811965848429/182687704666362864775460604089535377456991567872",
+            "file": "K13n593_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "1254649843388210856580184685457863113016182617065/187072209578355573530071658587684226515959365500928",
+            "mu_upper": "1254649843388210856580184685457863113016182617077/187072209578355573530071658587684226515959365500928",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "1e948472d84d93f87d1b7a130688db56fff5a543d08dcf1baea02ac9ba9deb45",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "1077074557637087966822510503878836701548618428013/95780971304118053647396689196894323976171195136475136",
+            "threshold_upper": "1077074557637087966822510503878836701548618428035/95780971304118053647396689196894323976171195136475136"
+          },
+          "mr_ratio": 5.422282440068667e-06,
+          "sha256": "1e948472d84d93f87d1b7a130688db56fff5a543d08dcf1baea02ac9ba9deb45"
+        },
+        "crossing": {
+          "barycentric_margin": 0.07106997457308867,
+          "edge": 9,
+          "edge_fraction": 0.7877103630376975,
+          "endpoint_clearance": 0.013412019871770183,
+          "time": 0.8999999999999991,
+          "triangle": 1,
+          "vertex": 2
+        },
+        "elapsed_seconds": 2.9216003689944046,
+        "file": "K13n593_equilateral_10sticks.txt",
+        "move_index": 756,
+        "route": "crossing_change",
+        "source_id": "ours:K11n75",
+        "source_identification": {
+          "aliases": [
+            "11_194",
+            "K11n75"
+          ],
+          "errors": [],
+          "name": "11_194",
+          "projection_seeds": [
+            2112253074,
+            2112253075
+          ],
+          "status": "identified"
+        },
+        "source_knot": "11_194",
+        "source_label": "K11n75",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "ours:K11n75"
+      ],
+      "status": "certified"
+    },
+    "K13n602": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "b001d36268f13033f9e17126731d72a8876606ad0e0d9622bf026d5d8f3dc3c2",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n76",
+        "ours:K11n75",
+        "ours:K11n76"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n603": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "53a75ce79bb9a06410865102aa59c2074aa79a3ca062b257ce3c693da2e08e1c",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n71",
+        "crss:K11n78",
+        "ours:K11n71",
+        "ours:K11n78",
+        "ours:K15n41193",
+        "ours:K15n52941"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n604": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "274242e487326e346fc2bb812801e1dd76b26cd3c4ad604d8f19d308ae8b3d2a",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:10_152",
+        "ours:T4_5"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n607": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "27b2b556165f4d80c7080de4f2b5368ccb172d1e92b42fa9c0dabb62c5a23bf0",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n75",
+        "crss:K11n76",
+        "ours:K11n75",
+        "ours:K11n76"
+      ],
+      "status": "certified_existing"
+    },
+    "K13n608": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "e02cb2cc8a4ebc88b3131786fb5b71945141e7a33f423dd52902e9b5dc44b2ae",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K11n71",
+        "crss:K11n78",
+        "ours:K11n71",
+        "ours:K11n78",
+        "ours:K15n41235"
+      ],
+      "status": "certified_existing"
+    },
+    "K14n22583": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": true,
+      "sources_reached": [
+        "eddy:K15n59007",
+        "ours:K15n59007"
+      ],
+      "status": "reached_without_verified_map"
+    },
+    "K15n124836": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n124999": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n131344": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n40180": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 1264,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "o9_40522",
+                  "K9_682",
+                  "K15n40180"
+                ],
+                "errors": [],
+                "name": "K15n40180",
+                "projection_seeds": [
+                  2338970463,
+                  2338970464,
+                  2338970465
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "62251103865209337745473463464714750637/1461501637330902918203684832716283019655932542976",
+                "defect_upper": "62251103865209337745473463464714750651/1461501637330902918203684832716283019655932542976",
+                "file": "K15n40180_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "1013425154751613152898246455354321761986807068989/11972621413014756705924586149611790497021399392059392",
+                "mu_upper": "506712577375806576449123227677160880993403534501/5986310706507378352962293074805895248510699696029696",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "b36e8a618ac2322ac9dfb06f2fb1c09969b0cb3dfabf69a314be8afeff301751",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "702722814706500419019986339654789486504881998335/392318858461667547739736838950479151006397215279002157056",
+                "threshold_upper": "1405445629413000838039972679309578973009763996707/784637716923335095479473677900958302012794430558004314112"
+              },
+              "mr_ratio": 0.023779629924803737,
+              "sha256": "b36e8a618ac2322ac9dfb06f2fb1c09969b0cb3dfabf69a314be8afeff301751"
+            },
+            "crossing": {
+              "barycentric_margin": 0.05088831565199241,
+              "edge": 0,
+              "edge_fraction": 0.7205171166815011,
+              "endpoint_clearance": 0.00015816090595405284,
+              "time": 0.9,
+              "triangle": 0,
+              "vertex": 5
+            },
+            "elapsed_seconds": 25.927965045004385,
+            "file": "K15n40180_equilateral_10sticks.txt",
+            "move_index": 1264,
+            "route": "crossing_change",
+            "source_id": "crss:K13n586",
+            "source_identification": {
+              "aliases": [
+                "o10_143071",
+                "K10_1678",
+                "K13n586"
+              ],
+              "errors": [],
+              "name": "K13n586",
+              "projection_seeds": [
+                215852143,
+                215852144
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n586",
+            "source_label": "K13n586",
+            "status": "certified"
+          },
+          "source_id": "crss:K13n586",
+          "source_label": "K13n586",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "o9_40522",
+              "K9_682",
+              "K15n40180"
+            ],
+            "errors": [],
+            "name": "K15n40180",
+            "projection_seeds": [
+              2338970463,
+              2338970464,
+              2338970465
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "62251103865209337745473463464714750637/1461501637330902918203684832716283019655932542976",
+            "defect_upper": "62251103865209337745473463464714750651/1461501637330902918203684832716283019655932542976",
+            "file": "K15n40180_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "1013425154751613152898246455354321761986807068989/11972621413014756705924586149611790497021399392059392",
+            "mu_upper": "506712577375806576449123227677160880993403534501/5986310706507378352962293074805895248510699696029696",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "b36e8a618ac2322ac9dfb06f2fb1c09969b0cb3dfabf69a314be8afeff301751",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "702722814706500419019986339654789486504881998335/392318858461667547739736838950479151006397215279002157056",
+            "threshold_upper": "1405445629413000838039972679309578973009763996707/784637716923335095479473677900958302012794430558004314112"
+          },
+          "mr_ratio": 0.023779629924803737,
+          "sha256": "b36e8a618ac2322ac9dfb06f2fb1c09969b0cb3dfabf69a314be8afeff301751"
+        },
+        "crossing": {
+          "barycentric_margin": 0.05088831565199241,
+          "edge": 0,
+          "edge_fraction": 0.7205171166815011,
+          "endpoint_clearance": 0.00015816090595405284,
+          "time": 0.9,
+          "triangle": 0,
+          "vertex": 5
+        },
+        "elapsed_seconds": 25.927965045004385,
+        "file": "K15n40180_equilateral_10sticks.txt",
+        "move_index": 1264,
+        "route": "crossing_change",
+        "source_id": "crss:K13n586",
+        "source_identification": {
+          "aliases": [
+            "o10_143071",
+            "K10_1678",
+            "K13n586"
+          ],
+          "errors": [],
+          "name": "K13n586",
+          "projection_seeds": [
+            215852143,
+            215852144
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n586",
+        "source_label": "K13n586",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n586",
+        "eddy:K13n3393"
+      ],
+      "status": "certified"
+    },
+    "K15n40184": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "4b6be9f35c5932f28e93af03448fa96cbb3892bf1c5ac2ea701dbedb9b0317b0",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n1718",
+        "crss:K13n225",
+        "eddy:K12n318",
+        "eddy:K13n592",
+        "ours:K13n225",
+        "ours:K13n230",
+        "ours:K13n584"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n40185": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "6ef7ee1436db178a08dc8d6767689aa7177dbb1a0224f75a80c2c47fc08fde8e",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n225",
+        "crss:K13n2442",
+        "crss:K13n3998",
+        "crss:K13n584",
+        "ours:K13n225",
+        "ours:K13n584"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n40214": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41126": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41127": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 1773,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "s836",
+                  "K6_37",
+                  "K15n41127"
+                ],
+                "errors": [],
+                "name": "K15n41127",
+                "projection_seeds": [
+                  1465827603,
+                  1465827604,
+                  1465827605
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "168076722941902958863930425926193/730750818665451459101842416358141509827966271488",
+                "defect_upper": "84038361470951479431965212963101/365375409332725729550921208179070754913983135744",
+                "file": "K15n41127_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "103778350449794832599551744501955047142622489905/11692013098647223345629478661730264157247460343808",
+                "mu_upper": "415113401799179330398206978007820188570489959625/46768052394588893382517914646921056628989841375232",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "5ad0d6aeb609d151c97fb647d5f0f0bcce75e4636afa76fbc7bd6706d3255b02",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "943244301350155052082077647342691148974607984391/47890485652059026823698344598447161988085597568237568",
+                "threshold_upper": "943244301350155052082077647342691148974607984415/47890485652059026823698344598447161988085597568237568"
+              },
+              "mr_ratio": 1.1273668922312216e-11,
+              "sha256": "5ad0d6aeb609d151c97fb647d5f0f0bcce75e4636afa76fbc7bd6706d3255b02"
+            },
+            "crossing": {
+              "barycentric_margin": 0.1251207985665108,
+              "edge": 0,
+              "edge_fraction": 0.5625778125591266,
+              "endpoint_clearance": 0.009887596565996947,
+              "time": 0.7000000000000233,
+              "triangle": 0,
+              "vertex": 7
+            },
+            "elapsed_seconds": 0.8282823629997438,
+            "file": "K15n41127_equilateral_10sticks.txt",
+            "move_index": 1773,
+            "route": "crossing_change",
+            "source_id": "ours:K13n307",
+            "source_identification": {
+              "aliases": [
+                "K13n307"
+              ],
+              "errors": [],
+              "name": "K13n307",
+              "projection_seeds": [
+                1954369919,
+                1954369920
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n307",
+            "source_label": "K13n307",
+            "status": "certified"
+          },
+          "source_id": "ours:K13n307",
+          "source_label": "K13n307",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "s836",
+              "K6_37",
+              "K15n41127"
+            ],
+            "errors": [],
+            "name": "K15n41127",
+            "projection_seeds": [
+              1465827603,
+              1465827604,
+              1465827605
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "168076722941902958863930425926193/730750818665451459101842416358141509827966271488",
+            "defect_upper": "84038361470951479431965212963101/365375409332725729550921208179070754913983135744",
+            "file": "K15n41127_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "103778350449794832599551744501955047142622489905/11692013098647223345629478661730264157247460343808",
+            "mu_upper": "415113401799179330398206978007820188570489959625/46768052394588893382517914646921056628989841375232",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "5ad0d6aeb609d151c97fb647d5f0f0bcce75e4636afa76fbc7bd6706d3255b02",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "943244301350155052082077647342691148974607984391/47890485652059026823698344598447161988085597568237568",
+            "threshold_upper": "943244301350155052082077647342691148974607984415/47890485652059026823698344598447161988085597568237568"
+          },
+          "mr_ratio": 1.1273668922312216e-11,
+          "sha256": "5ad0d6aeb609d151c97fb647d5f0f0bcce75e4636afa76fbc7bd6706d3255b02"
+        },
+        "crossing": {
+          "barycentric_margin": 0.1251207985665108,
+          "edge": 0,
+          "edge_fraction": 0.5625778125591266,
+          "endpoint_clearance": 0.009887596565996947,
+          "time": 0.7000000000000233,
+          "triangle": 0,
+          "vertex": 7
+        },
+        "elapsed_seconds": 0.8282823629997438,
+        "file": "K15n41127_equilateral_10sticks.txt",
+        "move_index": 1773,
+        "route": "crossing_change",
+        "source_id": "ours:K13n307",
+        "source_identification": {
+          "aliases": [
+            "K13n307"
+          ],
+          "errors": [],
+          "name": "K13n307",
+          "projection_seeds": [
+            1954369919,
+            1954369920
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n307",
+        "source_label": "K13n307",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n307",
+        "crss:K13n592",
+        "eddy:K12n309",
+        "eddy:K13n592",
+        "ours:K13n307"
+      ],
+      "status": "certified"
+    },
+    "K15n41131": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41142": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41183": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41188": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41189": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "149446566c4947b23789bc59469396293af706fff72e87a201568844dbd9f717",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n1192",
+        "crss:K13n1718",
+        "crss:K13n285",
+        "crss:K13n584",
+        "crss:K13n602",
+        "ours:K13n1192",
+        "ours:K13n285",
+        "ours:K13n584",
+        "ours:K13n602"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n41193": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "d4d860d457cabc2b855589c174f3c045e8a9d1042b4482d50d13de9f37d1900d",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n225",
+        "crss:K13n288",
+        "crss:K13n3393",
+        "crss:K13n603",
+        "ours:K13n288",
+        "ours:K13n603"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n41202": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41213": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41237": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n41238": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n43517": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 477,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K15n43517"
+                ],
+                "errors": [],
+                "name": "K15n43517",
+                "projection_seeds": [
+                  3514036871,
+                  3514036872,
+                  3514036873
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "5541398241147512870513765137488022573/730750818665451459101842416358141509827966271488",
+                "defect_upper": "1385349560286878217628441284372005645/182687704666362864775460604089535377456991567872",
+                "file": "K15n43517_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "58322439074832090538741412354866612992718123721/5846006549323611672814739330865132078623730171904",
+                "mu_upper": "116644878149664181077482824709733225985436247443/11692013098647223345629478661730264157247460343808",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "f4c8fefc25aee345f6841eaa7b684bde850e287204c40f0832fe34d85227984b",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "595815799356537490479040997594712601246078472745/23945242826029513411849172299223580994042798784118784",
+                "threshold_upper": "1191631598713074980958081995189425202492156945511/47890485652059026823698344598447161988085597568237568"
+              },
+              "mr_ratio": 3.0475502887352173e-07,
+              "sha256": "f4c8fefc25aee345f6841eaa7b684bde850e287204c40f0832fe34d85227984b"
+            },
+            "crossing": {
+              "barycentric_margin": 0.20109446217306673,
+              "edge": 8,
+              "edge_fraction": 0.5337974760645625,
+              "endpoint_clearance": 0.010346938582232672,
+              "time": 0.6999999999999937,
+              "triangle": 1,
+              "vertex": 1
+            },
+            "elapsed_seconds": 0.7992928689927794,
+            "file": "K15n43517_equilateral_10sticks.txt",
+            "move_index": 477,
+            "route": "crossing_change",
+            "source_id": "ours:K13n608",
+            "source_identification": {
+              "aliases": [
+                "K13n608"
+              ],
+              "errors": [],
+              "name": "K13n608",
+              "projection_seeds": [
+                3792276997,
+                3792276998
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n608",
+            "source_label": "K13n608",
+            "status": "certified"
+          },
+          "source_id": "ours:K13n608",
+          "source_label": "K13n608",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K15n43517"
+            ],
+            "errors": [],
+            "name": "K15n43517",
+            "projection_seeds": [
+              3514036871,
+              3514036872,
+              3514036873
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "5541398241147512870513765137488022573/730750818665451459101842416358141509827966271488",
+            "defect_upper": "1385349560286878217628441284372005645/182687704666362864775460604089535377456991567872",
+            "file": "K15n43517_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "58322439074832090538741412354866612992718123721/5846006549323611672814739330865132078623730171904",
+            "mu_upper": "116644878149664181077482824709733225985436247443/11692013098647223345629478661730264157247460343808",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "f4c8fefc25aee345f6841eaa7b684bde850e287204c40f0832fe34d85227984b",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "595815799356537490479040997594712601246078472745/23945242826029513411849172299223580994042798784118784",
+            "threshold_upper": "1191631598713074980958081995189425202492156945511/47890485652059026823698344598447161988085597568237568"
+          },
+          "mr_ratio": 3.0475502887352173e-07,
+          "sha256": "f4c8fefc25aee345f6841eaa7b684bde850e287204c40f0832fe34d85227984b"
+        },
+        "crossing": {
+          "barycentric_margin": 0.20109446217306673,
+          "edge": 8,
+          "edge_fraction": 0.5337974760645625,
+          "endpoint_clearance": 0.010346938582232672,
+          "time": 0.6999999999999937,
+          "triangle": 1,
+          "vertex": 1
+        },
+        "elapsed_seconds": 0.7992928689927794,
+        "file": "K15n43517_equilateral_10sticks.txt",
+        "move_index": 477,
+        "route": "crossing_change",
+        "source_id": "ours:K13n608",
+        "source_identification": {
+          "aliases": [
+            "K13n608"
+          ],
+          "errors": [],
+          "name": "K13n608",
+          "projection_seeds": [
+            3792276997,
+            3792276998
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n608",
+        "source_label": "K13n608",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": false,
+      "sources_reached": [
+        "crss:K13n608",
+        "ours:K13n608"
+      ],
+      "status": "certified"
+    },
+    "K15n45603": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n46532": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n46935": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 2493,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K15n46935"
+                ],
+                "errors": [],
+                "name": "K15n46935",
+                "projection_seeds": [
+                  865073279,
+                  865073280,
+                  865073281
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "431472215729378866298140442603859167/22835963083295358096932575511191922182123945984",
+                "defect_upper": "1725888862917515465192561770415436669/91343852333181432387730302044767688728495783936",
+                "file": "K15n46935_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "1394527846841918217695831901679684053548128677651/187072209578355573530071658587684226515959365500928",
+                "mu_upper": "697263923420959108847915950839842026774064338833/93536104789177786765035829293842113257979682750464",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "70ca941ee91108017f1e61cc200ce6bf77e655f8698a1f8db3e7ccededb4b731",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "1330623152204686466511268598828206818162233904547/95780971304118053647396689196894323976171195136475136",
+                "threshold_upper": "1330623152204686466511268598828206818162233904577/95780971304118053647396689196894323976171195136475136"
+              },
+              "mr_ratio": 1.3600444986086435e-06,
+              "sha256": "70ca941ee91108017f1e61cc200ce6bf77e655f8698a1f8db3e7ccededb4b731"
+            },
+            "crossing": {
+              "barycentric_margin": 0.13521202844822466,
+              "edge": 6,
+              "edge_fraction": 0.5757748327813971,
+              "endpoint_clearance": 0.008279328379401305,
+              "time": 0.7000000000000818,
+              "triangle": 1,
+              "vertex": 9
+            },
+            "elapsed_seconds": 0.898820631991839,
+            "file": "K15n46935_equilateral_10sticks.txt",
+            "move_index": 2493,
+            "route": "crossing_change",
+            "source_id": "ours:K13n225",
+            "source_identification": {
+              "aliases": [
+                "K13n225"
+              ],
+              "errors": [],
+              "name": "K13n225",
+              "projection_seeds": [
+                2844211430,
+                2844211431
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n225",
+            "source_label": "K13n225",
+            "status": "certified"
+          },
+          "source_id": "ours:K13n225",
+          "source_label": "K13n225",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K15n46935"
+            ],
+            "errors": [],
+            "name": "K15n46935",
+            "projection_seeds": [
+              865073279,
+              865073280,
+              865073281
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "431472215729378866298140442603859167/22835963083295358096932575511191922182123945984",
+            "defect_upper": "1725888862917515465192561770415436669/91343852333181432387730302044767688728495783936",
+            "file": "K15n46935_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "1394527846841918217695831901679684053548128677651/187072209578355573530071658587684226515959365500928",
+            "mu_upper": "697263923420959108847915950839842026774064338833/93536104789177786765035829293842113257979682750464",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "70ca941ee91108017f1e61cc200ce6bf77e655f8698a1f8db3e7ccededb4b731",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "1330623152204686466511268598828206818162233904547/95780971304118053647396689196894323976171195136475136",
+            "threshold_upper": "1330623152204686466511268598828206818162233904577/95780971304118053647396689196894323976171195136475136"
+          },
+          "mr_ratio": 1.3600444986086435e-06,
+          "sha256": "70ca941ee91108017f1e61cc200ce6bf77e655f8698a1f8db3e7ccededb4b731"
+        },
+        "crossing": {
+          "barycentric_margin": 0.13521202844822466,
+          "edge": 6,
+          "edge_fraction": 0.5757748327813971,
+          "endpoint_clearance": 0.008279328379401305,
+          "time": 0.7000000000000818,
+          "triangle": 1,
+          "vertex": 9
+        },
+        "elapsed_seconds": 0.898820631991839,
+        "file": "K15n46935_equilateral_10sticks.txt",
+        "move_index": 2493,
+        "route": "crossing_change",
+        "source_id": "ours:K13n225",
+        "source_identification": {
+          "aliases": [
+            "K13n225"
+          ],
+          "errors": [],
+          "name": "K13n225",
+          "projection_seeds": [
+            2844211430,
+            2844211431
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n225",
+        "source_label": "K13n225",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n1719",
+        "crss:K13n225",
+        "crss:K13n5018",
+        "ours:K13n225",
+        "ours:K13n5018",
+        "ours:K13n608"
+      ],
+      "status": "certified"
+    },
+    "K15n47800": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "aa5ba822d820c442221c40aa940886f8f023095ad6ff8efbccd3d3962aa53fdc",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K12n439",
+        "crss:K13n230",
+        "crss:K13n4634",
+        "crss:K13n592",
+        "eddy:K13n592",
+        "ours:K13n1192",
+        "ours:K13n584"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n48957": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 279,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K15n48957"
+                ],
+                "errors": [],
+                "name": "K15n48957",
+                "projection_seeds": [
+                  1795443174,
+                  1795443175,
+                  1795443176
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "112641033589777481814677611906778558039/730750818665451459101842416358141509827966271488",
+                "defect_upper": "225282067179554963629355223813557116089/1461501637330902918203684832716283019655932542976",
+                "file": "K15n48957_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "1381047040262757517321949032732663593362336100141/187072209578355573530071658587684226515959365500928",
+                "mu_upper": "1381047040262757517321949032732663593362336100153/187072209578355573530071658587684226515959365500928",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "7cdfdc08db0eb2a4fcd0e29de7295778780454f1d6d50276206cc09b410a22da",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "326255352491727518719015382033651042607385248769/23945242826029513411849172299223580994042798784118784",
+                "threshold_upper": "1305021409966910074876061528134604170429540995099/95780971304118053647396689196894323976171195136475136"
+              },
+              "mr_ratio": 1.1313274161609527e-05,
+              "sha256": "7cdfdc08db0eb2a4fcd0e29de7295778780454f1d6d50276206cc09b410a22da"
+            },
+            "crossing": {
+              "barycentric_margin": 0.14871506535328372,
+              "edge": 3,
+              "edge_fraction": 0.6187529242115637,
+              "endpoint_clearance": 0.008104798112294935,
+              "time": 0.6999999999999812,
+              "triangle": 0,
+              "vertex": 1
+            },
+            "elapsed_seconds": 0.9423198160075117,
+            "file": "K15n48957_equilateral_10sticks.txt",
+            "move_index": 279,
+            "route": "crossing_change",
+            "source_id": "ours:K13n225",
+            "source_identification": {
+              "aliases": [
+                "K13n225"
+              ],
+              "errors": [],
+              "name": "K13n225",
+              "projection_seeds": [
+                2844211430,
+                2844211431
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n225",
+            "source_label": "K13n225",
+            "status": "certified"
+          },
+          "source_id": "ours:K13n225",
+          "source_label": "K13n225",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K15n48957"
+            ],
+            "errors": [],
+            "name": "K15n48957",
+            "projection_seeds": [
+              1795443174,
+              1795443175,
+              1795443176
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "112641033589777481814677611906778558039/730750818665451459101842416358141509827966271488",
+            "defect_upper": "225282067179554963629355223813557116089/1461501637330902918203684832716283019655932542976",
+            "file": "K15n48957_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "1381047040262757517321949032732663593362336100141/187072209578355573530071658587684226515959365500928",
+            "mu_upper": "1381047040262757517321949032732663593362336100153/187072209578355573530071658587684226515959365500928",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "7cdfdc08db0eb2a4fcd0e29de7295778780454f1d6d50276206cc09b410a22da",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "326255352491727518719015382033651042607385248769/23945242826029513411849172299223580994042798784118784",
+            "threshold_upper": "1305021409966910074876061528134604170429540995099/95780971304118053647396689196894323976171195136475136"
+          },
+          "mr_ratio": 1.1313274161609527e-05,
+          "sha256": "7cdfdc08db0eb2a4fcd0e29de7295778780454f1d6d50276206cc09b410a22da"
+        },
+        "crossing": {
+          "barycentric_margin": 0.14871506535328372,
+          "edge": 3,
+          "edge_fraction": 0.6187529242115637,
+          "endpoint_clearance": 0.008104798112294935,
+          "time": 0.6999999999999812,
+          "triangle": 0,
+          "vertex": 1
+        },
+        "elapsed_seconds": 0.9423198160075117,
+        "file": "K15n48957_equilateral_10sticks.txt",
+        "move_index": 279,
+        "route": "crossing_change",
+        "source_id": "ours:K13n225",
+        "source_identification": {
+          "aliases": [
+            "K13n225"
+          ],
+          "errors": [],
+          "name": "K13n225",
+          "projection_seeds": [
+            2844211430,
+            2844211431
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n225",
+        "source_label": "K13n225",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K12n426",
+        "crss:K13n1719",
+        "crss:K13n225",
+        "crss:K13n5018",
+        "crss:K13n603",
+        "ours:K13n225",
+        "ours:K13n5018",
+        "ours:K13n603"
+      ],
+      "status": "certified"
+    },
+    "K15n49035": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 1654,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K15n49035"
+                ],
+                "errors": [],
+                "name": "K15n49035",
+                "projection_seeds": [
+                  1681773478,
+                  1681773479,
+                  1681773480
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "8661797560217446473103091222046721863/730750818665451459101842416358141509827966271488",
+                "defect_upper": "541362347513590404568943201377920117/45671926166590716193865151022383844364247891968",
+                "file": "K15n49035_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "512363854853709311248151811591225695242115798607/1496577676626844588240573268701473812127674924007424",
+                "mu_upper": "1024727709707418622496303623182451390484231597227/2993155353253689176481146537402947624255349848014848",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "e2b9eaf059643c972d48b48f4ca0c38f894ea5092607c281e86d3a19247cba9f",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "359242457285206193461455766412285355774866038891/12259964326927110866866776217202473468949912977468817408",
+                "threshold_upper": "1436969829140824773845823065649141423099464155601/49039857307708443467467104868809893875799651909875269632"
+              },
+              "mr_ratio": 0.00040451684799721347,
+              "sha256": "e2b9eaf059643c972d48b48f4ca0c38f894ea5092607c281e86d3a19247cba9f"
+            },
+            "crossing": {
+              "barycentric_margin": 0.08999999999996443,
+              "edge": 3,
+              "edge_fraction": 0.8999999999999996,
+              "endpoint_clearance": 0.00036461590923746314,
+              "time": 0.9000000000000428,
+              "triangle": 1,
+              "vertex": 6
+            },
+            "elapsed_seconds": 0.9101471729954937,
+            "file": "K15n49035_equilateral_10sticks.txt",
+            "move_index": 1654,
+            "route": "crossing_change",
+            "source_id": "ours:K13n288",
+            "source_identification": {
+              "aliases": [
+                "K13n288"
+              ],
+              "errors": [],
+              "name": "K13n288",
+              "projection_seeds": [
+                769240273,
+                769240274
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n288",
+            "source_label": "K13n288",
+            "status": "certified"
+          },
+          "source_id": "ours:K13n288",
+          "source_label": "K13n288",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K15n49035"
+            ],
+            "errors": [],
+            "name": "K15n49035",
+            "projection_seeds": [
+              1681773478,
+              1681773479,
+              1681773480
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "8661797560217446473103091222046721863/730750818665451459101842416358141509827966271488",
+            "defect_upper": "541362347513590404568943201377920117/45671926166590716193865151022383844364247891968",
+            "file": "K15n49035_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "512363854853709311248151811591225695242115798607/1496577676626844588240573268701473812127674924007424",
+            "mu_upper": "1024727709707418622496303623182451390484231597227/2993155353253689176481146537402947624255349848014848",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "e2b9eaf059643c972d48b48f4ca0c38f894ea5092607c281e86d3a19247cba9f",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "359242457285206193461455766412285355774866038891/12259964326927110866866776217202473468949912977468817408",
+            "threshold_upper": "1436969829140824773845823065649141423099464155601/49039857307708443467467104868809893875799651909875269632"
+          },
+          "mr_ratio": 0.00040451684799721347,
+          "sha256": "e2b9eaf059643c972d48b48f4ca0c38f894ea5092607c281e86d3a19247cba9f"
+        },
+        "crossing": {
+          "barycentric_margin": 0.08999999999996443,
+          "edge": 3,
+          "edge_fraction": 0.8999999999999996,
+          "endpoint_clearance": 0.00036461590923746314,
+          "time": 0.9000000000000428,
+          "triangle": 1,
+          "vertex": 6
+        },
+        "elapsed_seconds": 0.9101471729954937,
+        "file": "K15n49035_equilateral_10sticks.txt",
+        "move_index": 1654,
+        "route": "crossing_change",
+        "source_id": "ours:K13n288",
+        "source_identification": {
+          "aliases": [
+            "K13n288"
+          ],
+          "errors": [],
+          "name": "K13n288",
+          "projection_seeds": [
+            769240273,
+            769240274
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n288",
+        "source_label": "K13n288",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n288",
+        "crss:K13n3969",
+        "crss:K13n608",
+        "ours:K13n288",
+        "ours:K13n608"
+      ],
+      "status": "certified"
+    },
+    "K15n49036": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n51709": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 2104,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "K15n51709"
+                ],
+                "errors": [],
+                "name": "K15n51709",
+                "projection_seeds": [
+                  3141393300,
+                  3141393301,
+                  3141393302
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "16760468116153728196228671931615835833/1461501637330902918203684832716283019655932542976",
+                "defect_upper": "16760468116153728196228671931615835845/1461501637330902918203684832716283019655932542976",
+                "file": "K15n51709_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "325154004177070950783489093259526220963889942629/93536104789177786765035829293842113257979682750464",
+                "mu_upper": "40644250522133868847936136657440777620486242829/11692013098647223345629478661730264157247460343808",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "a207acab15fa99c98f13a5409810e07db0657a85ae14a2d55f8d2507dc8f980f",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "1157441072736288795784122581810178456491796144975/383123885216472214589586756787577295904684780545900544",
+                "threshold_upper": "578720536368144397892061290905089228245898072499/191561942608236107294793378393788647952342390272950272"
+              },
+              "mr_ratio": 3.7959217829664074e-06,
+              "sha256": "a207acab15fa99c98f13a5409810e07db0657a85ae14a2d55f8d2507dc8f980f"
+            },
+            "crossing": {
+              "barycentric_margin": 0.046871087269041115,
+              "edge": 2,
+              "edge_fraction": 0.6237434408439883,
+              "endpoint_clearance": 0.004531801607841229,
+              "time": 0.8999999999999966,
+              "triangle": 0,
+              "vertex": 8
+            },
+            "elapsed_seconds": 26.302061807000428,
+            "file": "K15n51709_equilateral_10sticks.txt",
+            "move_index": 2104,
+            "route": "crossing_change",
+            "source_id": "crss:K13n3969",
+            "source_identification": {
+              "aliases": [
+                "K13n3969"
+              ],
+              "errors": [],
+              "name": "K13n3969",
+              "projection_seeds": [
+                1957688067,
+                1957688068
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n3969",
+            "source_label": "K13n3969",
+            "status": "certified"
+          },
+          "source_id": "crss:K13n3969",
+          "source_label": "K13n3969",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "K15n51709"
+            ],
+            "errors": [],
+            "name": "K15n51709",
+            "projection_seeds": [
+              3141393300,
+              3141393301,
+              3141393302
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "16760468116153728196228671931615835833/1461501637330902918203684832716283019655932542976",
+            "defect_upper": "16760468116153728196228671931615835845/1461501637330902918203684832716283019655932542976",
+            "file": "K15n51709_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "325154004177070950783489093259526220963889942629/93536104789177786765035829293842113257979682750464",
+            "mu_upper": "40644250522133868847936136657440777620486242829/11692013098647223345629478661730264157247460343808",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "a207acab15fa99c98f13a5409810e07db0657a85ae14a2d55f8d2507dc8f980f",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "1157441072736288795784122581810178456491796144975/383123885216472214589586756787577295904684780545900544",
+            "threshold_upper": "578720536368144397892061290905089228245898072499/191561942608236107294793378393788647952342390272950272"
+          },
+          "mr_ratio": 3.7959217829664074e-06,
+          "sha256": "a207acab15fa99c98f13a5409810e07db0657a85ae14a2d55f8d2507dc8f980f"
+        },
+        "crossing": {
+          "barycentric_margin": 0.046871087269041115,
+          "edge": 2,
+          "edge_fraction": 0.6237434408439883,
+          "endpoint_clearance": 0.004531801607841229,
+          "time": 0.8999999999999966,
+          "triangle": 0,
+          "vertex": 8
+        },
+        "elapsed_seconds": 26.302061807000428,
+        "file": "K15n51709_equilateral_10sticks.txt",
+        "move_index": 2104,
+        "route": "crossing_change",
+        "source_id": "crss:K13n3969",
+        "source_identification": {
+          "aliases": [
+            "K13n3969"
+          ],
+          "errors": [],
+          "name": "K13n3969",
+          "projection_seeds": [
+            1957688067,
+            1957688068
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n3969",
+        "source_label": "K13n3969",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": false,
+      "sources_reached": [
+        "crss:K13n3969"
+      ],
+      "status": "certified"
+    },
+    "K15n51757": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n52940": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n52941": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "45da1da8e4ae1982a74ced401b2b3be8b0b19af8d3201f4672bf96d3dabb7444",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K12n426",
+        "crss:K13n593"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n52944": {
+      "attempts": [
+        {
+          "budget_seconds": 180.0,
+          "move_index": 1998,
+          "result": {
+            "attempts": [
+              {
+                "completed": true,
+                "fattened": false,
+                "floor": 0.9,
+                "homotopy_fraction": 1.0
+              }
+            ],
+            "checks": {
+              "high_precision": true,
+              "identity": {
+                "aliases": [
+                  "o10_142533",
+                  "K10_1664",
+                  "K15n52944"
+                ],
+                "errors": [],
+                "name": "K15n52944",
+                "projection_seeds": [
+                  3117146313,
+                  3117146314,
+                  3117146315
+                ],
+                "status": "identified"
+              },
+              "interval": {
+                "backend": "mpmath.iv",
+                "defect_lower": "76792558339519224849121698440294867/1461501637330902918203684832716283019655932542976",
+                "defect_upper": "76792558339519224849121698440294881/1461501637330902918203684832716283019655932542976",
+                "file": "K15n52944_equilateral_10sticks.txt",
+                "mpmath_version": "1.4.1",
+                "mu_lower": "827131067429353049987866203757309698102870937343/93536104789177786765035829293842113257979682750464",
+                "mu_upper": "827131067429353049987866203757309698102870937353/93536104789177786765035829293842113257979682750464",
+                "pair_count": 35,
+                "precision_bits": 160,
+                "sha256": "ce89c1a823752940f5bc5139c5a9eb66b0287af07e1deba6942113f2d3a2458a",
+                "status": "certified",
+                "sticks": 10,
+                "threshold_lower": "468111554056317148425187126588264871822279959897/23945242826029513411849172299223580994042798784118784",
+                "threshold_upper": "468111554056317148425187126588264871822279959909/23945242826029513411849172299223580994042798784118784"
+              },
+              "mr_ratio": 2.674859787542747e-09,
+              "sha256": "ce89c1a823752940f5bc5139c5a9eb66b0287af07e1deba6942113f2d3a2458a"
+            },
+            "crossing": {
+              "barycentric_margin": 0.07512955490329047,
+              "edge": 9,
+              "edge_fraction": 0.48677713723352084,
+              "endpoint_clearance": 0.009351010099338685,
+              "time": 0.9,
+              "triangle": 0,
+              "vertex": 7
+            },
+            "elapsed_seconds": 0.9090166129899444,
+            "file": "K15n52944_equilateral_10sticks.txt",
+            "move_index": 1998,
+            "route": "crossing_change",
+            "source_id": "ours:K13n1192",
+            "source_identification": {
+              "aliases": [
+                "K13n1192"
+              ],
+              "errors": [],
+              "name": "K13n1192",
+              "projection_seeds": [
+                4015202499,
+                4015202500
+              ],
+              "status": "identified"
+            },
+            "source_knot": "K13n1192",
+            "source_label": "K13n1192",
+            "status": "certified"
+          },
+          "source_id": "ours:K13n1192",
+          "source_label": "K13n1192",
+          "status": "certified"
+        }
+      ],
+      "certified": {
+        "attempts": [
+          {
+            "completed": true,
+            "fattened": false,
+            "floor": 0.9,
+            "homotopy_fraction": 1.0
+          }
+        ],
+        "checks": {
+          "high_precision": true,
+          "identity": {
+            "aliases": [
+              "o10_142533",
+              "K10_1664",
+              "K15n52944"
+            ],
+            "errors": [],
+            "name": "K15n52944",
+            "projection_seeds": [
+              3117146313,
+              3117146314,
+              3117146315
+            ],
+            "status": "identified"
+          },
+          "interval": {
+            "backend": "mpmath.iv",
+            "defect_lower": "76792558339519224849121698440294867/1461501637330902918203684832716283019655932542976",
+            "defect_upper": "76792558339519224849121698440294881/1461501637330902918203684832716283019655932542976",
+            "file": "K15n52944_equilateral_10sticks.txt",
+            "mpmath_version": "1.4.1",
+            "mu_lower": "827131067429353049987866203757309698102870937343/93536104789177786765035829293842113257979682750464",
+            "mu_upper": "827131067429353049987866203757309698102870937353/93536104789177786765035829293842113257979682750464",
+            "pair_count": 35,
+            "precision_bits": 160,
+            "sha256": "ce89c1a823752940f5bc5139c5a9eb66b0287af07e1deba6942113f2d3a2458a",
+            "status": "certified",
+            "sticks": 10,
+            "threshold_lower": "468111554056317148425187126588264871822279959897/23945242826029513411849172299223580994042798784118784",
+            "threshold_upper": "468111554056317148425187126588264871822279959909/23945242826029513411849172299223580994042798784118784"
+          },
+          "mr_ratio": 2.674859787542747e-09,
+          "sha256": "ce89c1a823752940f5bc5139c5a9eb66b0287af07e1deba6942113f2d3a2458a"
+        },
+        "crossing": {
+          "barycentric_margin": 0.07512955490329047,
+          "edge": 9,
+          "edge_fraction": 0.48677713723352084,
+          "endpoint_clearance": 0.009351010099338685,
+          "time": 0.9,
+          "triangle": 0,
+          "vertex": 7
+        },
+        "elapsed_seconds": 0.9090166129899444,
+        "file": "K15n52944_equilateral_10sticks.txt",
+        "move_index": 1998,
+        "route": "crossing_change",
+        "source_id": "ours:K13n1192",
+        "source_identification": {
+          "aliases": [
+            "K13n1192"
+          ],
+          "errors": [],
+          "name": "K13n1192",
+          "projection_seeds": [
+            4015202499,
+            4015202500
+          ],
+          "status": "identified"
+        },
+        "source_knot": "K13n1192",
+        "source_label": "K13n1192",
+        "status": "certified"
+      },
+      "exact_rank_four_passed": true,
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n592",
+        "crss:K13n607",
+        "ours:K13n1192",
+        "ours:K13n607"
+      ],
+      "status": "certified"
+    },
+    "K15n56079": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n56089": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n59007": {
+      "attempts": [],
+      "exact_rank_four_passed": true,
+      "existing_certified": "5273259206306dd68b9331953b72d5a8713a8a57c9ea261a403ed47afe286ad7",
+      "outside_pool": true,
+      "sources_reached": [
+        "crss:K13n288",
+        "eddy:K13n1945",
+        "ours:K13n288"
+      ],
+      "status": "certified_existing"
+    },
+    "K15n59060": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n67540": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n84457": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    },
+    "K15n94888": {
+      "attempts": [],
+      "exact_rank_four_passed": false,
+      "outside_pool": false,
+      "sources_reached": [],
+      "status": "not_reached"
+    }
+  }
+}

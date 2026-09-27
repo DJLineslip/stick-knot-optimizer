@@ -1,0 +1,15 @@
+/workspace/repos/stick-knot-optimizer/.venv/lib/python3.11/site-packages/plink/gui.py:33: UserWarning: Plink failed to import tkinter, GUI will not be available
+  warnings.warn('Plink failed to import tkinter, GUI will not be available')
+K15n43517 from ours:K13n608: certified
+K15n51709 from crss:K13n3969: certified
+K13n501 from ours:K15n41235: certified
+K13n585 from crss:K11n22: certified
+K13n592 from ours:K11n78: certified
+K13n593 from ours:K11n75: certified
+K15n40180 from crss:K13n586: certified
+K15n41127 from ours:K13n307: certified
+K15n46935 from ours:K13n225: certified
+K15n48957 from ours:K13n225: certified
+K15n49035 from ours:K13n288: certified
+K15n52944 from ours:K13n1192: certified
+equalization: scan=870/882 incomplete_sources=12 timeouts=26 certified=12

@@ -1,0 +1,141 @@
+{
+  "caveat": "Gauss-to-table complement isometry and polygon-to-table identification are numerical, not a formal topological proof. Exact map relations and saved decimal geometry are separately recorded.",
+  "checks": {
+    "K13n501": {
+      "exact_coxeter_map_passed": true,
+      "file": "K13n501_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 13,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 13,
+      "wirt_gauss_table_isometry": true
+    },
+    "K13n585": {
+      "exact_coxeter_map_passed": true,
+      "file": "K13n585_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 13,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 13,
+      "wirt_gauss_table_isometry": true
+    },
+    "K13n592": {
+      "exact_coxeter_map_passed": true,
+      "file": "K13n592_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 13,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 13,
+      "wirt_gauss_table_isometry": true
+    },
+    "K13n593": {
+      "exact_coxeter_map_passed": true,
+      "file": "K13n593_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 13,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 13,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n40180": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n40180_equilateral_10sticks.txt",
+      "group": "D4",
+      "group_order": 192,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n41127": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n41127_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n43517": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n43517_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n46935": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n46935_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n48957": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n48957_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n49035": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n49035_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n51709": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n51709_equilateral_10sticks.txt",
+      "group": "D4",
+      "group_order": 192,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    },
+    "K15n52944": {
+      "exact_coxeter_map_passed": true,
+      "file": "K15n52944_equilateral_10sticks.txt",
+      "group": "S5",
+      "group_order": 120,
+      "relations_checked": 15,
+      "saved_hash_matches_report": true,
+      "status": "conditional_exact_ten",
+      "strands_labeled": 15,
+      "wirt_gauss_table_isometry": true
+    }
+  },
+  "created_utc": "2026-09-27T20:46:44.527309+00:00",
+  "gauss_checker_sha256": "a5e16abeaf1e24e0ebeac601ea11db494beba3cb35b2f33eb922d96dacbd0cbe",
+  "scope": "new crossing-change polygons only; no prior saved polygons rechecked",
+  "workbook_sha256": "514b12e118fa681520da5702a5ed4307ce7cf93b6b9f7b5e53f265ca7b01647b"
+}
